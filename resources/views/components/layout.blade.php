@@ -19,6 +19,7 @@
 
     <title>{{ $title }}</title>
 </head>
+{{--<body data-bs-theme="dark">--}}
 <body>
     <script>0</script>
 
@@ -27,7 +28,7 @@
 
     <main class="container-md" style="margin-top: 4rem">
         <div class="row justify-content-center">
-            <div class="col col-md-9 offset-md-3 col-lg-9 col-xl-10">
+            <div class="col col-md-9 offset-md-3 offset-lg-2 col-lg-9 col-xl-10">
                 {{ $slot }}
             </div>
         </div>
