@@ -55,9 +55,13 @@
             {{-- TODO: switching of department name language --}}
             <h3 class="fst-italic font-serif">{{ __('page.latest_by', ['name' => 'University Presidency']) }}</h3>
             <hr>
-            <div id="posts-container">
+            <div id="posts-container" class="mb-3">
+                @for($i = 1; $i <= 2; $i++)
+                    <x-posts.page />
+                @endfor
+            </div> {{-- /posts container --}}
 
-            </div>
+            <a href="#" class="btn btn-aabu rounded-pill px-4 mb-3">{{ __('page.show_more') }}</a>
         </div>
 
         {{-- secondary coloumn --}}
@@ -108,4 +112,21 @@
             </div>
         </div>
     </div>
+
+    <hr>
+
+    {{-- footer --}}
+    <footer class="mb-3">
+        <div class="row text-body-secondary">
+            <div class="col-md d-flex flex-column">
+                <h5><a href="{{ getLocaleURL('/') }}">AABU Talk.</a></h5>
+                <h6>{{ __('footer.slogan') }}</h6>
+                <p class="mt-auto mb-0">&copy; 2024, {{ __('footer.rights_reserved') }}</p>
+            </div>
+            <div class="col-md d-flex flex-column">
+                <p>&copy; {{ __('footer.logo_copy') }}</p>
+                <a href="#" class="mt-auto">{{ __('footer.to_top') }}</a>
+            </div>
+        </div>
+    </footer>
 </x-layout>

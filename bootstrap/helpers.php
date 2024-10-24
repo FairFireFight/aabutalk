@@ -9,7 +9,7 @@ function getLocaleURL($url) {
     return $localeURL . $url;
 }
 
-function getLocaleSwitchURL() {
+function getLocaleSwitchURL() : string {
     $locale = App::currentLocale();
 
     $urlSansLocale = Str::substr(request()->path(), 3);

@@ -8,6 +8,8 @@
     width: 220px;
 
     transition: right 0.125s ease;
+
+    z-index: 10;
 }
 
 @media (max-width: 767px) {

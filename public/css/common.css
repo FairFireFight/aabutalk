@@ -8,6 +8,12 @@
     font-family: "Times New Roman", serif;
 }
 
+.fs-0 {
+    font-size: 3rem !important;
+}
+
+/* background colors ===================================*/
+
 .bg-aabu {
     background: var(--aabu-green);
     color: white;
@@ -18,6 +24,32 @@
     backdrop-filter: blur(5px);
     color: white;
 }
+
+/* custom Buttons ======================================*/
+
+.btn-aabu {
+    background-color: var(--aabu-green);
+    color: white;
+}
+
+.btn-aabu:hover {
+    background-color: #007c88;
+    color: white;
+}
+
+.btn-outline-aabu {
+    border: 1px solid var(--aabu-green);
+    color: var(--aabu-green);
+}
+
+.btn-outline-aabu:hover {
+    border: 1px solid var(--aabu-green);
+    background-color: var(--aabu-green);
+
+    color: white;
+}
+
+/* nav links ===========================================*/
 
 .nav-link {
     border-radius: 0 !important;

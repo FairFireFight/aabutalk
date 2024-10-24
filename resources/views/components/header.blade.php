@@ -11,7 +11,7 @@
     </div>
 
     <div class="d-flex gap-2">
-        <a href="{{ getLocaleURL('/login') }}" class="btn btn-light">{{ __('common.login') }}</a>
-        <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light">{{ __('common.register') }}</a>
+        <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-pill px-3">{{ __('common.login') }}</a>
+        <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-pill px-3">{{ __('common.register') }}</a>
     </div>
 </div>
