@@ -4,6 +4,10 @@
     --aabu-green: #0193a0;
 }
 
+.font-serif {
+    font-family: "Times New Roman", serif;
+}
+
 .bg-aabu {
     background: var(--aabu-green);
     color: white;

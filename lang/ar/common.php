@@ -7,11 +7,13 @@ return [
     'login' => 'تسجيل الدخول',
     'register' => 'مستخدم جديد',
     'logout' => 'تسجيل الخروج',
+    'settings' => 'الاعدادات',
+    'read_more' => 'قراءة المزيد',
 
     // sidebar localizations
     'home' => 'الصفحة الرأيسية',
-    'all' => 'الكل',
+    'all' => 'تكلم',
     'my_feed' => 'خلاصتي الخاصة',
     'header_colleges' => "الكليات و المعاهد",
-    'language' => 'Switch to English'
+    'language' => 'English'
 ];

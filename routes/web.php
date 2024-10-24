@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,12 @@ Route::get('/', function () {
 
 // group routes to always start with /{locale}/
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
-    Route::get('/', function ($locale) {
-        return view('home', [
-                'title' => 'Home',
-                'lang' => $locale
-            ]
-        );
-    })->name('home');
+    Route::get('/', [PageController::class, "index"])->name('home');
+
+    Route::get('/feed', function ($locale) {
+        return view('feed', [
+            'title'=> 'My Feed',
+            'lang' => $locale
+        ]);
+    })->name('feed');
 });

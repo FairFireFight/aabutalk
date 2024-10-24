@@ -5,14 +5,14 @@
     right: 0;
 
     height: calc(100vh - 4rem);
-    width: 260px;
+    width: 220px;
 
     transition: right 0.125s ease;
 }
 
 @media (max-width: 767px) {
     .sidebar {
-        right: -270px;
+        right: -220px;
     }
 
     .sidebar.open {
