@@ -1,0 +1,23 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+    --aabu-green: #0193a0;
+}
+
+.bg-aabu {
+    background: var(--aabu-green);
+    color: white;
+}
+
+.nav-link {
+    border-radius: 0 !important;
+}
+
+.nav-link.active {
+    background-color: var(--aabu-green) !important;
+}
+
+.nav-link:hover {
+    background-color: var(--aabu-green) !important;
+    color: white !important;
+}

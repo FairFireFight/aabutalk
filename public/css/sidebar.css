@@ -1,0 +1,21 @@
+.sidebar {
+    position: fixed;
+
+    top: 4rem;
+    left: 0;
+
+    height: calc(100vh - 4rem);
+    width: 260px;
+
+    transition: left 0.125s ease;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        left: -270px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+}
