@@ -1,16 +1,14 @@
 <?php
 
 return [
-    'test' => 'Hello!',
-
     // common words
     'login' => 'Log In',
     'register' => 'Register',
     'logout' => 'Log Out',
     'settings' => 'Settings',
     'read_more' => 'Read More',
+    'forums' => 'Forums',
 
-    // sidebar localizations
     'home' => 'Home',
     'all' => 'Talk',
     'my_feed' => 'My Feed',

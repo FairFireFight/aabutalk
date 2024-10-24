@@ -19,8 +19,8 @@
 
     <title>{{ $title }}</title>
 </head>
-{{--<body data-bs-theme="dark">--}}
-<body>
+<body data-bs-theme="dark">
+{{--<body>--}}
     <script>0</script>
 
     <x-header></x-header>
