@@ -1,6 +1,6 @@
 {{-- TODO: add params--}}
 
-<div class="post mb-3 pb-3 border-bottom">
+<div class="post py-3 border-top" >
     {{-- post header --}}
     <div class="d-flex justify-content-between">
         <h1 class="mb-0 fs-0 font-serif fw-semibold">Post Title</h1>

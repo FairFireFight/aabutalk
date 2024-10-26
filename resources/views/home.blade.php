@@ -54,14 +54,14 @@
         <div class="col-lg-8">
             {{-- TODO: switching of department name language --}}
             <h3 class="fst-italic font-serif">{{ __('page.latest_by', ['name' => 'University Presidency']) }}</h3>
-            <hr>
+
             <div id="posts-container" class="mb-3">
                 @for($i = 1; $i <= 2; $i++)
                     <x-posts.page />
                 @endfor
             </div> {{-- /posts container --}}
 
-            <a href="#" class="btn btn-aabu rounded-pill px-4 mb-3">{{ __('page.show_more') }}</a>
+            <a href="#" class="btn btn-aabu rounded-pill px-4 mb-5">{{ __('page.show_more') }}</a>
         </div>
 
         {{-- secondary coloumn --}}
@@ -112,8 +112,6 @@
             </div>
         </div>
     </div>
-
-    <hr>
 
     {{-- footer --}}
     <footer class="mb-3">

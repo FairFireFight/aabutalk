@@ -1,23 +1,37 @@
 .sidebar {
     position: fixed;
-
     top: 4rem;
-    left: 0;
 
     height: calc(100vh - 4rem);
     width: 220px;
 
-    transition: left 0.125s ease;
-
     z-index: 10;
 }
 
+html[dir="rtl"] .sidebar {
+    right: 0;
+    transition: right 0.125s ease;
+}
+
+html[dir="ltr"] .sidebar {
+    left: 0;
+    transition: left 0.125s ease;
+}
+
 @media (max-width: 767px) {
-    .sidebar {
+    html[dir="rtl"] .sidebar {
+        right: -220px;
+    }
+
+    html[dir="rtl"] .sidebar.open {
+        right: 0;
+    }
+
+    html[dir="ltr"] .sidebar {
         left: -220px;
     }
 
-    .sidebar.open {
+    html[dir="ltr"] .sidebar.open {
         left: 0;
     }
 }
