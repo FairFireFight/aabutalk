@@ -20,9 +20,10 @@
 
         <hr class="mt-auto">
 
-        <a href="#" class="nav-link link-body-emphasis">
+        {{-- temporary for testing --}}
+        <button class="nav-link link-body-emphasis text-start" onclick="toggleTheme()">
             <i class="bi bi-gear me-2"></i> {{ __('common.settings') }}
-        </a>
+        </button>
 
         <a href="{{ getLocaleSwitchURL() }}" class="nav-link link-body-emphasis">
             <i class="bi bi-globe me-2"></i> {{ __('common.language') }}

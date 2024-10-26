@@ -13,6 +13,13 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     @endif
 
+    {{-- Early inline script to reduce flash of light theme --}}
+    {{-- TODO: serverside cookie theme preference  --}}
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('bs-data-theme', savedTheme);
+    </script>
+
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
@@ -20,8 +27,7 @@
 
     <title>{{ $title }}</title>
 </head>
-{{--<body data-bs-theme="dark">--}}
-<body>
+<body data-bs-theme="dark">
     <script>0</script>
 
     <x-header></x-header>
@@ -36,8 +42,8 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('js/sidebar.js')}}"></script>
-
+    <script src="{{ asset('js/sidebar.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
 </body>
 </html>
