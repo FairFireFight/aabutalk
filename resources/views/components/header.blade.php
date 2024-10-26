@@ -1,6 +1,6 @@
 <div class="bg-aabu-blur fixed-top z-2 px-1 px-md-3 d-flex align-items-center justify-content-between" style="height: 4rem;">
     <div class="d-flex gap-2">
-        <button class="d-inline d-md-none btn fs-2 text-white px-2 py-0" id="sidebar-toggle">
+        <button class="d-inline d-lg-none btn fs-2 text-white px-2 py-0" id="sidebar-toggle">
             <i class="bi bi-list"></i>
         </button>
 
