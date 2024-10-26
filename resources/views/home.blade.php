@@ -1,7 +1,7 @@
 
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
     {{-- Leading card--}}
-    <div class="mt-3 px-2 px-md-3 px-lg-5 py-4 rounded bg-body-secondary border">
+    <div class="mt-3 px-2 px-md-3 px-lg-5 py-4 bg-body-secondary border">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column">
                 <h1 class="font-serif fst-italic fw-semibold">Title of a longer featured blog post</h1>
@@ -9,7 +9,7 @@
                 <a href="#" class="mb-3 mb-lg-0 fs-4 mt-auto icon-link icon-link-hover">{{ __('common.read_more') }}<i class="bi bi-arrow-right mb-2"></i></a>
             </div>
             <div class="d-flex col-lg-6 align-items-center justify-content-center">
-                <img src="https://placehold.co/600x400/white/black" alt="image" class="img-fluid rounded shadow-sm" style="width: 100%; max-height: 400px; object-fit: cover">
+                <img src="https://placehold.co/600x400/white/black" alt="image" class="img-fluid shadow-sm" style="width: 100%; max-height: 400px; object-fit: cover">
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
     {{-- Secondary cards --}}
     <div class="row gx-3 mt-3">
         <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm">
+            <div class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm">
                 <div class="col p-4 d-flex flex-column">
                     <h3 class="mb-0 font-serif">Featured post</h3>
                     <div class="mb-1 text-body-secondary">Nov 12</div>
@@ -27,13 +27,13 @@
                     </a>
                 </div>
                 <div class="col-5 d-none d-xl-block">
-                    <img src="https://placehold.co/400x400/444/FFF?text=Thumbnail" alt="image" style="width: 100%; height: 250px; object-fit: cover">
+                    <img src="https://placehold.co/400x400/444/FFF?text=Thumbnail" style="width: 100%; height: 250px; object-fit: cover">
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm">
+            <div class="row g-0 border overflow-hidden flex-md-row mb-4 shadow-sm">
                 <div class="col p-4 d-flex flex-column">
                     <h3 class="mb-0 font-serif">Featured post</h3>
                     <div class="mb-1 text-body-secondary">Nov 12</div>
@@ -69,7 +69,7 @@
         <div class="col-lg-4">
             <div class="mt-3 mt-lg-0 position-sticky" style="top: 5rem">
                 {{-- side column content goes here --}}
-                <div class="bg-body-tertiary rounded py-4 px-3">
+                <div class="bg-body-tertiary shadow-sm py-4 px-3">
                     <h4 class="font-serif fst-italic">University Presidency</h4>
                     <p class="m-0">Customizable section to describe what the college / faculty is about, goals, etc...</p>
                 </div>

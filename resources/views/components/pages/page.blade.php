@@ -31,6 +31,6 @@
             <li>List Item</li>
             <li>List Item</li>
         </ul>
-        <img src="https://placehold.co/1376x768" alt="Image Exmaple" class="img-fluid w-100 shadow-sm rounded">
+        <img src="https://placehold.co/1376x768" alt="Image Exmaple" class="img-fluid w-100 shadow-sm">
     </div>
 </div>

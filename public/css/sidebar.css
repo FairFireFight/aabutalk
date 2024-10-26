@@ -18,7 +18,7 @@ html[dir="ltr"] .sidebar {
     transition: left 0.125s ease;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     html[dir="rtl"] .sidebar {
         right: -220px;
     }

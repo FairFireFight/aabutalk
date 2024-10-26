@@ -29,7 +29,7 @@
 
     <main class="container-md" style="margin-top: 4rem">
         <div class="row justify-content-center">
-            <div class="col col-md-9 offset-md-3 offset-lg-2 col-lg-9 col-xl-10">
+            <div class="col offset-lg-3 col-lg-9 offset-xl-2 col-xl-10 offset-xxl-1 col-xxl">
                 {{ $slot }}
             </div>
         </div>
