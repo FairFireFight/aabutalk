@@ -7,13 +7,16 @@ return [
     'logout' => 'تسجيل الخروج',
     'settings' => 'الاعدادات',
     'read_more' => 'قراءة المزيد',
-    'forums' => 'المنتديات',
 
+    'forums' => 'المنتديات',
+    'posts' => 'المنشورات',
+    'posts_plural_ar' => 'منشورة',
     'home' => 'الصفحة الرأيسية',
     'all' => 'تكلم',
+
     'my_feed' => 'خلاصتي الخاصة',
     'header_colleges' => "الكليات و المعاهد",
     'language' => 'English',
-
+    'by' => 'من',
 
 ];

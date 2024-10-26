@@ -1,3 +1,16 @@
-html[dir="ltr"] .forum-category {
+html[dir="ltr"] .forum-list-card {
+    border-left: 4px solid var(--aabu-green);
+}
 
+html[dir="rtl"] .forum-list-card {
+    border-right: 4px solid var(--aabu-green);
+}
+
+.forum-list-card {
+    transition: all 0.15s ease;
+}
+
+.forum-list-card:hover {
+    filter: brightness(95%);
+    cursor: pointer;
 }
