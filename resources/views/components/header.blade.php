@@ -6,7 +6,7 @@
 
         <a href="{{ getLocaleURL('/') }}" class="d-flex align-items-center text-reset text-decoration-none">
             <img class="me-2" src="{{ asset('images/header logo.png') }}" alt="logo" style="height: 50px">
-            <span class="fs-1 fw-light">AABU Talk</span>
+            <span class="fs-1 fw-light">Talk</span>
         </a>
     </div>
 
