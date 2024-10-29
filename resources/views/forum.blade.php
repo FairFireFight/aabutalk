@@ -1,12 +1,12 @@
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
     <x-forums.layout header="{{ $header }}">
-        <div class="d-flex mb-2 justify-content-between text-body-secondary">
-            <h5>{{ __('common.header_colleges') }}</h5>
-            <h5>{{ __('common.posts') }}</h5>
+        <div class="d-flex mb-2 justify-content-between">
+            <span class="fs-4">7 {{ __('common.posts_plural_ar') }} <span class="fs-6 text-secondary">{{ __('forums.last_days', ['days' => 7]) }}</span></span>
+            <a href="/forums/1/create" class="btn btn-aabu rounded-pill px-4">Create Post</a>
         </div>
         <div id="forums-container">
-            {{-- all forum categories go here --}}
-            @for($i = 0; $i <= 10; $i++)
+            {{-- all forum posts go here --}}
+            @for($i = 0; $i <= 7; $i++)
                 <x-forums.post-card />
             @endfor
         </div>

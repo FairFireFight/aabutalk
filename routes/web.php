@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     Route::get('/forums', [ForumController::class, 'index'])->name('forums');
     Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forum');
+
+    Route::get('/forums/{forum}/{post}', [ForumPostController::class, 'show'])->name('post');
+
+    Route::post('forums/{forum}/{post}', [CommentController::class, 'store'])->name('comment');
 
     Route::get('/feed', function ($locale) {
         return view('feed', [

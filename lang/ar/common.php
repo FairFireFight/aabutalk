@@ -10,7 +10,7 @@ return [
 
     'forums' => 'المنتديات',
     'posts' => 'المنشورات',
-    'posts_plural_ar' => 'منشورة',
+    'posts_plural_ar' => 'منشورات',
     'home' => 'الصفحة الرأيسية',
     'all' => 'تكلم',
 
@@ -19,4 +19,7 @@ return [
     'language' => 'English',
     'by' => 'من',
     'comments' => 'تعليقات',
+
+    'post_verb' => 'نشر',
+    'placeholder_thoughts' => 'شارك رأيك',
 ];

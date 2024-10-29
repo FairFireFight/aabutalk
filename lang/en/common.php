@@ -19,4 +19,7 @@ return [
     'language' => 'العربية',
     'by' => 'By',
     'comments' => 'Comments',
+
+    'post_verb' => 'Post',
+    'placeholder_thoughts' => 'Share your thoughts',
 ];
