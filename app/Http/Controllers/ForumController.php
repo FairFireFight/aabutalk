@@ -8,9 +8,17 @@ class ForumController extends Controller
 {
     function index($locale) {
         return view('forums', [
-                'title' => 'Forum',
+                'title' => 'Forums',
                 'lang' => $locale
             ]
         );
+    }
+
+    function show($locale, $forum) {
+        return view('forum', [
+            'title' => 'Forum show',
+            'header' => $forum,
+            'lang' => $locale
+        ]);
     }
 }

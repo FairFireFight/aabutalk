@@ -19,6 +19,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/', [PageController::class, 'index'])->name('home');
 
     Route::get('/forums', [ForumController::class, 'index'])->name('forums');
+    Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forum');
 
     Route::get('/feed', function ($locale) {
         return view('feed', [

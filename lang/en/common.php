@@ -18,4 +18,5 @@ return [
     'header_colleges' => 'Colleges & Faculties',
     'language' => 'العربية',
     'by' => 'By',
+    'comments' => 'Comments',
 ];

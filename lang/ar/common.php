@@ -18,5 +18,5 @@ return [
     'header_colleges' => "الكليات و المعاهد",
     'language' => 'English',
     'by' => 'من',
-
+    'comments' => 'تعليقات',
 ];
