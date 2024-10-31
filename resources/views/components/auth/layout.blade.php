@@ -1,6 +1,6 @@
 @props(['title' => 'AABU Talk', 'lang'])
 
-<!doctype html>
+    <!doctype html>
 <html lang="{{ $lang }}" dir="{{ $lang == 'en' ? 'ltr' : 'rtl' }}">
 <head>
     <meta charset="UTF-8">
@@ -20,23 +20,16 @@
 
     <title>{{ $title }}</title>
 </head>
-<body data-bs-theme="dark">
-    <script>0</script>
+<body>
+<script>0</script>
 
-    <x-header></x-header>
-    <x-side-bar></x-side-bar>
+<main>
+    <div class="d-block d-md-flex justify-content-center align-items-center vh-100">
+        {{ $slot }}
+    </div>
+</main>
 
-    <main class="container-md" style="margin-top: 4rem">
-        <div class="row justify-content-center">
-            <div class="col offset-lg-3 col-lg-9 offset-xl-2 col-xl-10 offset-xxl-1 col-xxl">
-                {{ $slot }}
-            </div>
-        </div>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('js/sidebar.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    @stack('scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+@stack('scripts')
 </body>
 </html>

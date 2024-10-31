@@ -10,7 +10,7 @@
             {{-- comment content --}}
             <div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores deleniti dolorem eligendi exercitationem in, nemo, nesciunt nihil obcaecati optio sint veniam, vero voluptatibus voluptatum.</p>
-                <p>Accusamus asperiores deleniti dolorem eligendi exercitationem in, nemo, nesciunt nihil obcaecati optio sint veniam/</p>
+                <p>Accusamus asperiores deleniti dolorem eligendi exercitationem in, nemo, nesciunt nihil obcaecati optio sint veniam.</p>
             </div>
             <div class="text-end text-secondary">
                 <span>4:27pm - 10/29/2024</span>
