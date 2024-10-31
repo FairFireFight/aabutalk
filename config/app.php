@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'AABU Talk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,8 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
-    'asset_url' => env('ASSET_URL', 'https://1pzd4n2lz8.sharedwithexpose.com'),
+    // disable when using localhost
+    //'asset_url' => env('ASSET_URL', 'SHARED URL'),
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

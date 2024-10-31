@@ -14,6 +14,14 @@ class SessionController extends Controller
         );
     }
 
+    function createNoneStudent($locale) {
+        return view('auth.none-student', [
+                'title' => 'Login',
+                'locale' => $locale
+            ]
+        );
+    }
+
     function store(Request $request) {
         dd($request->all());
     }

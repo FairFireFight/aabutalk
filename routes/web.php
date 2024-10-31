@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
+Route::post('/login', [RegisteredUserController::class, 'store'])->name('register');
 
 // group routes to always start with /{locale}/
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
@@ -34,6 +35,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     // login and registration routes
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
     Route::get('/login', [SessionController::class, 'create'])->name('login');
+    Route::get('/login/none-students', [SessionController::class, 'createNoneStudent'])->name('login');
 
     Route::get('/feed', function ($locale) {
         return view('feed', [

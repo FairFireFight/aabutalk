@@ -44,5 +44,8 @@ return [
     'create_account' => 'Create an Account',
 
     'new_user' => "New User?",
-    'registration_request' => 'Not a student? Submit a registration request.'
+    'registration_request' => 'Not a student? Submit a registration request.',
+
+    'login_none_student' => 'None-Student Login',
+    'email_address' => 'Email Address',
 ];

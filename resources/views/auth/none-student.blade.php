@@ -9,7 +9,7 @@
                         </div>
 
                         <div class="my-2 text-center">
-                            <img src="{{ asset('images/svgs/new_user.svg') }}" class="w-75">
+                            <img src="{{ asset('images/svgs/none-students.svg') }}" class="w-50">
                         </div>
 
                         <div class="d-flex w-75 justify-content-between align-items-end mx-auto">
@@ -24,11 +24,11 @@
                             <div class="d-flex flex-column justify-content-between h-100">
                                 @csrf
                                 <div>
-                                    <h2 class="font-serif">{{ __('common.login') }}</h2>
+                                    <h2 class="font-serif">{{ __('auth.login_none_student') }}</h2>
                                     {{-- student ID input --}}
-                                    <label>{{ __('auth.student_id') }}</label>
-                                    <input id="student-id" type="text" class="form-control rounded-0 mb-3" name="student_id"
-                                           placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required/>
+                                    <label>{{ __('auth.email_address') }}</label>
+                                    <input id="student-id" type="email" class="form-control rounded-0 mb-3" name="email"
+                                           placeholder="email@example.com" required/>
 
                                     {{-- password & password confirmation inputs --}}
                                     <label>{{ __('auth.password_field') }}</label>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <p><a href="{{ getLocaleURL('/login/none-students') }}">{{ __('auth.login_none_student') }}</a></p>
+            <p><a href="{{ getLocaleURL('/login') }}">{{ __('common.login') }}</a></p>
         </div>
     </div>
 </x-auth.layout>

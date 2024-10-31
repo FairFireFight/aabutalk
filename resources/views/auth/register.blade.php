@@ -34,8 +34,8 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-0">{{ __('auth.login_instead') }}</a>
-                            <a href="{{ getLocaleURL('/') }}" class="btn btn-outline-light rounded-0">{{ __('auth.continue_guest') }}</a>
+                            <a href="{{ getLocaleURL('/login') }}" class="btn btn-light px-3 rounded-pill">{{ __('auth.login_instead') }}</a>
+                            <a href="{{ getLocaleURL('/') }}" class="btn btn-outline-light px-3 rounded-pill">{{ __('auth.continue_guest') }}</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
 
                                 {{-- submit button --}}
                                 <div class="d-flex justify-content-between align-items-end">
-                                    <button type="submit" class="btn btn-aabu rounded-0 px-5">{{ __('auth.register') }}</button>
+                                    <button type="submit" class="btn btn-aabu rounded-pill px-5">{{ __('auth.register') }}</button>
                                     <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                 </div>
                             </div>

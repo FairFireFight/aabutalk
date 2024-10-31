@@ -28,5 +28,8 @@ return [
     'create_account' => 'إنشاء حساب',
 
     'new_user' => "مستخدم جديد؟",
-    'registration_request' => 'لست طالباً؟ أرسل طلب تسجيل.'
+    'registration_request' => 'لست طالباً؟ أرسل طلب تسجيل.',
+
+    'login_none_student' => 'تسجيل الدخول لغير الطلبة',
+    'email_address' => 'عنوان البريد الالكتروني',
 ];
