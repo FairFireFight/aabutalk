@@ -21,6 +21,12 @@ return [
 
     'register' => 'تسجيل',
 
+    'remember_me' => 'أبقيني مسجلا',
+
     'continue_guest' => 'متابعة كضيف',
     'login_instead' => 'تسجيل الدخول بدلاً',
+    'create_account' => 'إنشاء حساب',
+
+    'new_user' => "مستخدم جديد؟",
+    'registration_request' => 'لست طالباً؟ أرسل طلب تسجيل.'
 ];

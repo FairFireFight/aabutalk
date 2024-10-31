@@ -37,6 +37,12 @@ return [
 
     'register' => 'Register',
 
+    'remember_me' => 'Keep me Signed in',
+
     'continue_guest' => 'Continue as Guest',
     'login_instead' => 'Login Instead',
+    'create_account' => 'Create an Account',
+
+    'new_user' => "New User?",
+    'registration_request' => 'Not a student? Submit a registration request.'
 ];

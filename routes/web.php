@@ -5,6 +5,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // login and registration routes
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
 
     Route::get('/feed', function ($locale) {
         return view('feed', [

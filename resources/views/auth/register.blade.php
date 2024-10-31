@@ -2,7 +2,7 @@
     <div class="row w-100 justify-content-center mx-auto">
         <div class="col-lg-8 col-xl-7">
             <div class="row w-100 justify-content-center g-0 shadow-sm my-2">
-                <div class="col-md-6 bg-aabu">
+                <div class="col-md-6 bg-aabu order-1">
                     <div class="p-3 d-flex flex-column h-100 justify-content-between">
                         <div class="text-center">
                             <h1>AABU Talk</h1>
@@ -44,42 +44,47 @@
                         <form class="h-100" action="/register" method="POST">
                             <div class="d-flex flex-column justify-content-between h-100">
                                 @csrf
-                                {{-- student ID input --}}
-                                <label>{{ __('auth.student_id') }}</label>
-                                <input id="student-id" type="text" class="form-control rounded-0" name="student_id"
-                                       placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required/>
-                                <p class="text-secondary">
-                                    {{ __('auth.student_id_desc') }}
-                                </p>
+                                <div>
+                                    <h2 class="font-serif">{{ __('auth.create_account') }}</h2>
+                                    {{-- student ID input --}}
+                                    <label>{{ __('auth.student_id') }}</label>
+                                    <input id="student-id" type="text" class="form-control rounded-0" name="student_id"
+                                           placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required/>
+                                    <p class="text-secondary">
+                                        {{ __('auth.student_id_desc') }}
+                                    </p>
 
-                                {{-- password & password confirmation inputs --}}
-                                <label>{{ __('auth.password_field') }}</label>
-                                <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
-                                       minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
+                                    {{-- password & password confirmation inputs --}}
+                                    <label>{{ __('auth.password_field') }}</label>
+                                    <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
+                                           minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
 
-                                <label>{{ __('auth.password_confirmation') }}</label>
-                                <input id="password_confirmation" type="password" class="form-control rounded-0"
-                                       name="password_confirmation" minlength="6" placeholder="{{ __('auth.password_confirmation') }}" required/>
-                                <p class="text-secondary">
-                                    {{ __('auth.password_desc') }}
-                                </p>
+                                    <label>{{ __('auth.password_confirmation') }}</label>
+                                    <input id="password_confirmation" type="password" class="form-control rounded-0"
+                                           name="password_confirmation" minlength="6" placeholder="{{ __('auth.password_confirmation') }}" required/>
+                                    <p class="text-secondary">
+                                        {{ __('auth.password_desc') }}
+                                    </p>
 
-                                {{-- username input --}}
-                                <label>{{ __('auth.username') }}</label>
-                                <input id="username" type="text" class="form-control rounded-0" name="username"
-                                       placeholder="{{ __('auth.username') }}" required/>
-                                <p class="text-secondary">{{ __('auth.username_desc') }}</p>
+                                    {{-- username input --}}
+                                    <label>{{ __('auth.username') }}</label>
+                                    <input id="username" type="text" class="form-control rounded-0 mb-2" name="username"
+                                           placeholder="{{ __('auth.username') }}" required/>
+                                    <p class="text-secondary">{{ __('auth.username_desc') }}</p>
+                                </div>
 
                                 {{-- submit button --}}
                                 <div class="d-flex justify-content-between align-items-end">
-                                    <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                     <button type="submit" class="btn btn-aabu rounded-0 px-5">{{ __('auth.register') }}</button>
+                                    <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <p><a href="#">{{ __('auth.registration_request') }}</a></p>
         </div>
     </div>
 </x-auth.layout>

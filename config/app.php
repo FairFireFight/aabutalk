@@ -87,6 +87,7 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+    'asset_url' => env('ASSET_URL', 'https://1pzd4n2lz8.sharedwithexpose.com'),
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

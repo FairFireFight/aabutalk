@@ -20,8 +20,13 @@
 
     <title>{{ $title }}</title>
 </head>
-<body data-bs-theme="dark">
-    <script>0</script>
+<body>
+    <script>
+        // autoload site theme from system
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-bs-theme', 'dark');
+        }
+    </script>
 
     <x-header></x-header>
     <x-side-bar></x-side-bar>
