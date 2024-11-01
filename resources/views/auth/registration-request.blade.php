@@ -3,22 +3,20 @@
         <div class="col-lg-8 col-xl-7">
             <div class="row w-100 justify-content-center g-0 shadow-sm my-2">
                 <div class="col-md-6 bg-aabu order-1">
-                    <div class="p-3 d-flex flex-column h-100 justify-content-between">
+                    <div class="p-3 d-flex flex-column h-100 justify-content-around">
                         <div class="text-center">
                             <h1>AABU Talk</h1>
                         </div>
 
                         <div class="my-2 text-center w-75 mx-auto">
-                            <img src="{{ asset('images/svgs/request.svg') }}" class="w-75">
-                            <p>{{ __('auth.request_note') }}</p>
+                            <img src="{{ asset('images/svgs/request.svg') }}" class="w-75 mb-3">
+                            <p class="fs-5">{{ __('auth.request_note') }}</p>
                         </div>
-
-                        <div></div>
                     </div>
                 </div>
                 <div class="col-md-6 bg-body-tertiary ">
                     <div class="p-3 h-100">
-                        <form class="h-100" action="/login" method="POST">
+                        <form class="h-100" action="/register/request" method="POST">
                             <div class="d-flex flex-column justify-content-between h-100">
                                 @csrf
                                 <div>
@@ -41,7 +39,7 @@
                                     </p>
 
                                     <label>{{ __('auth.dropdown_label') }}</label>
-                                    <select name="category" id="category" class="form-select rounded-0 mb-3">
+                                    <select name="category" id="category" class="form-select rounded-0 mb-3" required>
                                         <option value="0">{{ __('auth.please_select') }}</option>
                                         <option value="professor">{{ __('auth.professor') }}</option>
                                         <option value="employee">{{ __('auth.employee') }}</option>
@@ -50,7 +48,7 @@
                                     </select>
 
                                     <label>{{ __('auth.textarea_label') }}  </label>
-                                    <textarea class="form-control mb-3"></textarea>
+                                    <textarea class="form-control mb-3" required></textarea>
                                 </div>
 
                                 {{-- submit button --}}
