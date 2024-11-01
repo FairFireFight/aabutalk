@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <p><a href="{{ getLocaleURL('/login/none-students') }}">{{ __('auth.login_none_student') }}</a></p>
+            <p><a href="{{ getLocaleURL('/login/non-students') }}">{{ __('auth.login_non_student') }}</a></p>
         </div>
     </div>
 </x-auth.layout>

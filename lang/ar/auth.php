@@ -30,6 +30,22 @@ return [
     'new_user' => "مستخدم جديد؟",
     'registration_request' => 'لست طالباً؟ أرسل طلب تسجيل.',
 
-    'login_none_student' => 'تسجيل الدخول لغير الطلبة',
+    'login_non_student' => 'تسجيل الدخول لغير الطلبة',
     'email_address' => 'عنوان البريد الالكتروني',
+
+    'registration_request_header' => 'طلب التسجيل لغير طلاب الجامعة',
+    'submit_application' => 'ارسال الطلب',
+
+    // drop down localizations
+    'dropdown_label' => 'ما هي علاقتك مع جامعة ال-البيت؟',
+
+    'please_select' => 'الرجاء الاختيار',
+    'professor' => 'دكتور في الجامعة',
+    'employee' => 'موضف في الجامعة (لست دكتور)',
+    'business_owner' => 'مالك متجر في ارض الحرم الجامعي',
+    'other' => 'غير ذلك (الرجاء التوضيح)',
+
+    'textarea_label' => 'رجاء وضح عن علاقتك مع الجامعة بتفصيل',
+
+    'request_note' => 'سنرسل بريد ايلكتروني لك عند الانتهاء من طلبك, ياخذ الطلب ما بين 2-12 ساعة.'
 ];

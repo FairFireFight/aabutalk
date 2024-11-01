@@ -34,8 +34,11 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // login and registration routes
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::get('/register/request', [RegisteredUserController::class, 'createNonStudent'])->name('login');
+
+
     Route::get('/login', [SessionController::class, 'create'])->name('login');
-    Route::get('/login/none-students', [SessionController::class, 'createNoneStudent'])->name('login');
+    Route::get('/login/non-students', [SessionController::class, 'createNonStudent'])->name('login');
 
     Route::get('/feed', function ($locale) {
         return view('feed', [

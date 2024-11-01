@@ -46,6 +46,22 @@ return [
     'new_user' => "New User?",
     'registration_request' => 'Not a student? Submit a registration request.',
 
-    'login_none_student' => 'None-Student Login',
+    'login_non_student' => 'Non-Student Login',
     'email_address' => 'Email Address',
+
+    'registration_request_header' => 'Registration Request for Non-Students',
+    'submit_application' => 'Submit Application',
+
+    // drop down localizations
+    'dropdown_label' => 'What is your relation to AABU?',
+
+    'please_select' => 'Please Select',
+    'professor' => 'A Professor in AABU',
+    'employee' => 'An Employee of AABU (not a Professor)',
+    'business_owner' => 'Owner of a business on AABU campus',
+    'other' => 'Other (Please specify in the text area below)',
+
+    'textarea_label' => 'Please describe your relation with AABU in detail',
+
+'request_note' => 'We\'ll send you an Email once your request has been processed, this takes 2-12 hours.'
 ];

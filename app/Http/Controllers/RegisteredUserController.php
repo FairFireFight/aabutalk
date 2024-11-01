@@ -14,6 +14,14 @@ class RegisteredUserController extends Controller
         );
     }
 
+    function createNonStudent($locale) {
+        return view('auth.registration-request', [
+                'title' => 'Registration Request',
+                'locale' => $locale
+            ]
+        );
+    }
+
     function store(Request $request) {
         dd($request->all());
     }

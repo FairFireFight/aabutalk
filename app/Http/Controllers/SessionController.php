@@ -14,8 +14,8 @@ class SessionController extends Controller
         );
     }
 
-    function createNoneStudent($locale) {
-        return view('auth.none-student', [
+    function createNonStudent($locale) {
+        return view('auth.non-student', [
                 'title' => 'Login',
                 'locale' => $locale
             ]

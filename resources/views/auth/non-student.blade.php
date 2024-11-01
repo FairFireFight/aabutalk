@@ -9,7 +9,7 @@
                         </div>
 
                         <div class="my-2 text-center">
-                            <img src="{{ asset('images/svgs/none-students.svg') }}" class="w-50">
+                            <img src="{{ asset('images/svgs/non-students.svg') }}" class="w-50">
                         </div>
 
                         <div class="d-flex w-75 justify-content-between align-items-end mx-auto">
@@ -24,7 +24,7 @@
                             <div class="d-flex flex-column justify-content-between h-100">
                                 @csrf
                                 <div>
-                                    <h2 class="font-serif">{{ __('auth.login_none_student') }}</h2>
+                                    <h2 class="font-serif">{{ __('auth.login_non_student') }}</h2>
                                     {{-- student ID input --}}
                                     <label>{{ __('auth.email_address') }}</label>
                                     <input id="student-id" type="email" class="form-control rounded-0 mb-3" name="email"

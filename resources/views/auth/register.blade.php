@@ -84,7 +84,7 @@
                 </div>
             </div>
 
-            <p><a href="#">{{ __('auth.registration_request') }}</a></p>
+            <p><a href="{{ getLocaleURL('/register/request') }}">{{ __('auth.registration_request') }}</a></p>
         </div>
     </div>
 </x-auth.layout>
