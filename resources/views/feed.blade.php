@@ -25,7 +25,7 @@
                     <div id="image-container" class="d-flex flex-wrap gap-1"></div>
 
                     <div class="d-flex justify-content-between align-items-center mb-2">
-                        <!-- Character Limit Display -->
+                        {{-- character limit display --}}
                         <p id="char-limit" class="text-secondary m-0"> 0 / 512</p>
                         <button id="submit-button" type="submit" class="btn btn-aabu px-4 rounded-pill" disabled>{{ __('common.post_verb') }}</button>
                     </div>

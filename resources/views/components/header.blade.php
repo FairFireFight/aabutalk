@@ -10,8 +10,13 @@
         </a>
     </div>
 
-    <div class="btn-group">
-        <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-start-pill ps-3 pe-2">{{ __('common.login') }}</a>
-        <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-end-pill ps-2 pe-3">{{ __('common.register') }}</a>
-    </div>
+    @guest
+        <div class="btn-group">
+            <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-start-pill ps-3 pe-2">{{ __('common.login') }}</a>
+            <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-end-pill ps-2 pe-3">{{ __('common.register') }}</a>
+        </div>
+    @endguest
+    @auth
+        <x-logout />
+    @endauth
 </div>

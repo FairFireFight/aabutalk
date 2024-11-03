@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
@@ -28,25 +29,34 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     Route::get('/forums/{forum}/{post}', [ForumPostController::class, 'show']);
 
-    Route::post('forums/{forum}/{post}', [CommentController::class, 'store']);
 
-    // login and registration routes
-    Route::get('/register', [RegisteredUserController::class, 'create']);
-    Route::get('/register/request', [RegistrationRequestController::class, 'create']);
+    // guest only routes
+    Route::middleware('guest')->group(function () {
+        Route::get('/register', [RegisteredUserController::class, 'create']);
+        Route::get('/register/request', [RegistrationRequestController::class, 'create']);
 
-    Route::get('/login', [SessionController::class, 'create']);
-    Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
-
-    Route::get('/feed', function ($locale) {
-        return view('feed', [
-            'title' => 'My Feed',
-            'lang' => $locale
-        ]);
+        Route::get('/login', [SessionController::class, 'create']);
+        Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
     });
+
+    // auth only routes
+    Route::middleware('auth')->group(function () {
+
+    });
+
+    Route::get('/feed', [PostController::class, 'index']);
 });
 
-// post routes
+// none get routes
 
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/register/request', [RegistrationRequestController::class, 'store']);
-Route::post('/login', [RegisteredUserController::class, 'store']);
+
+Route::post('/login', [SessionController::class, 'store']);
+
+Route::post('forums/{forum}/{post}', [CommentController::class, 'store']);
+
+// auth only routes
+Route::middleware('auth')->group(function () {
+    Route::delete('/logout', [SessionController::class, 'destroy']);
+});
