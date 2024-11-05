@@ -16,7 +16,7 @@
 
             {{-- post content --}}
             <div class="mt-1">
-                <a href="#" class="text-reset text-decoration-none fs-5 fw-light lh-sm">
+                <a href="{{ getLocaleURL('/posts/postId') }}" class="text-reset text-decoration-none fs-5 fw-light lh-sm">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Accusamus adipisci dolore exercitationem laborum, libero,
                     nihil officia possimus rem sed similique sit vel veritatis, voluptatem. Eligendi?
@@ -25,16 +25,15 @@
                     <img src="https://placehold.co/768x480" class="img-fluid" style="max-height: 32rem;" />
                 </div>
             </div>
+        </div>
+    </div>
 
-            {{-- post footer --}}
-            <div class="mt-3 pt-2 pb-1 border-top text-secondary">
-                <div class="d-flex gap-4 align-items-center">
-                    <button class="btn btn-sm btn-outline-aabu py-0 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
-                    <p class="mb-0">14 {{ __('common.comments') }}</p>
-                    <p class="ms-auto mb-0">9:23pm - 11/1/2024</p>
-                </div>
-            </div>
-
+    {{-- post footer --}}
+    <div class="pt-2 pb-1 border-top text-secondary">
+        <div class="d-flex gap-4 align-items-center">
+            <button class="btn btn-sm btn-outline-aabu py-0 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
+            <p class="mb-0">14 {{ __('common.comments') }}</p>
+            <p class="ms-auto mb-0">9:23pm - 11/1/2024</p>
         </div>
     </div>
 </div>

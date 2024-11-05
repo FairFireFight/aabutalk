@@ -42,11 +42,13 @@ class SessionController extends Controller
         }
 
         $attributes = $request->validate([
-            "email" => ["required","email"],
-            "password"=> ["required"],
+            'email' => ['required','email'],
+            'password'=> ['required'],
         ]);
 
-        if (! Auth::attempt($attributes)) {
+        $remember = $request->get('remember_me') === 'true';
+
+        if (! Auth::attempt($attributes, $remember)) {
             throw ValidationException::withMessages([
                 'email' => "Invalid Email or Password"
             ]);
@@ -57,9 +59,11 @@ class SessionController extends Controller
         return redirect($request->session()->get('return_url'));
     }
 
-    public function destroy() {
+    public function destroy(Request $request) {
+        Request()->session()->put('return_url', url()->previous());
+
         Auth::logout();
 
-        return redirect("/");
+        return redirect($request->session()->get('return_url'));
     }
 }

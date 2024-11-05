@@ -45,9 +45,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     });
 
     Route::get('/feed', [PostController::class, 'index']);
+    Route::get('/posts/{post}', [PostController::class, 'show']);
 });
 
-// none get routes
+// none-get routes
 
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/register/request', [RegistrationRequestController::class, 'store']);

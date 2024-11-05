@@ -12,4 +12,11 @@ class PostController extends Controller
             'lang' => $locale
         ]);
     }
+
+    function show($locale, $post) {
+        return view('post', [
+            'title' => 'Post',
+            'lang' => $locale,
+        ]);
+    }
 }
