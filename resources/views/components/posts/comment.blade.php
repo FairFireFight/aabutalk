@@ -1,4 +1,4 @@
-<div class="d-flex gap-2 border-bottom pb-2 mb-2">
+<div class="d-flex gap-2 border-bottom py-2">
     <img src="https://placehold.co/100x100" class="pfp-60 shadow-sm rounded-circle mt-1">
     <div class="flex-grow-1">
         <div class="d-flex align-items-center justify-content-between">

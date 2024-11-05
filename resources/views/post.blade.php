@@ -1,19 +1,20 @@
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
     <div class="row justify-content-center">
-        <div class="col-8" style="min-height: calc(100vh - 4rem)">
+        <div class="col-lg-12 col-xl-10 col-xxl-8" style="min-height: calc(100vh - 4rem)">
             <div class="bg-body-tertiary p-3" style="min-height: 100%">
-                <div class="d-flex gap-2 mb-3">
+                <div class="d-flex gap-2">
                     {{-- profile picture --}}
                     <img src="https://placehold.co/100x100" class="pfp-60 shadow-sm rounded-circle mt-1">
                     <div class="flex-grow-1">
                         {{-- post header --}}
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-start">
                             <div>
                                 <p class="fs-4 mb-0"><a href="#" class="text-decoration-none">Hoffman Heller</a></p>
                                 <p class="text-secondary mb-0">Software Engineering</p>
                             </div>
-                            <div class="text-end ms-auto">
-
+                            <div class="text-end text-secondary ms-auto">
+                                11/1/2024<br>
+                                9:23pm
                             </div>
                         </div>
 
@@ -28,16 +29,13 @@
                                 <img src="https://placehold.co/768x480" class="img-fluid" style="max-height: 32rem;" />
                             </div>
                         </div>
-
-                        {{-- post footer --}}
-                        <div class="text-secondary d-flex gap-4 align-items-end justify-content-between">
-                            <button class="btn btn-outline-aabu py-0 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
-                            <p class="mb-0">9:23pm - 11/1/2024</p>
-                        </div>
                     </div>
                 </div>
 
-                <h2 class="font-serif border-bottom pb-2">12 {{ __('common.comments') }}</h2>
+                <div class="d-flex py-2 border-bottom align-items-end">
+                    <h2 class="font-serif me-auto mb-0">12 {{ __('common.comments') }}</h2>
+                    <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
+                </div>
 
                 {{-- comment form --}}
                 @auth

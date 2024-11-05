@@ -45,6 +45,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     });
 
     Route::get('/feed', [PostController::class, 'index']);
+    Route::get('/all', [PostController::class, 'all']);
     Route::get('/posts/{post}', [PostController::class, 'show']);
 });
 

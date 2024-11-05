@@ -13,6 +13,13 @@ class PostController extends Controller
         ]);
     }
 
+    function all($locale) {
+        return view('all', [
+            'title' => 'Home',
+            'lang' => $locale
+        ]);
+    }
+
     function show($locale, $post) {
         return view('post', [
             'title' => 'Post',
