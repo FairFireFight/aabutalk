@@ -61,4 +61,6 @@ Route::post('forums/{forum}/{post}', [CommentController::class, 'store']);
 // auth only routes
 Route::middleware('auth')->group(function () {
     Route::delete('/logout', [SessionController::class, 'destroy']);
+
+    Route::post('/posts', [PostController::class, 'store']);
 });

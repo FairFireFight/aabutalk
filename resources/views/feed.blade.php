@@ -12,7 +12,7 @@
         <div class="col-lg-12 col-xl-10 col-xxl-8">
             {{-- create post form --}}
             <div>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="/posts" method="POST" enctype="multipart/form-data">
                     @csrf
                     <textarea id="text-area" type="text" name="content"
                               class="form-control form-control-lg mb-2 rounded-0"

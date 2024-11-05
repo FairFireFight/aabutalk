@@ -9,7 +9,7 @@
                         {{-- post header --}}
                         <div class="d-flex align-items-start">
                             <div>
-                                <p class="fs-4 mb-0"><a href="#" class="text-decoration-none">Hoffman Heller</a></p>
+                                <p class="fs-4 mb-0"><a href="#" class="text-decoration-none">{{ $post->user->username }}</a></p>
                                 <p class="text-secondary mb-0">Software Engineering</p>
                             </div>
                             <div class="text-end text-secondary ms-auto">
@@ -21,13 +21,10 @@
                         {{-- post content --}}
                         <div class="mt-1">
                             <p class="text-reset text-decoration-none fs-5 fw-light lh-sm">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus adipisci dolore exercitationem laborum, libero,
-                                nihil officia possimus rem sed similique sit vel veritatis, voluptatem. Eligendi?
+                                {{ $post->content }}
                             </p>
-                            <div class="d-flex justify-content-center mx-auto mb-2 mt-2">
-                                <img src="https://placehold.co/768x480" class="img-fluid" style="max-height: 32rem;" />
-                            </div>
+
+                            <x-posts.post-images :images="$post->getImagePaths()" :post="$post" />
                         </div>
                     </div>
                 </div>
