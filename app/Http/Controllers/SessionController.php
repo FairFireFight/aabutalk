@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
-    function create($locale) {
+    function create($locale = 'en') {
         Request()->session()->put('return_url', url()->previous());
 
         return view('auth.login', [

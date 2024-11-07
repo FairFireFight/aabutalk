@@ -63,3 +63,9 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/posts', [PostController::class, 'store']);
 });
+
+// guest only routes
+Route::middleware('guest')->group(function () {
+    // to fix a REALLY ANNOYING bug with laravel
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
+});

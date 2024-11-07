@@ -12,7 +12,12 @@ function getLocaleURL($url) {
 function getLocaleSwitchURL() : string {
     $locale = App::currentLocale();
 
-    $urlSansLocale = Str::substr(request()->path(), 3);
+    // failsafe for if the path doesn't contain locale
+    if (str::position(request()->path(), '/') == 2) {
+        $urlSansLocale = Str::substr(request()->path(), 3);
+    } else {
+        $urlSansLocale = request()->path();
+    }
 
     if ($locale == 'en') {
         $locale = '/ar/';
