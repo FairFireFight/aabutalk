@@ -41,10 +41,9 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // auth only routes
     Route::middleware('auth')->group(function () {
-
+        Route::get('/feed', [PostController::class, 'index']);
     });
 
-    Route::get('/feed', [PostController::class, 'index']);
     Route::get('/all', [PostController::class, 'all']);
     Route::get('/posts/{post}', [PostController::class, 'show']);
 });

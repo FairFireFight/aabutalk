@@ -32,6 +32,7 @@
                 </form>
             </div>
 
+
             {{-- posts container div --}}
             <div id="posts-container">
                 @foreach($posts as $post)
