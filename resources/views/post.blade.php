@@ -1,3 +1,8 @@
+@push('scripts')
+    <script src="{{ asset('js/likePost.js') }}"></script>
+@endpush
+
+@php use Illuminate\Support\Facades\Auth; @endphp
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
     <div class="row justify-content-center">
         <div class="col-lg-12 col-xl-10 col-xxl-8" style="min-height: calc(100vh - 4rem)">
@@ -31,7 +36,22 @@
 
                 <div class="d-flex py-2 border-bottom align-items-end">
                     <h2 class="font-serif me-auto mb-0">12 {{ __('common.comments') }}</h2>
-                    <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
+
+                    @auth
+                        @php
+                            $liked = Auth::user()->likesPost($post)
+                        @endphp
+
+                        <button onclick="likePost(this)" id="{{ $post->id }}"
+                                class="btn {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 my-1 px-4 rounded-pill">
+                            {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
+                        </button>
+                    @endauth
+                    @guest
+                        <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill" disabled>
+                            {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
+                        </button>
+                    @endguest
                 </div>
 
                 {{-- comment form --}}
