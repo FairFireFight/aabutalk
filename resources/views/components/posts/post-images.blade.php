@@ -4,9 +4,9 @@
 @if ($images)
     @switch(count($images))
         @case(1)
-            <div class="rounded d-flex justify-content-center mx-auto mt-2">
+            <div class="d-flex justify-content-center mx-auto mt-2 bg-body-secondary">
                 <img src="{{ asset($images[0]) }}" alt="Post Image"
-                     class="img-fluid rounded" style="max-height: 32rem;">
+                     class="img-fluid" style="max-height: 32rem;">
             </div>
             @break
         @default

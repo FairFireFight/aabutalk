@@ -11,11 +11,34 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    const PAGINATE_SIZE = 5;
+
     function index($locale) {
         return view('feed', [
             'title' => 'Home',
             'lang' => $locale,
             'posts' => Post::all()->sortDesc()
+        ]);
+    }
+
+    function loadPosts() {
+        // get posts
+        $posts = Post::orderBy('created_at', 'desc')
+            ->with(['user'])
+            ->paginate(PostController::PAGINATE_SIZE);
+
+        // generate content to send
+        $content = '';
+        foreach ($posts as $post) {
+            $content .= view('components.posts.post-card', ['post' => $post])->render();
+        }
+
+        // last batch of posts we have
+        $isLast = count($posts) != PostController::PAGINATE_SIZE;
+
+        return response()->json([
+            "content" => $content,
+            "isLast" => $isLast
         ]);
     }
 

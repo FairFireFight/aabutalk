@@ -24,11 +24,17 @@ Route::get('/', function () {
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
     Route::get('/', [PageController::class, 'index']);
 
+    // forum routes
     Route::get('/forums', [ForumController::class, 'index']);
     Route::get('/forums/{forum}', [ForumController::class, 'show']);
 
     Route::get('/forums/{forum}/{post}', [ForumPostController::class, 'show']);
 
+    // general posts routes
+    Route::get('/all', [PostController::class, 'all']);
+    Route::get('/posts/{post}', [PostController::class, 'show']);
+
+    Route::get("/load/posts", [PostController::class, "loadPosts"]);
 
     // guest only routes
     Route::middleware('guest')->group(function () {
@@ -43,13 +49,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::middleware('auth')->group(function () {
         Route::get('/feed', [PostController::class, 'index']);
     });
-
-    Route::get('/all', [PostController::class, 'all']);
-    Route::get('/posts/{post}', [PostController::class, 'show']);
 });
 
-// none-get routes
 
+// none-get routes
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/register/request', [RegistrationRequestController::class, 'store']);
 

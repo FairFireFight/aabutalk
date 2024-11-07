@@ -1,5 +1,6 @@
 @push('scripts')
-    <script src="{{ asset('js/post-form.js') }}"></script>
+    <script src="{{ asset('js/postForm.js') }}"></script>
+    <script src="{{ asset('js/infiniteScroller.js') }}"></script>
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
@@ -27,19 +28,15 @@
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         {{-- character limit display --}}
                         <p id="char-limit" class="text-secondary m-0"> 0 / 512</p>
-                        <button id="submit-button" type="submit" class="btn btn-aabu px-4 rounded-pill" disabled>{{ __('common.post_verb') }}</button>
+                        <button id="submit-button" type="submit" class="btn btn-aabu px-4 py-0 rounded-pill" disabled>{{ __('common.post_verb') }}</button>
                     </div>
                 </form>
             </div>
 
 
             {{-- posts container div --}}
-            <div id="posts-container">
-                @foreach($posts as $post)
-                    <x-posts.post-card :post="$post"></x-posts.post-card>
-                @endforeach
-            </div>
-            <div class="d-flex justify-content-center p-5">
+            <div id="posts-container"></div>
+            <div id="loading-spinner" class="d-flex justify-content-center p-5">
                 <div class="spinner-border color-aabu"></div>
             </div>
         </div>
