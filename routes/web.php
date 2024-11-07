@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
@@ -34,7 +35,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/all', [PostController::class, 'all']);
     Route::get('/posts/{post}', [PostController::class, 'show']);
 
-    Route::get("/load/posts", [PostController::class, "loadPosts"]);
+    Route::get("/load/posts/feed", [PostController::class, "loadPosts"]);
+    Route::get("/load/posts/all", [PostController::class, "loadPosts"]);
 
     // guest only routes
     Route::middleware('guest')->group(function () {
@@ -51,8 +53,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     });
 });
 
-
 // none-get routes
+
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/register/request', [RegistrationRequestController::class, 'store']);
 
@@ -65,6 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/logout', [SessionController::class, 'destroy']);
 
     Route::post('/posts', [PostController::class, 'store']);
+    Route::post("/posts/{post}/like", [LikeController::class, "store"]);
 });
 
 // guest only routes

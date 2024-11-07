@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Auth; @endphp
 <div class="pt-2 pb-1 border-top">
     <div class="d-flex gap-2">
         {{-- profile picture --}}
@@ -23,11 +24,18 @@
     </div>
 
     {{-- post footer --}}
-    <div class="pt-2 pb-1 border-top text-secondary">
+    <div class="pt-2 pb-1 text-secondary">
         <div class="d-flex gap-4 align-items-center">
-            <button class="btn btn-sm btn-outline-aabu py-0 px-4 rounded-pill">25 <i class="bi bi-hand-thumbs-up"></i></button>
-            <p class="mb-0">14 {{ __('common.comments') }}</p>
-            <p class="ms-auto mb-0">{{ $post->createdAt }}</p>
+            @php
+                $liked = Auth::user()->likesPost($post)
+            @endphp
+
+            <button onclick="likePost(this)" id="{{ $post->id }}"
+                    class="btn btn-sm {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 px-4 rounded-pill">
+                {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
+            </button>
+            <p class="mb-0">{{__('common.comments') }}</p>
+            <p class="ms-auto mb-0">{{ $post->created_at->diffForHumans() }}</p>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 @push('scripts')
     <script src="{{ asset('js/postForm.js') }}"></script>
-    <script src="{{ asset('js/infiniteScroller.js') }}"></script>
+    <script src="{{ asset('js/feed.js') }}"></script>
+    <script src="{{ asset('js/likePost.js') }}"></script>
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $lang }}">

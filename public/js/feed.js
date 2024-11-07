@@ -19,7 +19,7 @@ $(document).ready(() => {
 
     function loadMorePosts(page) {
         $.ajax({
-            url: `load/posts?page=${page}`,
+            url: `load/posts/feed?page=${page}`,
             type: "GET",
             success: function(response) {
                 document.getElementById("posts-container").innerHTML += response.content;
