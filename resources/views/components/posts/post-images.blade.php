@@ -4,19 +4,19 @@
 @if ($images)
     @switch(count($images))
         @case(1)
-            <div class="rounded d-flex justify-content-center mx-auto mb-3 mt-2">
+            <div class="rounded d-flex justify-content-center mx-auto mt-2">
                 <img src="{{ asset($images[0]) }}" alt="Post Image"
                      class="img-fluid rounded" style="max-height: 32rem;">
             </div>
             @break
         @default
-            <div id="post-images" class="carousel slide mb-3 mt-2">
+            <div id="post-images" class="carousel slide mt-2">
                 <div class="carousel-inner">
                     <!-- generated html goes in here-->
                     @foreach($images as $index => $image)
 
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                            <div class="container text-center d-flex justify-content-center align-items-center" style="height: 500px;">
+                            <div class="container text-center d-flex justify-content-center align-items-center" style="height: 450px;">
                                 <img src="{{ asset($image) }}" style="object-fit: contain; max-width: 100%" alt="Post Image">
                             </div>
                         </div>

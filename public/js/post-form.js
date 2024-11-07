@@ -6,6 +6,24 @@ const fileInput = document.getElementById('file-input');
 const submitButton = document.getElementById('submit-button');
 
 textArea.addEventListener("input", () => {
+    updateTextArea(textArea);
+    updateSubmitButton();
+});
+
+fileInput.addEventListener("change", () => {
+    updateImageInput(fileInput);
+    updateSubmitButton();
+});
+
+function updateSubmitButton() {
+    if (textAreaValid || fileInputValid) {
+        submitButton.removeAttribute("disabled");
+    } else {
+        submitButton.setAttribute("disabled", "");
+    }
+}
+
+function updateTextArea(textArea) {
     const charCount = textArea.value.length;
     const charDisplay = document.getElementById('char-limit');
 
@@ -20,11 +38,9 @@ textArea.addEventListener("input", () => {
         charDisplay.classList.remove("text-danger");
         charDisplay.classList.add("text-secondary");
     }
+}
 
-    updateSubmitButton()
-});
-
-fileInput.addEventListener("change", () => {
+function updateImageInput(fileInput) {
     const files = fileInput.files;
 
     fileInputValid = files.length > 0;
@@ -45,14 +61,8 @@ fileInput.addEventListener("change", () => {
             fileReader.readAsDataURL(files[i]);
         }
     }
-
-    updateSubmitButton()
-});
-
-function updateSubmitButton() {
-    if (textAreaValid || fileInputValid) {
-        submitButton.removeAttribute("disabled");
-    } else {
-        submitButton.setAttribute("disabled", "");
-    }
 }
+
+updateTextArea(textArea);
+updateImageInput(fileInput);
+updateSubmitButton();

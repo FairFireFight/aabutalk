@@ -32,10 +32,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // guest only routes
     Route::middleware('guest')->group(function () {
-        Route::get('/register', [RegisteredUserController::class, 'create']);
+        Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
         Route::get('/register/request', [RegistrationRequestController::class, 'create']);
 
-        Route::get('/login', [SessionController::class, 'create']);
+        Route::get('/login', [SessionController::class, 'create'])->name('login');
         Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
     });
 

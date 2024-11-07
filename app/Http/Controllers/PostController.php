@@ -14,7 +14,8 @@ class PostController extends Controller
     function index($locale) {
         return view('feed', [
             'title' => 'Home',
-            'lang' => $locale
+            'lang' => $locale,
+            'posts' => Post::all()->sortDesc()
         ]);
     }
 

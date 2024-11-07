@@ -34,9 +34,9 @@
 
             {{-- posts container div --}}
             <div id="posts-container">
-                @for($i = 1; $i <= 3; $i++)
-                    <x-posts.post-card></x-posts.post-card>
-                @endfor
+                @foreach($posts as $post)
+                    <x-posts.post-card :post="$post"></x-posts.post-card>
+                @endforeach
             </div>
             <div class="d-flex justify-content-center p-5">
                 <div class="spinner-border color-aabu"></div>
