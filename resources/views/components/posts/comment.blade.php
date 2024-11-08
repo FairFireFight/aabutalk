@@ -8,7 +8,7 @@
                     <form action="{{ '/posts/' . $comment->post->id . '/comments/' . $comment->id }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-outline-danger rounded-pill py-0 px-2"><i class="bi bi-trash"></i> {{ __('common.delete') }}</button>
+                        <button class="btn fs-5 text-danger rounded-pill py-0 px-0"><i class="bi bi-trash"></i></button>
                     </form>
                 @endcan
 
