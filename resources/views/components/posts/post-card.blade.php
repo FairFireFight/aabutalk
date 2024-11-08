@@ -40,7 +40,7 @@
                 <p class="mb-0">{{ $post->likes()->count()  }} <i class="bi bi-hand-thumbs-up"></i></p>
             @endguest
 
-            <p class="mb-0">0 {{__('common.comments') }}</p>
+            <p class="mb-0">{{ $post->comments()->count() . ' ' . __('common.comments') }}</p>
             <p class="ms-auto mb-0">{{ $post->created_at->diffForHumans() }}</p>
         </div>
     </div>

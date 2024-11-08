@@ -2,7 +2,14 @@
     <script src="{{ asset('js/likePost.js') }}"></script>
 @endpush
 
-@php use Illuminate\Support\Facades\Auth; @endphp
+
+@php
+    use Illuminate\Support\Facades\Auth;
+
+    $comments = $post->comments()->getResults()->sortDesc();
+    $commentsCount = $comments->count();
+@endphp
+
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
     <div class="row justify-content-center">
         <div class="col-lg-12 col-xl-10 col-xxl-8" style="min-height: calc(100vh - 4rem)">
@@ -18,8 +25,7 @@
                                 <p class="text-secondary mb-0">Software Engineering</p>
                             </div>
                             <div class="text-end text-secondary ms-auto">
-                                11/1/2024<br>
-                                9:23pm
+                                {{ $post->created_at->diffForHumans() }}
                             </div>
                         </div>
 
@@ -35,11 +41,11 @@
                 </div>
 
                 <div class="d-flex py-2 border-bottom align-items-end">
-                    <h2 class="font-serif me-auto mb-0">12 {{ __('common.comments') }}</h2>
+                    <h2 class="font-serif me-auto mb-0">{{ "$commentsCount " . __('common.comments') }}</h2>
 
                     @auth
                         @php
-                            $liked = Auth::user()->likesPost($post)
+                            $liked = Auth::user()->likesPost($post);
                         @endphp
 
                         <button onclick="likePost(this)" id="{{ $post->id }}"
@@ -57,7 +63,7 @@
                 {{-- comment form --}}
                 @auth
                     <div class="forum-list-card bg-body-tertiary py-2 mb-2">
-                        <form class="position-relative" action="{{ getLocaleURL("/forums/forumId/postId") }}" method="POST">
+                        <form class="position-relative" action="{{ "/posts/{$post->id}/comments" }}" method="POST">
                             @csrf
                             <textarea class="form-control" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                                       oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
@@ -70,9 +76,13 @@
 
                 {{-- comments container --}}
                 <div id="comments-container">
-                    @for ($i = 1; $i <= 6; $i++)
-                        <x-posts.comment />
-                    @endfor
+                    @if($commentsCount == 0)
+                        <div class="d-flex justify-content-center text-secondary fs-4 mt-3">{{ __('common.no_comments') }}</div>
+                    @else
+                        @foreach ($comments as $comment)
+                            <x-posts.comment :comment="$comment"/>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

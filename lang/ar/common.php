@@ -22,4 +22,6 @@ return [
 
     'post_verb' => 'نشر',
     'placeholder_thoughts' => 'شارك رأيك',
+    'no_comments' => 'لا يوجد تعليقات',
+    'delete' => 'حذف',
 ];

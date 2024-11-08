@@ -60,14 +60,15 @@ Route::post('/register/request', [RegistrationRequestController::class, 'store']
 
 Route::post('/login', [SessionController::class, 'store']);
 
-Route::post('forums/{forum}/{post}', [CommentController::class, 'store']);
-
 // auth only routes
 Route::middleware('auth')->group(function () {
     Route::delete('/logout', [SessionController::class, 'destroy']);
 
     Route::post('/posts', [PostController::class, 'store']);
     Route::post("/posts/{post}/like", [LikeController::class, "store"]);
+
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
+    Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->middleware('can:delete-comment,comment');
 });
 
 // guest only routes

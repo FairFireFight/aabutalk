@@ -22,4 +22,6 @@ return [
 
     'post_verb' => 'Post',
     'placeholder_thoughts' => 'Share your thoughts',
+    'no_comments' => 'No Comments',
+    'delete' => 'Delete',
 ];

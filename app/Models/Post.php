@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
-    /** @use HasFactory<\Database\Factories\PostFactory> */
+    /** @use HasFactory<PostFactory> */
     use HasFactory, Notifiable;
 
     function user() : BelongsTo {
@@ -24,5 +25,9 @@ class Post extends Model
 
     function likes() : HasMany {
         return $this->hasMany(Like::class);
+    }
+
+    function comments() : HasMany {
+        return $this->hasMany(Comment::class);
     }
 }

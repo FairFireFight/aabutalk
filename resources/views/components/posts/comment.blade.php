@@ -2,9 +2,19 @@
     <img src="https://placehold.co/100x100" class="pfp-60 shadow-sm rounded-circle mt-1">
     <div class="flex-grow-1">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="#" class="text-decoration-none fs-4 m-0">John Doe</a>
-            <span class="text-secondary">4:22pm - 11/5/2024</span>
+            <a href="#" class="text-decoration-none fs-4 m-0">{{ $comment->user->username }}</a>
+            <div class="d-flex align-items-center gap-2">
+                @can('delete-comment', $comment)
+                    <form action="{{ '/posts/' . $comment->post->id . '/comments/' . $comment->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-sm btn-outline-danger rounded-pill py-0 px-2"><i class="bi bi-trash"></i> {{ __('common.delete') }}</button>
+                    </form>
+                @endcan
+
+                <span class="text-secondary">{{ $comment->created_at->diffForHumans() }}</span>
+            </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur dignissimos, ducimus eligendi exercitationem id iure labore optio sunt unde voluptatibus?</p>
+        <p>{{ $comment->content }}</p>
     </div>
 </div>
