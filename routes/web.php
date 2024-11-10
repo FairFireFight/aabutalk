@@ -43,6 +43,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/boards/{board}', [BoardController::class, 'show']);
 
 
+
     // guest only routes
     Route::middleware('guest')->group(function () {
         Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
@@ -74,6 +75,13 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
     Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->middleware('can:delete-comment,comment');
+});
+
+// admin only routes
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    });
 });
 
 // guest only routes

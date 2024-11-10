@@ -33,7 +33,7 @@ html[dir=ltr] .nav-link:hover .scroll-text {
 }
 
 html[dir=rtl] .nav-link:hover .scroll-text {
-    animation: scrollTextRTL 1s linear forwards;
+    animation: scrollTextRTL 3s linear forwards;
 }
 
 @keyframes scrollTextLTR {

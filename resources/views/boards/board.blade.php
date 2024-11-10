@@ -70,7 +70,7 @@
                 {{-- side column content goes here --}}
                 <div class="bg-body-tertiary shadow-sm py-4 px-3">
                     <h4 class="font-serif fst-italic">{{ $board->faculty->name() }}</h4>
-                    <p class="m-0">Customizable section to describe what the college / faculty is about, goals, etc...</p>
+                    <p class="m-0">{{ $board->faculty->description() }}</p>
                 </div>
 
                 <h3 class="mt-3 fst-italic font-serif border-bottom">{{ __('page.see_also') }}</h3>
