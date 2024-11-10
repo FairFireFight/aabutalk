@@ -34,9 +34,10 @@
                 </form>
             </div>
 
-
             {{-- posts container div --}}
-            <div id="posts-container"></div>
+            <div id="posts-container">
+                <h4 class="text-center text-secondary border-top pt-3">No Posts</h4>
+            </div>
             <div id="loading-spinner" class="d-flex justify-content-center p-5">
                 <div class="spinner-border color-aabu"></div>
             </div>

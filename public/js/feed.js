@@ -22,7 +22,7 @@ $(document).ready(() => {
             url: `load/posts/feed?page=${page}`,
             type: "GET",
             success: function(response) {
-                document.getElementById("posts-container").innerHTML += response.content;
+                document.getElementById("posts-container").innerHTML = response.content;
 
                 // delete spinner if that's the last post.
                 if (response.isLast) {

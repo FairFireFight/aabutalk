@@ -1,5 +1,4 @@
-
-<x-layout title="{{ $title }}" lang="{{ $lang }}">
+<x-layout title="{{ $board->faculty->name() }}" lang="{{ $lang }}">
     {{-- Leading card--}}
     <div class="mt-3 px-2 px-md-3 px-lg-5 py-4 bg-body-secondary border">
         <div class="row">
@@ -54,7 +53,7 @@
         {{-- main content coloumn --}}
         <div class="col-lg-8">
             {{-- TODO: switching of department name language --}}
-            <h3 class="fst-italic font-serif">{{ __('page.latest_by', ['name' => 'University Presidency']) }}</h3>
+            <h3 class="fst-italic font-serif">{{ __('page.latest_by', ['name' => $board->faculty->name()]) }}</h3>
 
             <div id="posts-container" class="mb-3">
                 @for($i = 1; $i <= 2; $i++)
@@ -70,7 +69,7 @@
             <div class="mt-3 mt-lg-0 position-sticky" style="top: 5rem">
                 {{-- side column content goes here --}}
                 <div class="bg-body-tertiary shadow-sm py-4 px-3">
-                    <h4 class="font-serif fst-italic">University Presidency</h4>
+                    <h4 class="font-serif fst-italic">{{ $board->faculty->name() }}</h4>
                     <p class="m-0">Customizable section to describe what the college / faculty is about, goals, etc...</p>
                 </div>
 
@@ -116,5 +115,3 @@
 
     <x-footer/>
 </x-layout>
-
-

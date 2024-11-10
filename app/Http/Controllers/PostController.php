@@ -14,7 +14,7 @@ class PostController extends Controller
     const PAGINATE_SIZE = 5;
 
     function index($locale) {
-        return view('feed', [
+        return view('posts.feed', [
             'title' => 'Home',
             'lang' => $locale,
             'posts' => Post::all()->sortDesc()
@@ -43,14 +43,14 @@ class PostController extends Controller
     }
 
     function all($locale) {
-        return view('all', [
+        return view('posts.all', [
             'title' => 'Home',
             'lang' => $locale
         ]);
     }
 
     function show($locale, Post $post) {
-        return view('post', [
+        return view('posts.post', [
             'title' => 'Post',
             'lang' => $locale,
             'post' => $post
@@ -76,7 +76,7 @@ class PostController extends Controller
             foreach ($files as $file) {
                 $path = $file->store('/images/uploads', ['disk' => 'public']);
 
-                $imageName = Str::substr($path, strrpos($path, '/') + 1);
+                $imageName = Str::substr($path, Str::position($path, '/') + 1);
 
                 $imagePaths[] = "storage/images/uploads/$imageName";
             }

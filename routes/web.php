@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\BoardController;
+use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\LikeController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
@@ -23,7 +24,7 @@ Route::get('/', function () {
 
 // group routes to always start with /{locale}/
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
-    Route::get('/', [PageController::class, 'index']);
+    Route::get('/', [BoardController::class, 'index']);
 
     // forum routes
     Route::get('/forums', [ForumController::class, 'index']);
@@ -37,6 +38,10 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     Route::get("/load/posts/feed", [PostController::class, "loadPosts"]);
     Route::get("/load/posts/all", [PostController::class, "loadPosts"]);
+
+    // board routes
+    Route::get('/boards/{board}', [BoardController::class, 'show']);
+
 
     // guest only routes
     Route::middleware('guest')->group(function () {

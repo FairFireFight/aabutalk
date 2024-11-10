@@ -1,3 +1,6 @@
+@php
+    use App\Models\Board;
+@endphp
 <nav id="sidebar" class="sidebar bg-body-tertiary">
     <div class="nav nav-pills flex-column py-3 h-100">
         <a href="{{ getLocaleURL('/') }}" class="px-4 nav-link link-body-emphasis"><i class="bi bi-house me-2"></i> {{ __('common.home') }}</a>
@@ -12,13 +15,11 @@
         <h5 class="px-2">{{ __('common.header_colleges') }}</h5>
 
         {{-- TODO: generate from DB --}}
-        <a href="#" class="px-4 nav-link link-body-emphasis">To be generated</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 1</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 2</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 3</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 4</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 5</a>
-        <a href="#" class="px-4 nav-link link-body-emphasis">Placeholder 6</a>
+        @foreach(Board::all() as $board)
+            <a href="{{ getLocaleURL('/boards/' . $board->id) }}" class="px-4 nav-link {{request()->is('*/boards/' . $board->id) ? 'active' : 'link-body-emphasis'}}">
+                <p class="scroll-text m-0">{{ $board->faculty->name() }}</p>
+            </a>
+        @endforeach
 
         <hr class="mt-auto">
 

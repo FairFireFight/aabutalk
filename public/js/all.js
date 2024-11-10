@@ -3,8 +3,6 @@ $(document).ready(() => {
     let isLoading = false;
     let isLast = false;
 
-    const locale = window.location.pathname.substring(1, 3);
-
     $(window).scroll(() => {
         if($(window).scrollTop() + $(window).height() +
             /* distance to bottom of page to start loading more */ 150 >= $(document).height()) {
@@ -22,7 +20,7 @@ $(document).ready(() => {
             url: `load/posts/all?page=${page}`,
             type: "GET",
             success: function(response) {
-                document.getElementById("posts-container").innerHTML += response.content;
+                document.getElementById("posts-container").innerHTML = response.content;
 
                 // delete spinner if that's the last post.
                 if (response.isLast) {
