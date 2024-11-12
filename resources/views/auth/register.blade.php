@@ -14,19 +14,19 @@
                                     <div class="carousel-item text-center active">
                                         <div class="d-flex align-items-center justify-content-center flex-column" style="min-height: 340px">
                                             <img src="{{ asset('images/svgs/chatting.svg') }}" class="d-block mx-auto w-75" data-bs-interval="5000">
-                                            <p class="mt-2 mb-0 fs-5">{{ __('auth.carousel_talk') }}</p>
+                                            <p class="mt-2 mb-0 fs-5 text-center">{{ __('auth.carousel_talk') }}</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="d-flex align-items-center justify-content-center flex-column" style="min-height: 340px">
                                             <img src="{{ asset('images/svgs/searching.svg') }}" class="d-block mx-auto w-75" data-bs-interval="5000">
-                                            <p class="mt-2 mb-0 fs-5">{{ __('auth.carousel_search') }}</p>
+                                            <p class="mt-2 mb-0 fs-5 text-center">{{ __('auth.carousel_search') }}</p>
                                         </div>
                                     </div>
                                     <div class="carousel-item">
                                         <div class="d-flex align-items-center justify-content-center flex-column" style="min-height: 340px">
                                             <img src="{{ asset('images/svgs/blogging.svg') }}" class="d-block mx-auto w-75" data-bs-interval="5000">
-                                            <p class="mt-2 mb-0 fs-5">{{ __('auth.carousel_blogging') }}</p>
+                                            <p class="mt-2 mb-0 fs-5 text-center">{{ __('auth.carousel_blogging') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,9 +68,9 @@
 
                                     {{-- username input --}}
                                     <label>{{ __('auth.username') }}</label>
-                                    <input id="username" type="text" class="form-control rounded-0 mb-2" name="username"
+                                    <input id="username" type="text" class="form-control rounded-0" name="username"
                                            placeholder="{{ __('auth.username') }}" required/>
-                                    <p class="text-secondary">{{ __('auth.username_desc') }}</p>
+                                    <p class="text-secondary mb-2">{{ __('auth.username_desc') }}</p>
                                 </div>
 
                                 {{-- submit button --}}
