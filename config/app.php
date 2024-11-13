@@ -87,8 +87,18 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
-    // disable when using localhost
-    //'asset_url' => env('ASSET_URL', 'SHARED URL'),
+
+    /*
+    |--------------------------------------------------------------------------
+    disable when using localhost
+    |--------------------------------------------------------------------------
+    */
+    'asset_url' => env('ASSET_URL', 'https://usxcqsy9le.sharedwithexpose.com'),
+    /*
+    |--------------------------------------------------------------------------
+    */
+
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

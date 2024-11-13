@@ -17,26 +17,37 @@ $(document).ready(() => {
         }
     });
 
+
+    const postsContainer =  document.getElementById("posts-container");
+    let isFirstLoad = true;
     function loadMorePosts(page) {
         $.ajax({
             url: `load/posts/feed?page=${page}`,
             type: "GET",
             success: function(response) {
-                document.getElementById("posts-container").innerHTML = response.content;
+                if (isFirstLoad) {
+                    postsContainer.innerHTML = '';
+                    isFirstLoad = false;
+                }
+
+                postsContainer.innerHTML += response.content;
 
                 // delete spinner if that's the last post.
                 if (response.isLast) {
+                    isLast = true;
                     $("#loading-spinner").remove();
                 }
 
                 isLoading = false;
             }, error: function(error) {
+                page--;
                 isLoading = false;
 
                 alert("Oops, something went wrong trying to load more posts.");
-            }});
+            }}
+        );
     }
 
-    loadMorePosts(0);
+    loadMorePosts(1);
 });
 

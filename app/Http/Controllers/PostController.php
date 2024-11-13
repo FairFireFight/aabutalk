@@ -78,7 +78,7 @@ class PostController extends Controller
 
                 $imageName = Str::substr($path, Str::position($path, '/') + 1);
 
-                $imagePaths[] = "storage/images/uploads/$imageName";
+                $imagePaths[] = "storage/images/$imageName";
             }
         }
 
