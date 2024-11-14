@@ -88,6 +88,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
 
+
+    Route::get('/admin/dashboard/majors', [AdminController::class, 'majors']);
+
     // faculty management routes
     Route::get('/admin/dashboard/faculties', [AdminController::class, 'faculties_index']);
     Route::get('/admin/dashboard/faculties/edit', function() {

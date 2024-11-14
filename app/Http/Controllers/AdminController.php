@@ -33,6 +33,12 @@ class AdminController extends Controller
         ]);
     }
 
+    function majors() {
+        return view('admin.majors', [
+
+        ]);
+    }
+
     // faculties
     function faculties_index() {
         return view('admin.faculties', [
