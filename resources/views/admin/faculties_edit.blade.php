@@ -1,9 +1,9 @@
 <x-admin.layout>
     <div class="row">
         <div class="col-9">
-            <form action="/admin/dashboard/faculties/edit/{{$faculty->id}}" method="post">
-                @method('PUT')
+            <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
                 @csrf
+                @method('PUT')
                 <label for="id" class="fs-5 mb-1">Faculty ID:</label>
                 <input id="id" type="text" class="form-control rounded-0 mb-2" value="{{$faculty->id}}" disabled>
 
@@ -17,9 +17,14 @@
                 <textarea id="description_en" name="description_en" class="form-control rounded-0 mb-2" required>{{$faculty->description_en}}</textarea>
 
                 <label for="description_ar" class="fs-5 mb-1">Arabic Description:</label>
-                <textarea id="description_ar" name="description_ar" class="form-control rounded-0 mb-4" required>{{$faculty->description_en}}</textarea>
+                <textarea id="description_ar" name="description_ar" class="form-control rounded-0 mb-4" required>{{$faculty->description_ar}}</textarea>
 
                 <button type="submit" class="btn btn-aabu px-5 rounded-pill">Update Details</button>
+            </form>
+            <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger px-4 rounded-pill mt-3">Delete</button>
             </form>
         </div>
         <div class="col-3">

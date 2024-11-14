@@ -32,14 +32,25 @@ class FacultyController extends Controller
     function update(Request $request, Faculty $faculty)
     {
         $attributes = $request->validate([
-            'name_en' => ['required', 'string', 'unique:faculties,name_en'],
-            'name_ar' => ['required', 'string', 'unique:faculties,name_ar'],
+            'name_en' => ['required', 'string', 'unique:faculties,name_en,'.$faculty->id],
+            'name_ar' => ['required', 'string', 'unique:faculties,name_en,'.$faculty->id],
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
         ]);
 
-        $faculty = Faculty::create($attributes);
+        $faculty->name_en = $attributes['name_en'];
+        $faculty->name_ar = $attributes['name_ar'];
+        $faculty->description_en  = $attributes['description_en'];
+        $faculty->description_ar  = $attributes['description_ar'];
+
+        $faculty->save();
 
         return redirect('/admin/dashboard/faculties/edit/' . $faculty->id);
+    }
+
+    function destroy(Faculty $faculty) {
+        $faculty->delete();
+
+        return redirect('/admin/dashboard/faculties');
     }
 }

@@ -82,12 +82,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
     Route::get('/admin/dashboard/faculties', [AdminController::class, 'faculties_index']);
+    Route::get('/admin/dashboard/faculties/edit', function() {
+        return redirect('/admin/dashboard/faculties');
+    });
 
     Route::get('/admin/dashboard/faculties/create', [AdminController::class, 'faculties_create']);
     Route::post('/admin/dashboard/faculties', [FacultyController::class, 'store']);
 
     Route::get('/admin/dashboard/faculties/edit/{faculty}', [AdminController::class, 'faculties_edit']);
     Route::put('/admin/dashboard/faculties/{faculty}', [FacultyController::class, 'update']);
+    Route::delete('/admin/dashboard/faculties/{faculty}', [FacultyController::class, 'destroy']);
 });
 
 // guest only routes

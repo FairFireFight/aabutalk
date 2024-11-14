@@ -11,6 +11,7 @@
             <th>English Name</th>
             <th>Arabic Name</th>
             <th>Creation Date</th>
+            <th>Last Edit</th>
             <th>Actions</th>
         </tr>
         @foreach($faculties as $faculty)
@@ -19,6 +20,7 @@
                 <td>{{ $faculty->name_en }}</td>
                 <td>{{ $faculty->name_ar }}</td>
                 <td>{{ $faculty->created_at->format('jS M Y, h:i A') . ' UTC' }}</td>
+                <td>{{ $faculty->created_at->diffForHumans() }}</td>
                 <td>
                     <a href="/admin/dashboard/faculties/edit/{{ $faculty->id }}">Edit</a>
                 </td>
