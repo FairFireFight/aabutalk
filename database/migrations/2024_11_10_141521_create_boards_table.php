@@ -16,10 +16,12 @@ return new class extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
+
             // the faculty that the board belongs to
             $table->foreignIdFor(Faculty::class)->unique()->constrained()->cascadeOnDelete();
-            // the users that can manage the faculty
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+
+            // the users that can manage the board
+            $table->json('user_ids')->nullable();
             $table->timestamps();
         });
     }

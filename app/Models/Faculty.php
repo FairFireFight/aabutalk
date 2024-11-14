@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 
+/**
+ * @mixin Eloquent
+ */
 class Faculty extends Model
 {
     function name() : string {

@@ -21,7 +21,7 @@
 <body class="vh-100">
 
 {{-- small screen lock out --}}
-<div class="d-flex d-lg-none position-fixed top-0 left-0 vw-100 vh-100 bg-danger-subtle text-danger-emphasis align-items-center justify-content-center">
+<div class="d-flex d-lg-none position-fixed top-0 left-0 vw-100 vh-100 bg-danger-subtle text-danger-emphasis align-items-center justify-content-center z-3">
     <div class="text-center">
         <h1 style="font-size: 8rem"><i class="bi bi-x-octagon-fill"></i></h1>
         <h1>Screen Size not supported</h1>
@@ -36,18 +36,18 @@
 </div>
 
 <div class="row g-0" style="height: calc(100% - 58px)">
-    <div class="col-4 col-xl-3 col-xxl-2 bg-body-tertiary border-end px-4 py-3">
+    <div class="col-3 col-xl-3 col-xxl-2 bg-body-tertiary border-end px-4 py-3">
         <nav class="h-100">
             <ul class="nav flex-column gap-2 h-100">
                 <li><a href="/admin/dashboard" class="d-block text-decoration-none"><i class="bi bi-house fs-4 me-2"></i> Dashboard</a></li>
 
                 <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Users</li>
-                <li><a href="/admin/registration_requests" class="d-block text-decoration-none"><i class="bi bi-person-check fs-4 me-2"></i> Registration Requests</a></li>
-                <li><a href="/admin/users" class="d-block text-decoration-none"><i class="bi bi-people fs-4 me-2"></i> Users</a></li>
+                <li><a href="/admin/dashboard/registration_requests" class="d-block text-decoration-none"><i class="bi bi-person-check fs-4 me-2"></i> Registration Requests</a></li>
+                <li><a href="/admin/dashboard/users" class="d-block text-decoration-none"><i class="bi bi-people fs-4 me-2"></i> Users</a></li>
 
                 <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Colleges & Faculties</li>
-                <li><a href="/admin/faculties" class="d-block text-decoration-none"><i class="bi bi-buildings fs-4 me-2"></i> View All</a></li>
-                <li><a href="/admin/faculties/create" class="d-block text-decoration-none"><i class="bi bi-building-add fs-4 me-2"></i> Create</a></li>
+                <li><a href="/admin/dashboard/faculties" class="d-block text-decoration-none"><i class="bi bi-buildings fs-4 me-2"></i> View All</a></li>
+                <li><a href="/admin/dashboard/faculties/create" class="d-block text-decoration-none"><i class="bi bi-building-add fs-4 me-2"></i> Create</a></li>
 
                 <li class="mt-auto">
                     <form action="/logout" method="POST">
