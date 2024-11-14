@@ -14,7 +14,7 @@
 
             {{-- post content --}}
             <div class="mt-1">
-                <a href="{{ getLocaleURL('/posts/' . $post->id) }}" class="text-reset text-decoration-none fs-5 fw-light lh-sm">
+                <a href="{{ getLocaleURL('/posts/' . $post->id) }}" class="d-block text-reset text-decoration-none fs-5 fw-light lh-sm">
                     {{ $post->content }}
                 </a>
 

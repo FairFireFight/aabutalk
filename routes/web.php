@@ -34,7 +34,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // general posts routes
     Route::get('/all', [PostController::class, 'all']);
-    Route::get('/posts/{post}', [PostController::class, 'show']);
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('post');
 
     Route::get("/load/posts/feed", [PostController::class, "loadPosts"]);
     Route::get("/load/posts/all", [PostController::class, "loadPosts"]);

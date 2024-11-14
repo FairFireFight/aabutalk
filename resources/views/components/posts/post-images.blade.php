@@ -4,33 +4,33 @@
 @if ($images)
     @switch(count($images))
         @case(1)
-            <div class="d-flex justify-content-center mx-auto mt-2 bg-body-secondary">
+            <a {{ request()->routeIs('post') ? '' : 'href=' . getLocaleURL('/posts/' . $post->id) }} class="d-flex justify-content-center mx-auto mt-2 bg-body-secondary">
                 <img src="{{ asset($images[0]) }}" alt="Post Image"
                      class="img-fluid" style="max-height: 32rem;">
-            </div>
+            </a>
             @break
         @default
-            <div id="post-images" class="carousel slide mt-2">
+            <div id="{{'images-' . $post->id}}" class="carousel slide mt-2">
                 <div class="carousel-inner">
-                    <!-- generated html goes in here-->
                     @foreach($images as $index => $image)
-
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                            <div class="container text-center d-flex justify-content-center align-items-center" style="height: 450px;">
+                            <a {{ request()->routeIs('post') ? '' : 'href=' . getLocaleURL('/posts/' . $post->id) }} class="container text-center d-flex justify-content-center align-items-center p-0" style="height: 450px;">
                                 <img src="{{ asset($image) }}" style="object-fit: contain; max-width: 100%" alt="Post Image">
-                            </div>
+                            </a>
                         </div>
-
                     @endforeach
 
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#post-images" data-bs-slide="prev">
-                        <span class="fs-1" aria-hidden="true"> &lt; </span>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#{{'images-' . $post->id}}" data-bs-slide="prev" style="width: 2.5rem">
+                        <span class="fs-5 rounded-circle bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
+                            <i class="bi bi-chevron-left position-absolute top-50 start-50 translate-middle"></i>
+                        </span>
                         <span class="visually-hidden">Previous</span>
                     </button>
 
-                    <button class="carousel-control-next" type="button" data-bs-target="#post-images" data-bs-slide="next">
-                        <span class="fs-1" aria-hidden="true"> &gt; </span>
+                    <button class="carousel-control-next" type="button" data-bs-target="#{{'images-' . $post->id}}" data-bs-slide="next" style="width: 2.5rem">
+                        <span class="fs-5 rounded-circle bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
+                            <i class="bi bi-chevron-right position-absolute top-50 start-50 translate-middle"></i>
+                        </span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>

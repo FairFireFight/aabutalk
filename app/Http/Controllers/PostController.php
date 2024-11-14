@@ -74,11 +74,7 @@ class PostController extends Controller
             $imagePaths = [];
 
             foreach ($files as $file) {
-                $path = $file->store('/images/uploads', ['disk' => 'public']);
-
-                $imageName = Str::substr($path, Str::position($path, '/') + 1);
-
-                $imagePaths[] = "storage/images/$imageName";
+                $imagePaths[] = $file->store('/images/uploads', ['disk' => 'public']);
             }
         }
 
