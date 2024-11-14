@@ -34,13 +34,19 @@
                                     <label>{{ __('auth.password_confirmation') }}</label>
                                     <input id="password_confirmation" type="password" class="form-control rounded-0"
                                            name="password_confirmation" minlength="6" placeholder="{{ __('auth.password_confirmation') }}" required/>
-                                    <p class="text-secondary">
+                                    <p class="text-secondary mb-2">
                                         {{ __('auth.password_desc') }}
                                     </p>
 
+                                    {{-- username input --}}
+                                    <label>{{ __('auth.username') }}</label>
+                                    <input id="username" type="text" class="form-control rounded-0" name="username"
+                                           placeholder="{{ __('auth.username') }}" required/>
+                                    <p class="text-secondary mb-3">{{ __('auth.username_desc') }}</p>
+
                                     <label>{{ __('auth.dropdown_label') }}</label>
                                     <select name="category" id="category" class="form-select rounded-0 mb-3" required>
-                                        <option value="0">{{ __('auth.please_select') }}</option>
+                                        <option value="">{{ __('auth.please_select') }}</option>
                                         <option value="professor">{{ __('auth.professor') }}</option>
                                         <option value="employee">{{ __('auth.employee') }}</option>
                                         <option value="business_owner">{{ __('auth.business_owner') }}</option>
@@ -48,7 +54,7 @@
                                     </select>
 
                                     <label>{{ __('auth.textarea_label') }}  </label>
-                                    <textarea class="form-control mb-3" required></textarea>
+                                    <textarea class="form-control mb-3" name="details" required></textarea>
                                 </div>
 
                                 {{-- submit button --}}

@@ -17,6 +17,14 @@ class AdminController extends Controller
         ]);
     }
 
+    // users
+    function users_index() {
+        return view('admin.users', [
+            'users' => User::all(),
+        ]);
+    }
+
+    // faculties
     function faculties_index() {
         return view('admin.faculties', [
             'faculties' => Faculty::all(),

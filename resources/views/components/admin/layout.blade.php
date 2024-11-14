@@ -44,10 +44,12 @@
                 <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Users</li>
                 <li><a href="/admin/dashboard/registration_requests" class="d-block text-decoration-none"><i class="bi bi-person-check fs-4 me-2"></i> Registration Requests</a></li>
                 <li><a href="/admin/dashboard/users" class="d-block text-decoration-none"><i class="bi bi-people fs-4 me-2"></i> Users</a></li>
+                <li><a href="/admin/dashboard/majors" class="d-block text-decoration-none"><i class="bi bi-mortarboard fs-4 me-2"></i> Majors</a></li>
 
                 <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Colleges & Faculties</li>
                 <li><a href="/admin/dashboard/faculties" class="d-block text-decoration-none"><i class="bi bi-buildings fs-4 me-2"></i> View All</a></li>
                 <li><a href="/admin/dashboard/faculties/create" class="d-block text-decoration-none"><i class="bi bi-building-add fs-4 me-2"></i> Create</a></li>
+
 
                 <li class="mt-auto">
                     <form action="/logout" method="POST">
