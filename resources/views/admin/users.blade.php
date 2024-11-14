@@ -1,10 +1,5 @@
 <x-admin.layout>
-    <div class="d-flex">
-        <h2 class="mb-3 me-auto">{{ $users->count() }} Faculty(s)</h2>
-        <div>
-            <a href="/admin/dashboard/faculties/create" class="btn btn-aabu px-4 rounded-pill mt-1">Create New</a>
-        </div>
-    </div>
+    <h2 class="mb-3 me-auto">{{ $users->count() }} Users</h2>
     <table class="table table-striped">
         <tr class="table-secondary">
             <th class="text-center">ID</th>

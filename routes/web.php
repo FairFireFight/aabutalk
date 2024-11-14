@@ -82,6 +82,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
     // user management routes
+    Route::get('/admin/dashboard/registration_requests', [AdminController::class, 'registration_requests']);
+    Route::post('/admin/dashboard/registration_requests/{registrationRequest}/approve', [RegistrationRequestController::class, 'approve']);
+    Route::delete('/admin/dashboard/registration_requests/{registrationRequest}/decline', [RegistrationRequestController::class, 'decline']);
+
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
 
     // faculty management routes

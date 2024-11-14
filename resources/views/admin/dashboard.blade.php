@@ -11,13 +11,13 @@
             <div class="px-3 py-1 rounded shadow-sm bg-aabu">
                 <div class="row gx-2">
                     <div class="col-3 text-center" style="font-size: 5rem; margin-top: -16px">
-                        0
+                        {{ $pending_count }}
                     </div>
                     <div class="col fs-4 text-center">
-                        <div class="h-100 d-flex align-items-center text-center pb-2">Unmanaged registration requests</div>
+                        <div class="h-100 d-flex align-items-center text-center pb-2">Pending registration requests</div>
                     </div>
                 </div>
-                <a href="/admin/registration_requests" class="d-block btn btn-outline-light px-3 py-1 rounded-pill mb-2" style="margin-top: -8px">View</a>
+                <a href="/admin/dashboard/registration_requests" class="d-block btn btn-outline-light px-3 py-1 rounded-pill mb-2" style="margin-top: -8px">View</a>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                         <div class="h-100 d-flex align-items-center text-center pb-2">Newly registered users in the last 24 hours</div>
                     </div>
                 </div>
-                <a href="/admin/users" class="d-block btn btn-outline-aabu px-3 py-1 rounded-pill mb-2" style="margin-top: -8px">View</a>
+                <a href="/admin/dashboard/users" class="d-block btn btn-outline-aabu px-3 py-1 rounded-pill mb-2" style="margin-top: -8px">View</a>
             </div>
         </div>
 
