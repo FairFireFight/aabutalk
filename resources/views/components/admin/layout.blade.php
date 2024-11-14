@@ -29,15 +29,40 @@
     </div>
 </div>
 
-<div class="bg-dark text-light fs-3 px-4 py-2 shadow-sm"><i class="bi bi-menu-button-wide"></i> Control Panel</div>
+{{-- site header --}}
+<div class="bg-dark text-light px-4 py-2 shadow-sm d-flex align-items-center">
+    <div class="fs-3"><i class="bi bi-menu-button-wide"></i> Control Panel</div>
+    <a class="ms-auto px-4 btn btn-outline-light rounded-pill" href="/">Go to Website</a>
+</div>
 
 <div class="row g-0" style="height: calc(100% - 58px)">
-    <div class="col-4 col-xl-3 col-xxl-2 bg-body-tertiary border-end">
+    <div class="col-4 col-xl-3 col-xxl-2 bg-body-tertiary border-end px-4 py-3">
+        <nav class="h-100">
+            <ul class="nav flex-column gap-2 h-100">
+                <li><a href="/admin/dashboard" class="d-block text-decoration-none"><i class="bi bi-house fs-4 me-2"></i> Dashboard</a></li>
 
+                <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Users</li>
+                <li><a href="/admin/registration_requests" class="d-block text-decoration-none"><i class="bi bi-person-check fs-4 me-2"></i> Registration Requests</a></li>
+                <li><a href="/admin/users" class="d-block text-decoration-none"><i class="bi bi-people fs-4 me-2"></i> Users</a></li>
+
+                <li class="text-secondary mt-3 pb-1 border-bottom fs-5">Colleges & Faculties</li>
+                <li><a href="/admin/faculties" class="d-block text-decoration-none"><i class="bi bi-buildings fs-4 me-2"></i> View All</a></li>
+                <li><a href="/admin/faculties/create" class="d-block text-decoration-none"><i class="bi bi-building-add fs-4 me-2"></i> Create</a></li>
+
+                <li class="mt-auto">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn link-primary rounded-pill p-0"><i class="bi bi-box-arrow-left fs-4 me-2"></i> Log Out</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </div>
+
     <div class="col">
         {{-- breadcrumbs nav div --}}
-        <div class="bg-body-secondary px-4 py-2 fs-5">
+        <div class="bg-body-tertiary px-4 py-2 fs-5 border-bottom">
             <nav>
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item text-capitalize">Admin</li>
@@ -55,7 +80,7 @@
         </div>
 
         {{-- main content --}}
-        <main class="px-4 py-2">
+        <main class="px-4 py-2 overflow-y-scroll" style="height:  calc(100vh - 105px)">
             {{ $slot }}
         </main>
     </div>

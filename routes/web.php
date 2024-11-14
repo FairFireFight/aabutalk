@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\CommentController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 // default route
@@ -79,9 +79,7 @@ Route::middleware('auth')->group(function () {
 
 // admin only routes
 Route::middleware('auth')->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 });
 
 // guest only routes
