@@ -8,7 +8,7 @@
             <div class="d-flex align-items-center">
                 <div>
                     <p class="fs-4 mb-0"><a href="#" class="text-decoration-none">{{ $post->user->username }}</a></p>
-                    <p class="text-secondary mb-0">Software Engineering</p>
+                    <p class="text-secondary mb-0">{{ $post->user->major() }}</p>
                 </div>
             </div>
 
