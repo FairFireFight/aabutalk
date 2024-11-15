@@ -38,5 +38,7 @@
             </tr>
         @endforeach
     </table>
+
+    {{ $registration_requests->links('pagination::bootstrap-5') }}
 </x-admin.layout>
 

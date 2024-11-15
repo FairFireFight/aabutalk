@@ -15,7 +15,7 @@
                     @foreach($images as $index => $image)
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                             <a {{ request()->routeIs('post') ? '' : 'href=' . getLocaleURL('/posts/' . $post->id) }} class="container text-center d-flex justify-content-center align-items-center p-0" style="height: 450px;">
-                                <img src="{{ asset($image) }}" style="object-fit: contain; max-width: 100%" alt="Post Image">
+                                <img src="{{ asset($image) }}" style="object-fit: contain; max-width: 100%; height: 100%" alt="Post Image">
                             </a>
                         </div>
                     @endforeach

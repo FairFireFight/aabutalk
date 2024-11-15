@@ -46,6 +46,8 @@ class RegistrationRequestController extends Controller
             'password' => $registrationRequest->password,
         ];
 
+        $attributes['permissions'] = '[]';
+
         User::create($attributes);
         // TODO: send email to user
 

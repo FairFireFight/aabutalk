@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
@@ -39,6 +40,8 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'unique:users,email', 'email'],
             'password' => ['required', 'confirmed', Password::min(6)]
         ]);
+
+        $attributes['permissions'] = Json::encode([]);
 
         $user = User::create($attributes);
 

@@ -88,6 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/dashboard/registration_requests/{registrationRequest}/decline', [RegistrationRequestController::class, 'decline']);
 
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
+    Route::get('/admin/dashboard/users/edit/{user}', [AdminController::class, 'users_edit']);
 
     // majors management routes
     Route::get('/admin/dashboard/majors', [AdminController::class, 'majors']);
