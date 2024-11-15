@@ -21,6 +21,16 @@
                         Access Control Panel
                     </label>
                 </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="moderator" value="true" id="moderator-check">
+                    <label class="form-check-label" for="moderator-check">
+                        Moderate Posts
+                    </label>
+                </div>
+
+                <div class="d-flex gap-3 mt-4">
+                    <button type="submit" class="btn btn-outline-aabu px-5 rounded-pill">Update</button>
+                </div>
             </form>
         </div>
         <div class="col">
