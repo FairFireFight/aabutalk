@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MajorController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
@@ -88,8 +89,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
 
-
+    // majors management routes
     Route::get('/admin/dashboard/majors', [AdminController::class, 'majors']);
+
+    Route::post('/admin/dashboard/majors', [MajorController::class, 'store']);
+    Route::put('/admin/dashboard/majors/{major}', [MajorController::class, 'update']);
+    Route::delete('/admin/dashboard/majors/{major}', [MajorController::class, 'destroy']);
 
     // faculty management routes
     Route::get('/admin/dashboard/faculties', [AdminController::class, 'faculties_index']);

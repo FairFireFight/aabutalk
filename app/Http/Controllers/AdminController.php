@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Faculty;
+use App\Models\Major;
 use App\Models\Post;
 use App\Models\RegistrationRequest;
 use App\Models\User;
@@ -29,13 +30,13 @@ class AdminController extends Controller
 
     function users_index() {
         return view('admin.users', [
-            'users' => User::all(),
+            'users' => User::all()->sortByDesc('created_at')->sortBy('email'),
         ]);
     }
 
     function majors() {
         return view('admin.majors', [
-
+            'majors' => Major::all(),
         ]);
     }
 
