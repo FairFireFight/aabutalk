@@ -79,7 +79,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // admin only routes
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
     // user management routes
@@ -89,6 +89,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
     Route::get('/admin/dashboard/users/edit/{user}', [AdminController::class, 'users_edit']);
+
+    Route::put('/admin/dashboard/users/edit/{user}', [RegisteredUserController::class, 'admin_update']);
 
     // majors management routes
     Route::get('/admin/dashboard/majors', [AdminController::class, 'majors']);

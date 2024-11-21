@@ -28,7 +28,14 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
 
         Gate::define('delete-comment', function (User $user, Comment $comment) {
-            return $user->id === $comment->user_id;
+            return $user->id === $comment->user_id
+                || $user->hasPermission('admin')
+                || $user->hasPermission('moderator');
+        });
+
+
+        Gate::define('admin', function (User $user) {
+            return $user->hasPermission('admin');
         });
     }
 }

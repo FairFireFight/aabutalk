@@ -49,4 +49,28 @@ class RegisteredUserController extends Controller
 
         return redirect($request->session()->get('return_url'));
     }
+
+    function admin_update(Request $request, User $user) {
+        $attributes = $request->validate([
+            'username' => ['required']
+        ]);
+
+        if ($request->has('admin')) {
+            $user->addPermission('admin');
+        } else {
+            $user->removePermission('admin');
+        }
+
+        if ($request->has('moderator')) {
+            $user->addPermission('moderator');
+        } else {
+            $user->removePermission('moderator');
+        }
+
+        $user->username = $attributes['username'];
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'User has been updated.');
+    }
  }

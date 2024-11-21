@@ -4,10 +4,12 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Eloquent;
+use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
@@ -83,5 +85,43 @@ class User extends Authenticatable
         }
 
         return '';
+    }
+
+    public function addPermission(string $permission): void {
+        $perms = Json::decode($this->permissions);
+
+        // check if user is already has the permission
+        if (in_array($permission, $perms)) {
+            return;
+        }
+
+        // add perm
+        $perms[] = $permission;
+
+        // update user
+        $this->permissions = Json::encode($perms);
+    }
+
+    public function removePermission(string $permission): void {
+        $perms = Json::decode($this->permissions);
+
+        // check if user doesn't have the permission
+        if (!in_array($permission, $perms)) {
+            return;
+        }
+
+        // remove perm
+        unset($perms[array_search($permission, $perms)]);
+
+        // reindex the array
+        $perms = array_values($perms);
+
+        // update user
+        $this->permissions = Json::encode($perms);
+    }
+
+    public function hasPermission(string $permission) : bool {
+        $perms = Json::decode($this->permissions);
+        return in_array($permission, $perms);
     }
 }
