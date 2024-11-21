@@ -23,7 +23,7 @@ class ForumController extends Controller
             'title' => 'Forum show',
             'lang' => $locale,
             'forum' => $forum,
-            'forumPosts' => $forum->posts
+            'forumPosts' => $forum->posts->sortDesc()
         ]);
     }
 }

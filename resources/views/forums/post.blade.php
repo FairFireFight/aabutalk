@@ -1,5 +1,14 @@
 @push('styles')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
     <style>
+        .post-content * {
+            cursor: default;
+        }
+
+        .post-content a {
+            cursor: pointer;
+        }
+
         .post-content h1, .post-content h2, .post-content h3 {
             font-family: "Times New Roman", serif;
         }
@@ -10,6 +19,7 @@
 
         .post-content img {
             border-radius: 8px;
+            max-width: 100%;
         }
     </style>
 @endpush
@@ -30,7 +40,7 @@
                 </div>
             </div>
             {{-- post content --}}
-            <div class="post-content">{!! $post->content !!}</div>
+            <div class="post-content ql-editor">{!! $post->content !!}</div>
         </div>
 
         {{-- comment form --}}
