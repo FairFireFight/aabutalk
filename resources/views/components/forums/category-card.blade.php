@@ -3,7 +3,7 @@
         <a href="{{ getLocaleURL('/forums/' . $forum->id) }}" class="fs-4 mb-1 text-reset stretched-link text-decoration-none">{{ $forum->faculty->name() }}</a>
     </div>
     <div class="text-end">
-        <span class="badge rounded-pill px-3 bg-aabu">20 {{ __('common.posts_plural_ar') }}</span>
+        <span class="badge rounded-pill px-3 bg-aabu">{{ $forum->postsLast7Days() . ' ' . __('common.posts_plural_ar') }}</span>
         <br>
         <span class="text-secondary">{{ __('forums.last_days', ['days' => 7]) }}</span>
     </div>

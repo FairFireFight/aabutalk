@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    const PAGINATE_SIZE = 5;
+    const PAGINATE_SIZE = 8;
 
     function index($locale) {
         return view('posts.feed', [

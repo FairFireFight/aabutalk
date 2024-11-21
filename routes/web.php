@@ -31,7 +31,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/forums', [ForumController::class, 'index']);
     Route::get('/forums/{forum}', [ForumController::class, 'show']);
 
-    Route::get('/forums/{forum}/{post}', [ForumPostController::class, 'show']);
+    Route::get('/forums/{forum}/posts/{post}', [ForumPostController::class, 'show']);
 
     // general posts routes
     Route::get('/all', [PostController::class, 'all']);
@@ -57,6 +57,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     // auth only routes
     Route::middleware('auth')->group(function () {
         Route::get('/feed', [PostController::class, 'index']);
+
+        Route::get('/forums/{forum}/create', [ForumPostController::class, 'create']);
     });
 });
 
@@ -76,6 +78,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
     Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->middleware('can:delete-comment,comment');
+
+    Route::post('/forums/{forum}/create', [ForumPostController::class, 'store']);
 });
 
 // admin only routes
