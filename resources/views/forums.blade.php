@@ -6,9 +6,9 @@
         </div>
         <div id="forums-container">
             {{-- all forum categories go here --}}
-            @for($i = 0; $i <= 10; $i++)
-                <x-forums.category-card />
-            @endfor
+            @foreach($forums as $forum)
+                <x-forums.category-card :forum="$forum" />
+            @endforeach
         </div>
     </x-forums.layout>
 </x-layout>

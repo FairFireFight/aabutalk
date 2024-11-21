@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Forum;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -10,17 +11,18 @@ class ForumController extends Controller
     function index($locale) {
         return view('forums', [
                 'title' => 'Forums',
-                'lang' => $locale
+                'lang' => $locale,
+                'forums' => Forum::all()
             ]
         );
     }
 
     // view a forum and its posts
-    function show($locale, $forum) {
+    function show($locale, Forum $forum) {
         return view('forum', [
             'title' => 'Forum show',
-            'header' => $forum,
-            'lang' => $locale
+            'lang' => $locale,
+            'forum' => $forum
         ]);
     }
 }

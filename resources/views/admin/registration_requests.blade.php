@@ -19,7 +19,7 @@
                 <td class="text-capitalize">{{ $registration_request->category }}</td>
                 <td>{{ $registration_request->details }}</td>
                 <td class="text-capitalize">{{ $registration_request->status }}</td>
-                <td>{{ $registration_request->created_at->diffForHumans() }}</td>
+                <td><abbr title="{{ $registration_request->created_at->toDayDateTimeString() }}">{{ $registration_request->created_at->diffForHumans() }}</abbr></td>
                 <td style="width: 220px">
                     @if($registration_request->status === 'pending')
                         <form class="d-inline" action="/admin/dashboard/registration_requests/{{$registration_request->id}}/approve" method="POST">

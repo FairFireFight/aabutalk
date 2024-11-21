@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use App\Models\Faculty;
+use App\Models\Forum;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,10 @@ class FacultyController extends Controller
         Board::create([
             'faculty_id' => $faculty->id,
             'user_ids' => Json::encode([Auth::user()->id]),
+        ]);
+
+        Forum::create([
+            'faculty_id' => $faculty->id,
         ]);
 
         return redirect('/admin/dashboard/faculties/edit/' . $faculty->id);
