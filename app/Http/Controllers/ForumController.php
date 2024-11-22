@@ -20,7 +20,7 @@ class ForumController extends Controller
     // view a forum and its posts
     function show($locale, Forum $forum) {
         return view('forums.forum', [
-            'title' => 'Forum show',
+            'title' => 'Forum',
             'lang' => $locale,
             'forum' => $forum,
             'forumPosts' => $forum->posts->sortDesc()

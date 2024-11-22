@@ -5,7 +5,7 @@
         <p class="m-0">{{ __('common.by') }} <a class="text-decoration-none" href="#">{{ $post->user->username }}</a></p>
     </div>
     <div class="text-end text-secondary">
-        <span>27 {{ __('common.comments') }}</span>
+        <span>{{ $post->comments->count() . ' ' . __('common.comments') }}</span>
         <br>
         <span title="{{ $post->created_at->toDayDateTimeString() }}">{{ $post->created_at->diffForHumans() }}</span>
     </div>
