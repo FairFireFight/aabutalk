@@ -5,6 +5,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ForumPostCommentController;
 use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MajorController;
@@ -80,6 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->middleware('can:delete-comment,comment');
 
     Route::post('/forums/{forum}/create', [ForumPostController::class, 'store']);
+    Route::post('/forums/{forum}/posts/{post}/comment', [ForumPostCommentController::class, 'store']);
 });
 
 // admin only routes

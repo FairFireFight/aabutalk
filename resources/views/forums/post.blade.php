@@ -45,7 +45,7 @@
 
         {{-- comment form --}}
         <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-2">
-            <form class="position-relative" action="{{ getLocaleURL("/forums/forumId/postId") }}" method="POST">
+            <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
                 @csrf
                 <textarea class="form-control" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
@@ -57,12 +57,12 @@
 
         {{-- comments --}}
         <div>
-            <h3>4 {{__('common.comments')}}</h3>
+            <h3>{{ $post->comments->count() . ' ' .  __('common.comments')}}</h3>
             {{-- container --}}
             <div>
-                @for($i = 1; $i <= 4; $i++)
-                    <x-forums.comment></x-forums.comment>
-                @endfor
+                @foreach($post->comments->sortDesc() as $comment)
+                    <x-forums.comment :comment="$comment"/>
+                @endforeach
             </div>
         </div>
     </x-forums.layout>
