@@ -22,4 +22,10 @@ class ForumPostCommentController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Forum $forum, ForumPost $post, ForumPostComment $comment) {
+        $comment->delete();
+
+        return redirect()->back();
+    }
 }

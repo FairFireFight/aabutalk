@@ -82,6 +82,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/forums/{forum}/create', [ForumPostController::class, 'store']);
     Route::post('/forums/{forum}/posts/{post}/comment', [ForumPostCommentController::class, 'store']);
+
+    Route::delete('/forums/{forum}/posts/{post}/comment/{comment}', [ForumPostCommentController::class, 'destroy']);
 });
 
 // admin only routes

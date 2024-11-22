@@ -40,7 +40,7 @@
                 </div>
             </div>
             {{-- post content --}}
-            <div class="post-content ql-editor">{!! $post->content !!}</div>
+            <div class="post-content ql-editor p-0">{!! $post->content !!}</div>
         </div>
 
         {{-- comment form --}}
