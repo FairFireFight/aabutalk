@@ -1,27 +1,6 @@
 @push('styles')
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-    <style>
-        .post-content * {
-            cursor: default;
-        }
-
-        .post-content a {
-            cursor: pointer;
-        }
-
-        .post-content h1, .post-content h2, .post-content h3 {
-            font-family: "Times New Roman", serif;
-        }
-
-        .post-content p, .post-content h1, .post-content h2, .post-content h3 {
-            margin-bottom: 8px;
-        }
-
-        .post-content img {
-            border-radius: 8px;
-            max-width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/ql-render.css') }}">
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
@@ -47,7 +26,7 @@
         <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-2">
             <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
                 @csrf
-                <textarea class="form-control" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
+                <textarea class="form-control fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                     oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
                 <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-pill position-absolute bottom-0 end-0 me-2 mb-2">
                     {{ __('common.post_verb') }}

@@ -3,13 +3,13 @@
         <div class="d-flex flex-column align-items-center text-center border-end pe-3">
             <img class="pfp-100 rounded" src="https://placehold.co/100x100" alt="Profile Image">
             <a href="#">{{ $comment->user->username }}</a>
-            <span class="text-secondary">{{ $comment->user->major() }}</span>
+            <span class="text-secondary" style="font-size: 0.75rem">{{ $comment->user->major() }}</span>
         </div>
 
         <div class="d-flex flex-column justify-content-between w-100">
             {{-- comment content --}}
             <div>
-                <p>{{ $comment->content }}</p>
+                <p class="fs-5">{{ $comment->content }}</p>
             </div>
             <div class="mb-0 d-flex w-100 justify-content-end text-secondary align-items-center gap-2">
                 @can('delete-forum-comment', $comment)
