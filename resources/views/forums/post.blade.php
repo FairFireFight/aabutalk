@@ -8,7 +8,7 @@
     <x-forums.layout :pinned-posts="$pinnedPosts" header="
         <div class='d-flex justify-content-between align-items-center'>
             <span class='font-serif'>{{ $post->forum->faculty->name() }}</span>
-            <a class='btn btn-aabu px-4 rounded-pill' href='{{ getLocaleURL('/forums/' . $post->forum->id) }}'>Back</a>
+            <a class='btn btn-aabu px-4 rounded-pill' href='{{ getLocaleURL('/forums/' . $post->forum->id) }}'>{{ __('common.back') }}</a>
         </div>
     ">
         @if(session('success-pin'))
@@ -44,9 +44,10 @@
             <div class="post-content ql-editor p-0">{!! $post->content !!}</div>
         </div>
 
+        <h3>{{ $post->comments->count() . ' ' .  __('common.comments')}}</h3>
         {{-- comment form --}}
         @auth
-            <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-2">
+            <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-3">
                 <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
                     @csrf
                     <textarea class="form-control fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
@@ -58,15 +59,11 @@
             </div>
         @endauth
 
-        {{-- comments --}}
+        {{-- comments container --}}
         <div>
-            <h3>{{ $post->comments->count() . ' ' .  __('common.comments')}}</h3>
-            {{-- container --}}
-            <div>
-                @foreach($post->comments->sortDesc() as $comment)
-                    <x-forums.comment :comment="$comment"/>
-                @endforeach
-            </div>
+            @foreach($post->comments->sortDesc() as $comment)
+                <x-forums.comment :comment="$comment"/>
+            @endforeach
         </div>
     </x-forums.layout>
 </x-layout>

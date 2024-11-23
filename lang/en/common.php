@@ -24,4 +24,6 @@ return [
     'placeholder_thoughts' => 'Share your thoughts',
     'no_comments' => 'No Comments',
     'delete' => 'Delete',
+
+    'back' => 'Back'
 ];
