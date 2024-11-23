@@ -48,8 +48,11 @@
                             <i class="bi bi-globe me-1"></i> {{ __('common.language') }}
                         </a>
                     </li>
-                    <hr class="my-1">
-                    <li class="nav-item"><a href="/admin/dashboard" class="nav-link text-body" target="_blank"><i class="bi bi-speedometer2 me-1"></i> Admin</a></li>
+                    
+                    @can('admin')
+                        <hr class="my-1">
+                        <li class="nav-item"><a href="/admin/dashboard" class="nav-link text-body" target="_blank"><i class="bi bi-speedometer2 me-1"></i> Admin</a></li>
+                    @endcan
                 </ul>
             </div>
         </div>
