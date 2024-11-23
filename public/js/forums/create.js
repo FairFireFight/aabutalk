@@ -16,6 +16,7 @@ $( document ).ready(function() {
     });
 
     const submitButton = document.getElementById('submit-button');
+    const submitButtonContent = submitButton.innerHTML;
 
     submitButton.addEventListener('click', () => {
         if (! validateForm()) {
@@ -52,6 +53,9 @@ $( document ).ready(function() {
     }
 
     function submitForm() {
+        submitButton.innerHTML = '<div class="spinner-border m-0"></div>';
+        submitButton.classList.add('disabled')
+
         $.ajax({
             url: window.location.pathname.substring(3),
             type: 'POST',
@@ -69,6 +73,11 @@ $( document ).ready(function() {
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
+
+                submitButton.innerHTML = submitButtonContent;
+                submitButton.classList.remove('disabled')
+
+                alert('Something went wrong while submitting...')
             }
         });
     }

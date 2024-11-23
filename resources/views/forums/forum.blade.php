@@ -12,6 +12,8 @@
             @foreach($forumPosts as $forumPost)
                 <x-forums.post-card :post="$forumPost"/>
             @endforeach
+
+            {{ $forumPosts->links('pagination::simple-bootstrap-5') }}
         </div>
     </x-forums.layout>
 </x-layout>

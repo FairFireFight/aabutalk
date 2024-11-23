@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Forum;
+use App\Models\ForumPost;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -23,7 +24,9 @@ class ForumController extends Controller
             'title' => 'Forum',
             'lang' => $locale,
             'forum' => $forum,
-            'forumPosts' => $forum->posts->sortDesc()
+            'forumPosts' => ForumPost::where('forum_id', '=', $forum->id)
+                ->orderByDesc('created_at')
+                ->simplePaginate(50)
         ]);
     }
 }
