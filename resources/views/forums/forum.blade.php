@@ -1,5 +1,5 @@
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
-    <x-forums.layout header="{{ $forum->faculty->name() }}">
+    <x-forums.layout header="{{ $forum->faculty->name() }}" :pinned-posts="$pinnedPosts">
         <div class="d-flex mb-2 justify-content-between">
             <span class="fs-4">{{ $forum->postsLast7Days() . ' ' . __('common.posts_plural_ar') }} <span
                     class="fs-6 text-secondary">{{ __('forums.last_days', ['days' => 7]) }}</span></span>

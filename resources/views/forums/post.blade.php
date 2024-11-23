@@ -5,12 +5,18 @@
 
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
     {{-- horrible hack --}}
-    <x-forums.layout header="
+    <x-forums.layout :pinned-posts="$pinnedPosts" header="
         <div class='d-flex justify-content-between align-items-center'>
             <span class='font-serif'>{{ $post->forum->faculty->name() }}</span>
             <a class='btn btn-aabu px-4 rounded-pill' href='{{ getLocaleURL('/forums/' . $post->forum->id) }}'>Back</a>
         </div>
     ">
+        @if(session('success-pin'))
+            <div class="alert alert-success rounded-0 fw-semibold">
+                {{ session('success-pin') }}
+            </div>
+        @endif
+
         {{-- post --}}
         <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-3">
             {{-- post title and pfp --}}
@@ -25,6 +31,13 @@
                     @can('delete-forum-post', $post)
                         <x-delete-button action="{{ '/forums/' . $post->forum->id . '/posts/' . $post->id }}" />
                     @endcan
+
+                    @canany(['admin', 'moderator'])
+                        <form action="{{ '/forums/' . $post->forum->id . '/posts/' . $post->id . '/pin' }}" method="POST">
+                            @csrf
+                            <button class="btn p-0 text-info-emphasis" type="submit"><i class="bi-pin-angle fs-5"></i> {{ $post->pinned ? 'Unpin' : 'Pin' }}</button>
+                        </form>
+                    @endcanany
                 </div>
             </div>
             {{-- post content --}}

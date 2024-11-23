@@ -1,5 +1,5 @@
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
-    <x-forums.layout header="Forums">
+    <x-forums.layout :pinned-posts="$pinnedPosts" header="Forums">
         <div class="d-flex mb-2 justify-content-between text-body-secondary">
             <h5>{{ __('common.header_colleges') }}</h5>
             <h5>{{ __('common.posts') }}</h5>

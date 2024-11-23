@@ -97,6 +97,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/forums/{forum}/posts/{post}', [ForumPostController::class, 'destroy'])
     ->middleware('can:delete-forum-post,post');
 
+    Route::post('/forums/{forum}/posts/{post}/pin', [ForumPostController::class, 'pin']);
+
     Route::post('/forums/{forum}/posts/{post}/comment', [ForumPostCommentController::class, 'store']);
 
     Route::delete('/forums/{forum}/posts/{post}/comment/{comment}', [ForumPostCommentController::class, 'destroy'])

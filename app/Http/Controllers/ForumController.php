@@ -13,6 +13,10 @@ class ForumController extends Controller
         return view('forums.forums', [
                 'title' => 'Forums',
                 'lang' => $locale,
+                'pinnedPosts' =>
+                    ForumPost::where('pinned', '=', 1)
+                    ->orderByDesc('updated_at')
+                    ->limit(6)->get(),
                 'forums' => Forum::all()
             ]
         );
@@ -24,7 +28,13 @@ class ForumController extends Controller
             'title' => 'Forum',
             'lang' => $locale,
             'forum' => $forum,
-            'forumPosts' => ForumPost::where('forum_id', '=', $forum->id)
+            'pinnedPosts' =>
+                ForumPost::where('forum_id', '=', $forum->id)
+                ->where('pinned', '=', 1)
+                ->orderByDesc('updated_at')
+                ->limit(6)->get(),
+            'forumPosts' =>
+                ForumPost::where('forum_id', '=', $forum->id)
                 ->orderByDesc('created_at')
                 ->simplePaginate(50)
         ]);

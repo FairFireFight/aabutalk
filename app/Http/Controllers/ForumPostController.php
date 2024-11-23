@@ -18,14 +18,22 @@ class ForumPostController extends Controller
                 'title' => 'Forum Post',
                 'locale' => $locale,
                 'forum' => $forum,
-                'post' => $post
+                'pinnedPosts' => ForumPost::where('forum_id', '=', $forum->id)
+                    ->where('pinned', '=', 1)
+                    ->orderByDesc('updated_at')
+                    ->limit(6)->get(),
+                'post' => $post,
             ]
         );
     }
 
-    function create($locale) {
+    function create($locale, Forum $forum) {
         return view('forums.create', [
             'title' => 'Create Forum Post',
+            'pinnedPosts' => ForumPost::where('forum_id', '=', $forum->id)
+                ->where('pinned', '=', 1)
+                ->orderByDesc('updated_at')
+                ->limit(6)->get(),
             'locale' => $locale,
         ]);
     }
@@ -50,6 +58,17 @@ class ForumPostController extends Controller
         return Json::encode([
             'redirect' => getLocaleURL('/forums/' . $forum->id . '/posts/' . $post->id)
         ]);
+    }
+
+    function pin(Forum $forum, ForumPost $post) {
+        $post->pinned = ! $post->pinned;
+
+        $post->save();
+
+        if ($post->pinned) {
+            return redirect()->back()->with('success-pin', 'Post pinned successfully!');
+        }
+        return redirect()->back()->with('success-pin', 'Post unpinned successfully!');
     }
 
     function destroy(Forum $forum, ForumPost $post) {

@@ -25,9 +25,9 @@
 
             <h4 class="bg-body-tertiary py-2 px-3 mb-2"><i class="bi bi-pin-angle text-danger"></i> {{ __('forums.posts_pinned') }}</h4>
             <div id="pinned-container">
-                @for($i = 0; $i <= 5; $i++)
-                    <x-forums.pinned-post/>
-                @endfor
+                @foreach($pinnedPosts as $post)
+                    <x-forums.pinned-post :post="$post"/>
+                @endforeach
             </div>
         </div>
     </div>

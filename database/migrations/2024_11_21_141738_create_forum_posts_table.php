@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Forum::class);
             $table->string('title');
             $table->string('content');
+            $table->boolean('pinned')->default(false);
             $table->timestamps();
         });
     }
