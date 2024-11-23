@@ -7,6 +7,7 @@ use App\Rules\AtLeastOne;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -84,5 +85,13 @@ class PostController extends Controller
         ]);
 
         return redirect(getLocaleURL("/posts/$post->id"));
+    }
+
+    function destroy(Post $post) {
+        $return_url = explode('/', URL::previousPath());
+
+        $post->delete();
+
+        return redirect('/' . $return_url[1] . '/feed');
     }
 }

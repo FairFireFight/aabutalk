@@ -80,16 +80,27 @@ Route::post('/login', [SessionController::class, 'store']);
 Route::middleware('auth')->group(function () {
     Route::delete('/logout', [SessionController::class, 'destroy']);
 
+    // general posts routes
     Route::post('/posts', [PostController::class, 'store']);
+    Route::delete('/posts/{post}', [PostController::class, 'destroy']);
+
+
     Route::post("/posts/{post}/like", [LikeController::class, "store"]);
 
     Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
-    Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])->middleware('can:delete-comment,comment');
+    Route::delete('/posts/{post}/comments/{comment}', [CommentController::class, 'destroy'])
+        ->middleware('can:delete-comment,comment');
 
+    // forum routes
     Route::post('/forums/{forum}/create', [ForumPostController::class, 'store']);
+
+    Route::delete('/forums/{forum}/posts/{post}', [ForumPostController::class, 'destroy'])
+    ->middleware('can:delete-forum-post,post');
+
     Route::post('/forums/{forum}/posts/{post}/comment', [ForumPostCommentController::class, 'store']);
 
-    Route::delete('/forums/{forum}/posts/{post}/comment/{comment}', [ForumPostCommentController::class, 'destroy']);
+    Route::delete('/forums/{forum}/posts/{post}/comment/{comment}', [ForumPostCommentController::class, 'destroy'])
+        ->middleware('can:delete-forum-comment,comment');
 });
 
 // admin only routes

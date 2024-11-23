@@ -5,11 +5,7 @@
             <a href="#" class="text-decoration-none fs-4 m-0">{{ $comment->user->username }}</a>
             <div class="d-flex align-items-center gap-2">
                 @can('delete-comment', $comment)
-                    <form action="{{ '/posts/' . $comment->post->id . '/comments/' . $comment->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn fs-5 text-danger rounded-pill py-0 px-0"><i class="bi bi-trash"></i></button>
-                    </form>
+                    <x-delete-button action="{{ '/posts/' . $comment->post->id . '/comments/' . $comment->id }}" />
                 @endcan
 
                 <span class="text-secondary">{{ $comment->created_at->diffForHumans() }}</span>

@@ -43,21 +43,28 @@
                 <div class="d-flex py-2 border-bottom align-items-end">
                     <h2 class="font-serif me-auto mb-0">{{ "$commentsCount " . __('common.comments') }}</h2>
 
-                    @auth
-                        @php
-                            $liked = Auth::user()->likesPost($post);
-                        @endphp
+                    <div class="d-flex gap-2">
+                        @auth
+                            @php
+                                $liked = Auth::user()->likesPost($post);
+                            @endphp
 
-                        <button onclick="likePost(this)" id="{{ $post->id }}"
-                                class="btn {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 my-1 px-4 rounded-pill">
-                            {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
-                        </button>
-                    @endauth
-                    @guest
-                        <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill" disabled>
-                            {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
-                        </button>
-                    @endguest
+                            <button onclick="likePost(this)" id="{{ $post->id }}"
+                                    class="btn {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 my-1 px-4 rounded-pill">
+                                    {{ $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
+                            </button>
+                        @endauth
+
+                        @guest
+                            <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill" disabled>
+                                {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
+                            </button>
+                        @endguest
+
+                        @can('delete-post', $post)
+                            <x-delete-button action="{{ '/posts/' . $post->id }}" />
+                        @endcan
+                    </div>
                 </div>
 
                 {{-- comment form --}}
