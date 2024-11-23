@@ -4,7 +4,13 @@
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
-    <x-forums.layout header="{{ $forum->faculty->name() }}">
+    {{-- horrible hack --}}
+    <x-forums.layout header="
+        <div class='d-flex justify-content-between align-items-center'>
+            <span class='font-serif'>{{ $post->forum->faculty->name() }}</span>
+            <a class='btn btn-aabu px-4 rounded-pill' href='{{ getLocaleURL('/forums/' . $post->forum->id) }}'>Back</a>
+        </div>
+    ">
         {{-- post --}}
         <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-3">
             {{-- post title and pfp --}}
@@ -23,16 +29,18 @@
         </div>
 
         {{-- comment form --}}
-        <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-2">
-            <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
-                @csrf
-                <textarea class="form-control fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
-                    oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
-                <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-pill position-absolute bottom-0 end-0 me-2 mb-2">
-                    {{ __('common.post_verb') }}
-                </button>
-            </form>
-        </div>
+        @auth
+            <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-2">
+                <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
+                    @csrf
+                    <textarea class="form-control fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
+                        oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
+                    <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-pill position-absolute bottom-0 end-0 me-2 mb-2">
+                        {{ __('common.post_verb') }}
+                    </button>
+                </form>
+            </div>
+        @endauth
 
         {{-- comments --}}
         <div>
