@@ -25,5 +25,6 @@ return [
     'no_comments' => 'No Comments',
     'delete' => 'Delete',
 
-    'back' => 'Back'
+    'back' => 'Back',
+    'my_account' => 'Account',
 ];

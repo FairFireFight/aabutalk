@@ -2,6 +2,8 @@
     <form action="/logout" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-outline-light rounded-pill px-4">Log Out</button>
+        <button type="submit" class="btn btn-sm btn-outline-light rounded-pill px-4">
+            <i class="bi bi-box-arrow-left me-1"></i> {{ __('common.logout') }}
+        </button>
     </form>
 </div>

@@ -26,4 +26,5 @@ return [
     'delete' => 'حذف',
 
     'back' => 'رجوع',
+    'my_account' => 'حسابي',
 ];

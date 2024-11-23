@@ -6,6 +6,9 @@
     width: 220px;
 
     z-index: 10;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 html[dir="rtl"] .sidebar {
@@ -20,38 +23,11 @@ html[dir="ltr"] .sidebar {
 
 .nav-link {
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-}
 
-.scroll-text {
-    display: inline-block;
-}
+    padding-top: 10px;
+    padding-bottom: 10px;
 
-html[dir=ltr] .nav-link:hover .scroll-text {
-    animation: scrollTextLTR 1s linear forwards;
-}
-
-html[dir=rtl] .nav-link:hover .scroll-text {
-    animation: scrollTextRTL 3s linear forwards;
-}
-
-@keyframes scrollTextLTR {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(100% - 300px));
-    }
-}
-
-@keyframes scrollTextRTL {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(300px - 100%));
-    }
+    line-height: 1.1rem;
 }
 
 @media (max-width: 991px) {
