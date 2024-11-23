@@ -34,6 +34,12 @@ class ForumPostController extends Controller
             'content' => 'required'
         ]);
 
+        // remove <script> tags from input
+        $attributes['content'] = preg_replace(
+            '/<script\b[^>]*>.*?<\/script>/is',
+            '', $attributes['content']
+        );
+
         $attributes['user_id'] = Auth::user()->id;
         $attributes['forum_id'] = $forum->id;
 
