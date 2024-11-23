@@ -13,6 +13,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 // default route
@@ -44,12 +45,17 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     // board routes
     Route::get('/boards/{board}', [BoardController::class, 'show']);
 
-
-
     // guest only routes
     Route::middleware('guest')->group(function () {
         Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
         Route::get('/register/request', [RegistrationRequestController::class, 'create']);
+        Route::get('/register/request/sent', function ($locale) {
+            return view('auth.request-sent', [
+                'locale' => $locale,
+                'title' => 'Request Sent'
+            ]);
+        });
+
 
         Route::get('/login', [SessionController::class, 'create'])->name('login');
         Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
@@ -126,3 +132,5 @@ Route::middleware('guest')->group(function () {
     // to fix a REALLY ANNOYING bug with laravel
     Route::get('/login', [SessionController::class, 'create'])->name('login');
 });
+
+

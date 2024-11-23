@@ -50,6 +50,9 @@ return [
     'email_address' => 'Email Address',
 
     'registration_request_header' => 'Registration Request for Non-Students',
+    'request_sent' => 'Request submitted, that is all for now.',
+    'request_sent_body' => 'We\'ll send you an email when your request gets processed.',
+    'meantime' => 'In the meantime, you can ',
     'submit_application' => 'Submit Application',
 
     // drop down localizations

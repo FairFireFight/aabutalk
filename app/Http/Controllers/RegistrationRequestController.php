@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Validation\Rules\Password;
 
 class RegistrationRequestController extends Controller
@@ -30,8 +31,7 @@ class RegistrationRequestController extends Controller
 
         RegistrationRequest::create($attributes);
 
-        // TODO: create confirmation page
-        dd($request->all());
+        return redirect(getLocaleURL('/register/request/sent'));
     }
 
     function approve(RegistrationRequest $registrationRequest) {

@@ -34,6 +34,9 @@ return [
     'email_address' => 'عنوان البريد الالكتروني',
 
     'registration_request_header' => 'طلب التسجيل لغير طلاب الجامعة',
+    'request_sent' => 'تم إرسال الطلب.',
+    'request_sent_body' => 'سنرسل لك بريد ايلكتروني عند انتهاء تحليل طلبك.',
+    'meantime' => 'في الوقت الحالي, تستطيع ',
     'submit_application' => 'ارسال الطلب',
 
     // drop down localizations
