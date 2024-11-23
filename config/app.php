@@ -93,7 +93,7 @@ return [
     disable when using localhost
     |--------------------------------------------------------------------------
     */
-    //'asset_url' => env('ASSET_URL', 'https://qx8hrssvny.sharedwithexpose.com'),
+    'asset_url' => env('ASSET_URL', 'https://qo35hthzqd.sharedwithexpose.com/'),
     /*
     |--------------------------------------------------------------------------
     */

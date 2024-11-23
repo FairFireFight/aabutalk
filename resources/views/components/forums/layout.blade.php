@@ -11,7 +11,7 @@
 <div class="row">
     {{-- main column --}}
     <div class="col col-lg-8">
-        <main class="h-100">
+        <main>
             {{ $slot }}
         </main>
     </div>
