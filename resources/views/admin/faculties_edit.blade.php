@@ -26,6 +26,16 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger px-4 rounded-pill mt-3">Delete</button>
             </form>
+
+            <h4 class="text-secondary my-3 pb-2 border-bottom">Access Permissions</h4>
+
+            <form action="/admin/dashboard/boards/edit/{{ $faculty->board->id }}" method="POST">
+                @csrf
+                @method('PUT')
+                <label for="user_ids">Enter a list of User ID's who are able to manage this faculty's board, seperated by commas</label>
+                <input id="user_ids" type="text" class="form-control rounded-0 mb-3" placeholder="E.g. 118, 68, 721, 321..." name="user_ids" value="{{ $faculty->board->userIdsCSV() }}">
+                <button type="submit" class="btn btn-aabu px-5 rounded-pill">Save</button>
+            </form>
         </div>
         <div class="col-3">
             <div class="alert alert-warning">

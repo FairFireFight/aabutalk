@@ -119,6 +119,9 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
         return redirect('/admin/dashboard/faculties');
     });
 
+    // board management routes
+    Route::put('/admin/dashboard/boards/edit/{board}', [BoardController::class, 'update']);
+
     Route::get('/admin/dashboard/faculties/create', [AdminController::class, 'faculties_create']);
     Route::post('/admin/dashboard/faculties', [FacultyController::class, 'store']);
 
