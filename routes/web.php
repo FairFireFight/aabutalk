@@ -20,12 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 // default route
 Route::get('/', function () {
-    return view('boards.board', [
-            'title' => 'Home',
-            'lang' => 'en',
-            'board' => Board::findOrFail(0)
-        ]
-    );
+    return redirect('/en/');
 });
 
 // group routes to always start with /{locale}/
@@ -119,6 +114,9 @@ Route::middleware('auth')->group(function () {
 
 // admin only routes
 Route::middleware(['auth', 'can:admin'])->group(function () {
+    Route::get('/admin', function() {
+        return redirect('/admin/dashboard');
+    });
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
 
     // user management routes

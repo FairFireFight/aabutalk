@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Board;
+use App\Models\ForumPost;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,8 +16,11 @@ return new class extends Migration
     {
         Schema::create('board_posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Board::class);
+
+            $table->foreignIdFor(User::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(Board::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(ForumPost::class)->constrained()->nullOnDelete();
+
             $table->string('title');
             $table->string('content');
             $table->boolean('featured')->default(false);
