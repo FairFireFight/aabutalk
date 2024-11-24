@@ -54,8 +54,12 @@ class FacultyController extends Controller
     }
 
     function destroy(Faculty $faculty) {
-        $faculty->delete();
+        // not allowed to delete faculty 0
+        if ($faculty->id == 0) {
+            return redirect('/admin/dashboard/faculties');
+        }
 
+        $faculty->delete();
         return redirect('/admin/dashboard/faculties');
     }
 }

@@ -21,11 +21,13 @@
 
                 <button type="submit" class="btn btn-aabu px-5 rounded-pill">Update Details</button>
             </form>
-            <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger px-4 rounded-pill mt-3">Delete</button>
-            </form>
+            @if($faculty->id != 0)
+                <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger px-4 rounded-pill mt-3">Delete</button>
+                </form>
+            @endif
 
             <h4 class="text-secondary my-3 pb-2 border-bottom">Access Permissions</h4>
 

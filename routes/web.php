@@ -13,14 +13,16 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+use App\Models\Board;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 // default route
 Route::get('/', function () {
-    return view('home', [
+    return view('boards.board', [
             'title' => 'Home',
-            'lang' => 'en'
+            'lang' => 'en',
+            'board' => Board::findOrFail(0)
         ]
     );
 });
