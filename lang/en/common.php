@@ -26,5 +26,5 @@ return [
     'delete' => 'Delete',
 
     'back' => 'Back',
-    'my_account' => 'Account',
+    'my_account' => 'My Account',
 ];
