@@ -19,7 +19,7 @@ return new class extends Migration
 
             $table->foreignIdFor(User::class)->constrained()->nullOnDelete();
             $table->foreignIdFor(Board::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(ForumPost::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(ForumPost::class)->nullable()->constrained()->nullOnDelete();
 
             $table->string('title');
             $table->string('content');

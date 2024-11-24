@@ -66,6 +66,10 @@
                 @foreach($posts as $post)
                     <hr class="mt-3 mb-2">
                     <x-boards.post :post="$post"/>
+
+                    @if($board->id != 0)
+                        <a href="{{ getLocaleURL('/forums/' . $board->faculty->forum->id . '/posts/' . $post->forum_post_id) }}">Discuss on Forum</a>
+                    @endif
                 @endforeach
             </div> {{-- /boards container --}}
 

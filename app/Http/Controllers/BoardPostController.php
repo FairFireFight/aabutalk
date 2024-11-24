@@ -43,16 +43,18 @@ class BoardPostController extends Controller
         $attributes['board_id'] = $board->id;
         $attributes['user_id'] = Auth::user()->id;
 
-        $post = BoardPost::create($attributes);
-
         if ($board->id != 0) {
-            ForumPost::create([
-                'forum_id' => $post->board->faculty->forum->id,
+            $forumPost = ForumPost::create([
+                'forum_id' => $board->faculty->forum->id,
                 'user_id' => Auth::user()->id,
                 'title' => $attributes['title'],
                 'content' => $attributes['content'],
             ]);
         }
+
+        $attributes['forum_post_id'] = $forumPost->id ?? null;
+
+        $post = BoardPost::create($attributes);
 
         return Json::encode([
             'redirect' => getLocaleURL('/boards/' . $board->id . '/posts/' . $post->id),
