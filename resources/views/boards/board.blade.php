@@ -68,7 +68,9 @@
                     <x-boards.post :post="$post"/>
 
                     @if($board->id != 0)
-                        <a href="{{ getLocaleURL('/forums/' . $board->faculty->forum->id . '/posts/' . $post->forum_post_id) }}">Discuss on Forum</a>
+                        <a href="{{ getLocaleURL('/forums/' . $board->faculty->forum->id . '/posts/' . $post->forum_post_id) }}">
+                            {{ __('forums.discuss_on_forum') }}
+                        </a>
                     @endif
                 @endforeach
             </div> {{-- /boards container --}}
