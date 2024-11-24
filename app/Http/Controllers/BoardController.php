@@ -14,7 +14,7 @@ class BoardController extends Controller
             'title' => 'Home',
             'lang' => $locale,
             'board' => $board,
-            'posts' => $board->posts()->paginate(2)
+            'posts' => $board->posts()->paginate(8)
         ]);
     }
 
@@ -22,7 +22,7 @@ class BoardController extends Controller
         return view('boards.board', [
             'lang' => $locale,
             'board' => $board,
-            'posts' => $board->posts()->paginate(2)
+            'posts' => $board->posts()->paginate(8)
         ]);
     }
 
