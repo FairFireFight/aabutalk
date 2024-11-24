@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // boards gates
-        Gate::define('post-to-board', function (User $user, Board $board) {
+        Gate::define('create-board-post', function (User $user, Board $board) {
             return in_array($user->id, Json::decode($board->user_ids))
                 || $user->hasPermission('admin');
         });

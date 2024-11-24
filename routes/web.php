@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\BoardPostController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
@@ -46,6 +47,11 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // board routes
     Route::get('/boards/{board}', [BoardController::class, 'show']);
+
+    Route::get('/boards/{board}/posts/{post}', [BoardPostController::class, 'show']);
+
+    Route::get('/boards/{board}/create', [BoardPostController::class, 'create'])
+        ->middleware('can:create-board-post,board');
 
     // guest only routes
     Route::middleware('guest')->group(function () {
@@ -105,6 +111,10 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/forums/{forum}/posts/{post}/comment/{comment}', [ForumPostCommentController::class, 'destroy'])
         ->middleware('can:delete-forum-comment,comment');
+
+    // board routes
+    Route::post('/boards/{board}/create', [BoardPostController::class, 'store'])
+        ->middleware('can:create-board-post,board');
 });
 
 // admin only routes

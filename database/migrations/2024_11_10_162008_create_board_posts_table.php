@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Board;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +14,10 @@ return new class extends Migration
     {
         Schema::create('board_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable(false);
-            $table->json('content')->nullable(false);
+            $table->foreignIdFor(Board::class);
+            $table->string('title');
+            $table->string('content');
+            $table->boolean('featured')->default(false);
             $table->timestamps();
         });
     }

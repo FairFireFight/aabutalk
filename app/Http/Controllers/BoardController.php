@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 class BoardController extends Controller
 {
     function index($locale) {
+        $board = Board::findOrFail(0);
+
         return view('boards.board', [
             'title' => 'Home',
             'lang' => $locale,
-            'board' => Board::findOrFail(0)
+            'board' => $board,
+            'posts' => $board->posts()->paginate(2)
         ]);
     }
 
@@ -19,6 +22,7 @@ class BoardController extends Controller
         return view('boards.board', [
             'lang' => $locale,
             'board' => $board,
+            'posts' => $board->posts()->paginate(2)
         ]);
     }
 

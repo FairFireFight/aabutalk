@@ -6,6 +6,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
 * @mixin Eloquent
@@ -25,5 +26,9 @@ class Board extends Model
         }
 
         return substr($string, 0, -2);
+    }
+
+    function posts() : HasMany {
+        return $this->hasMany(BoardPost::class);
     }
 }
