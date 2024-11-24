@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class BoardController extends Controller
 {
     function index($locale) {
-        return view('home', [
+        return view('boards.board', [
             'title' => 'Home',
             'lang' => $locale,
+            'board' => Board::findOrFail(0)
         ]);
     }
 

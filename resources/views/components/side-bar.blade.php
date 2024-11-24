@@ -14,7 +14,8 @@
 
         <h5 class="px-2">{{ __('common.header_colleges') }}</h5>
 
-        @foreach(Board::all() as $board)
+        {{-- ID 0 is reserved for university presidency, so exclude it from the side bar --}}
+        @foreach(Board::where('id', '!=', 0)->get() as $board)
             <a href="{{ getLocaleURL('/boards/' . $board->id) }}" class="px-4 nav-link {{request()->is('*/boards/' . $board->id) ? 'active' : 'link-body-emphasis'}}">
                {{ $board->faculty->name() }}
             </a>
