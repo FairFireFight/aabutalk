@@ -23,4 +23,8 @@ class Faculty extends Model
     function board() : HasOne {
         return $this->hasOne(Board::class);
     }
+
+    function forum() : HasOne {
+        return $this->hasOne(Forum::class);
+    }
 }

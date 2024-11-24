@@ -14,7 +14,7 @@
                 <x-forums.post-card :post="$forumPost"/>
             @endforeach
 
-            {{ $forumPosts->links('pagination::pagination') }}
+            {{ $forumPosts->links('components.pagination') }}
         </div>
     </x-forums.layout>
 </x-layout>

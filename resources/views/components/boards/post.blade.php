@@ -1,3 +1,8 @@
+@pushonce('styles')
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/ql-render.css') }}">
+@endpushonce
+
 <div class="post" >
     {{-- post header --}}
     <div class="d-flex justify-content-between">
@@ -12,7 +17,7 @@
     </div>
 
     {{-- post contents --}}
-    <div>
+    <div class="post-content p-0">
         {!! $post->content !!}
     </div>
 </div>

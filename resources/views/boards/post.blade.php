@@ -1,3 +1,5 @@
+
+
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
     {{-- header --}}
     <div class="d-flex justify-content-between align-items-center my-2 border-bottom">

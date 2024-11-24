@@ -1,5 +1,4 @@
 @push('styles')
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/ql-render.css') }}">
 @endpush
 
@@ -41,7 +40,7 @@
                 </div>
             </div>
             {{-- post content --}}
-            <div class="post-content ql-editor p-0">{!! $post->content !!}</div>
+            <div class="post-content p-0">{!! $post->content !!}</div>
         </div>
 
         <h3>{{ $post->comments->count() . ' ' .  __('common.comments')}}</h3>

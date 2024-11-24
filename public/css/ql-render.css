@@ -6,15 +6,20 @@
     cursor: pointer;
 }
 
-.post-content h1, .post-content h2, .post-content h3 {
+.post-content h1, .post-content h2,
+.post-content h3, .post-content h5,
+.post-content h6 {
     font-family: "Times New Roman", serif;
 }
 
-.post-content p, .post-content h1, .post-content h2, .post-content h3 {
+.post-content p, .post-content h1,
+.post-content h2, .post-content h3,
+.post-content h5, .post-content h6 {
     margin-bottom: 8px;
 }
 
 .post-content img {
     border-radius: 8px;
     max-width: 100%;
+    margin-top: 8px;
 }

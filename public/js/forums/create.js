@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     const toolbarOptions = [
-        [{ 'header': [1, 2, 3, false] }],
+        [{ 'header': [3, 4, 5, false] }],
         ['bold', 'italic', 'underline'],
         ['link', 'image'],
         [{ 'list': 'ordered'}, { 'list': 'bullet' }],

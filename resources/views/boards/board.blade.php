@@ -77,7 +77,7 @@
         {{-- secondary coloumn --}}
         <div class="col-lg-4">
             @can('create-board-post', $board)
-                <a href="{{ '/boards/' . $board->id . '/create' }}" class="btn btn-lg btn-aabu rounded-pill mb-3 w-100">
+                <a href="{{ getLocaleURL('/boards/' . $board->id . '/create') }}" class="btn btn-aabu rounded-pill mb-3 w-100">
                     {{ __('forums.create_post') }}
                 </a>
             @endcan
