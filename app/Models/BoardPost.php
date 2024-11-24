@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class BoardPost extends Model
 {
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
+
     public function board() : BelongsTo {
         return $this->belongsTo(Board::class);
     }
