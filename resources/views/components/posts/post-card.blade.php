@@ -41,7 +41,12 @@
             @endguest
 
             <p class="mb-0">{{ $post->comments()->count() . ' ' . __('common.comments') }}</p>
-            <p class="ms-auto mb-0">{{ $post->created_at->diffForHumans() }}</p>
+            <div class="ms-auto mb-0 d-flex align-items-center gap-2">
+                @can('delete-post', $post)
+                    <x-delete-button action="{{ '/posts/' . $post->id }}" />
+                @endcan
+                {{ $post->created_at->diffForHumans() }}
+            </div>
         </div>
     </div>
 </div>
