@@ -4,7 +4,6 @@ $( document ).ready(function() {
         ['bold', 'italic', 'underline'],
         ['link', 'image'],
         [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'align': [] }],
         [{ 'direction': 'rtl' }],
     ];
 

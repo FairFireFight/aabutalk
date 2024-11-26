@@ -16,5 +16,5 @@ return [
     'forums_info_body' => 'Pick the college or faculty concerning your question and create a post there.',
 
     'last_days' => 'Last :days Days',
-    'discuss_on_forum' => 'Discussed on Forum',
+    'discuss_on_forum' => 'Discuss on Forum',
 ];

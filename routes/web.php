@@ -110,6 +110,12 @@ Route::middleware('auth')->group(function () {
     // board routes
     Route::post('/boards/{board}/create', [BoardPostController::class, 'store'])
         ->middleware('can:create-board-post,board');
+
+    Route::post('/boards/{board}/posts/{post}/feature', [BoardPostController::class, 'feature'])
+        ->middleware('can:create-board-post,board');
+
+    Route::delete('/boards/{board}/posts/{post}', [BoardPostController::class, 'destroy'])
+        ->middleware('can:create-board-post,board');
 });
 
 // admin only routes

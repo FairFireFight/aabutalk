@@ -8,6 +8,7 @@ use App\Models\ForumPost;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 
 class BoardPostController extends Controller
 {
@@ -59,5 +60,25 @@ class BoardPostController extends Controller
         return Json::encode([
             'redirect' => getLocaleURL('/boards/' . $board->id . '/posts/' . $post->id),
         ]);
+    }
+
+    function feature(Board $board, BoardPost $post) {
+        $post->featured = ! $post->featured;
+
+        $post->save();
+
+        if ($post->featured) {
+            return redirect()->back()->with('success-pin', 'Post pinned successfully!');
+        }
+        return redirect()->back()->with('success-pin', 'Post unpinned successfully!');
+    }
+
+    function destroy(Board $board, BoardPost $post) {
+        $return_url = explode('/', URL::previousPath());
+        $return_url = $return_url[1] . '/boards/' . $board->id;
+
+        $post->delete();
+
+        return redirect($return_url);
     }
 }

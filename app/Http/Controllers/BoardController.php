@@ -14,7 +14,15 @@ class BoardController extends Controller
             'title' => 'Home',
             'lang' => $locale,
             'board' => $board,
-            'posts' => $board->posts()->paginate(8)
+
+            'posts' => $board->posts()
+                ->orderByDesc('created_at')
+                ->paginate(8),
+
+            'featured_posts' => $board->posts()
+                ->where('featured', 1)
+                ->orderByDesc('created_at')
+                ->paginate(8),
         ]);
     }
 
@@ -22,7 +30,15 @@ class BoardController extends Controller
         return view('boards.board', [
             'lang' => $locale,
             'board' => $board,
-            'posts' => $board->posts()->paginate(8)
+
+            'posts' => $board->posts()
+                ->orderByDesc('created_at')
+                ->paginate(8),
+
+            'featured_posts' => $board->posts()
+                ->where('featured', 1)
+                ->orderByDesc('created_at')
+                ->paginate(8),
         ]);
     }
 
