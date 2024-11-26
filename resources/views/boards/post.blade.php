@@ -12,7 +12,7 @@
             <x-boards.post :post="$post" />
         </div>
         <div class="col-lg-4">
-            <x-boards.side-content :board="$post->board"/>
+            <x-boards.side-content :board="$post->board" :featured-posts="$featured_posts"/>
         </div>
     </div>
 </x-layout>

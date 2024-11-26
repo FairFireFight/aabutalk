@@ -59,7 +59,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
             ]);
         });
 
-
         Route::get('/login', [SessionController::class, 'create'])->name('login');
         Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
     });

@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Str;
 
 /**
  * @mixin Eloquent
@@ -21,11 +22,21 @@ class BoardPost extends Model
 
     public function thumbnail() : String | null {
         // regex to match <img> tags
-        $pattern = '/<img\b[^>]*>/i';
+        preg_match('/<img\b[^>]*>/i', $this->content, $matches);
 
-        preg_match($pattern, $this->content, $matches);
+        // store first image found
+        $imgTag = $matches[0] ?? null;
 
-        return $matches[0] ?? null;
+        // no images
+        if ($imgTag === null) {
+            return null;
+        }
+
+        // get src of the image tag
+        preg_match('/"[^"]*"/i', $imgTag, $matches);
+
+        // remove first and last characters (quotations around src attr)
+        return Str::substr($matches[0], 1, -1);
     }
 
     public function previewText() : String {

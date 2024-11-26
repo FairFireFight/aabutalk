@@ -16,7 +16,13 @@ class BoardPostController extends Controller
         return view('boards.post', [
             'title' => 'Board Post',
             'locale' => $locale,
-            'post' => $post
+            'post' => $post,
+
+            'featured_posts' => $board->posts()
+                ->where('featured', 1)
+                ->orderByDesc('updated_at')
+                ->limit(4)
+                ->get()
         ]);
     }
 

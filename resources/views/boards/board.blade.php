@@ -1,14 +1,26 @@
+@php
+    $counter = 0;
+@endphp
+
 <x-layout title="{{ $board->faculty->name() }}" lang="{{ $lang }}">
     {{-- Leading card --}}
+    @if($featured_posts->count() === 1 || $featured_posts->count() >= 3)
+        <x-boards.featured-card-large :post="$featured_posts[$counter]"/>
+        @php $counter++ @endphp
+    @endif
 
-    {{-- Secondary cards --}}
-    <div class="row gx-3 mt-3">
-        <x-boards.featured-card-small/>
-        <x-boards.featured-card-small/>
-    </div>
+    @if($featured_posts->count() === 2 || $featured_posts->count() >= 3)
+        <div class="row gx-3 mt-3">
+            <x-boards.featured-card-small :post="$featured_posts[$counter]"/>
+            @php $counter++ @endphp
+
+            <x-boards.featured-card-small :post="$featured_posts[$counter]"/>
+            @php $counter++ @endphp
+        </div>
+    @endif
 
     {{-- Main content section --}}
-    <div class="row">
+    <div class="row mt-3">
         {{-- main content coloumn --}}
         <div class="col-lg-8">
             <h3 class="fst-italic font-serif">{{ __('page.latest_by', ['name' => $board->faculty->name()]) }}</h3>
@@ -38,7 +50,15 @@
                     {{ __('forums.create_post') }}
                 </a>
             @endcan
-            <x-boards.side-content :board="$board"/>
+
+            @php
+                $remainingPosts = [];
+
+                for ($i = $counter; $i < $featured_posts->count(); $i++) {
+                    $remainingPosts[] = $featured_posts[$i];
+                }
+            @endphp
+            <x-boards.side-content :board="$board" :featured-posts="$remainingPosts"/>
         </div>
     </div>
 

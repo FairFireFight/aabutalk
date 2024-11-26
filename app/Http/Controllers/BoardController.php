@@ -21,8 +21,9 @@ class BoardController extends Controller
 
             'featured_posts' => $board->posts()
                 ->where('featured', 1)
-                ->orderByDesc('created_at')
-                ->paginate(8),
+                ->orderByDesc('updated_at')
+                ->limit(7)
+                ->get()
         ]);
     }
 
@@ -37,8 +38,9 @@ class BoardController extends Controller
 
             'featured_posts' => $board->posts()
                 ->where('featured', 1)
-                ->orderByDesc('created_at')
-                ->paginate(8),
+                ->orderByDesc('updated_at')
+                ->limit(7)
+                ->get()
         ]);
     }
 
