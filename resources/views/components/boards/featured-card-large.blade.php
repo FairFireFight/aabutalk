@@ -3,7 +3,7 @@
         <div class="col-lg-6 d-flex flex-column">
             <h1 class="font-serif fst-italic fw-semibold">{{ $post->title }}</h1>
 
-            <div class="fs-5 mb-4 fw-light" style="max-height: 400px">
+            <div class="fs-5 mb-4 fw-light overflow-hidden" style="max-height: 175px">
                 {!! $post->previewText() !!}
             </div>
 
@@ -12,8 +12,8 @@
         </div>
         <div class="d-flex col-lg-6 align-items-center justify-content-center">
             @if($post->thumbnail())
-                <img src="{{ $post->thumbnail() }}" alt="image" class="img-fluid shadow-sm rounded"
-                     style="width: 100%; max-height: 400px; object-fit: cover">
+                <img src="{{ $post->thumbnail() }}" alt="image" class="img-fluid shadow-sm rounded h-100"
+                     style="width: 100%; object-fit: cover">
             @endif
         </div>
     </div>
