@@ -5,6 +5,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\BoardPostController;
 use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumPostCommentController;
 use App\Http\Controllers\ForumPostController;
@@ -86,7 +87,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts', [PostController::class, 'store']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
 
-
     Route::post("/posts/{post}/like", [LikeController::class, "store"]);
 
     Route::post('/posts/{post}/comments', [CommentController::class, 'store']);
@@ -115,6 +115,8 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/boards/{board}/posts/{post}', [BoardPostController::class, 'destroy'])
         ->middleware('can:create-board-post,board');
+
+    Route::post('/upload/images', [FileController::class, 'store']);
 });
 
 // admin only routes

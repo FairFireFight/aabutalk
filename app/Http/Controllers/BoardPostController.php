@@ -35,7 +35,6 @@ class BoardPostController extends Controller
     }
 
     function store(Request $request, Board $board) {
-
         $attributes = $request->validate([
             'title' => 'required',
             'content' => 'required'
