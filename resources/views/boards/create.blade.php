@@ -7,6 +7,10 @@
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
+    @push('body-top')
+        <x-processing-operation/>
+    @endpush
+
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <div class="row justify-content-center">
@@ -31,3 +35,5 @@
         </div>
     </div>
 </x-layout>
+
+

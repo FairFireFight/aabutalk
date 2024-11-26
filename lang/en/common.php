@@ -27,4 +27,5 @@ return [
 
     'back' => 'Back',
     'my_account' => 'My Account',
+    'processing' => 'Processing Operation'
 ];

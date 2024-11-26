@@ -8,7 +8,7 @@
         <div class="col d-flex flex-column justify-content-center ps-3">
             <a href="{{ getLocaleURL('/boards/' . $post->board->id . '/posts/' . $post->id) }}"
                class="fs-5 font-serif mb-0">{{ $post->title }}</a>
-            <p class="text-body-secondary m-0">{{ $post->created_at->format('d/m/YY') }}</p>
+            <p class="text-body-secondary m-0">{{ $post->created_at->format('d/m/Y') }}</p>
         </div>
     </div>
 </div>

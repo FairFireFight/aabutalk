@@ -1,5 +1,3 @@
-
-
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
     {{-- header --}}
     <div class="d-flex justify-content-between align-items-center my-2 border-bottom">
@@ -10,10 +8,12 @@
     <div class="row">
         <div class="col-lg-8">
             <x-boards.post :post="$post" />
-            <a class="btn btn-outline-aabu py-1 px-4 rounded-pill my-2"
-                href="{{ getLocaleURL('/forums/' . $post->board->faculty->forum->id . '/posts/' . $post->forum_post_id) }}">
-                <i class="bi bi-chat-square-text me-2"></i>{{ __('forums.discuss_on_forum') }}
-            </a>
+            @if($post->forum_post_id !== null)
+                <a class="btn btn-outline-aabu py-1 px-4 rounded-pill my-2"
+                    href="{{ getLocaleURL('/forums/' . $post->board->faculty->forum->id . '/posts/' . $post->forum_post_id) }}">
+                    <i class="bi bi-chat-square-text me-2"></i>{{ __('forums.discuss_on_forum') }}
+                </a>
+            @endif
         </div>
         <div class="col-lg-4">
             <x-boards.side-content :board="$post->board" :featured-posts="$featured_posts"/>

@@ -27,4 +27,5 @@ return [
 
     'back' => 'رجوع',
     'my_account' => 'حسابي',
+    'processing' => 'جاري معالجة العملية'
 ];

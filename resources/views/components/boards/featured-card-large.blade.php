@@ -13,7 +13,7 @@
         <div class="d-flex col-lg-6 align-items-center justify-content-center">
             @if($post->thumbnail())
                 <img src="{{ $post->thumbnail() }}" alt="image" class="img-fluid shadow-sm rounded h-100"
-                     style="width: 100%; object-fit: cover">
+                     style="width: 100%; max-height: 350px; object-fit: cover">
             @endif
         </div>
     </div>

@@ -30,6 +30,8 @@
         }
     </script>
 
+    @stack('body-top')
+
     <x-header></x-header>
     <x-side-bar></x-side-bar>
 

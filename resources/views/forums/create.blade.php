@@ -7,6 +7,9 @@
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
+    @push('body-top')
+        <x-processing-operation/>
+    @endpush
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 
     <x-forums.layout :pinned-posts="$pinnedPosts" header="Create Forum Post">
