@@ -123,6 +123,11 @@ Route::middleware('auth')->group(function () {
         ->middleware('can:create-board-post,board');
 
     Route::post('/upload/images', [FileController::class, 'store']);
+
+    // profile routes
+    Route::patch('/users/{user}/update/info', [RegisteredUserController::class, 'update_info'])->middleware('can:edit-profile,user');
+    Route::patch('/users/{user}/update/pictures', [RegisteredUserController::class, 'update_pictures'])
+        ->middleware(['can:edit-profile,user', 'can:admin', 'can:moderator']);
 });
 
 // admin only routes
@@ -140,13 +145,13 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     Route::get('/admin/dashboard/users', [AdminController::class, 'users_index']);
     Route::get('/admin/dashboard/users/edit/{user}', [AdminController::class, 'users_edit']);
 
-    Route::put('/admin/dashboard/users/edit/{user}', [RegisteredUserController::class, 'admin_update']);
+    Route::patch('/admin/dashboard/users/edit/{user}', [RegisteredUserController::class, 'admin_update']);
 
     // majors management routes
     Route::get('/admin/dashboard/majors', [AdminController::class, 'majors']);
 
     Route::post('/admin/dashboard/majors', [MajorController::class, 'store']);
-    Route::put('/admin/dashboard/majors/{major}', [MajorController::class, 'update']);
+    Route::patch('/admin/dashboard/majors/{major}', [MajorController::class, 'update']);
     Route::delete('/admin/dashboard/majors/{major}', [MajorController::class, 'destroy']);
 
     // faculty management routes
@@ -156,13 +161,13 @@ Route::middleware(['auth', 'can:admin'])->group(function () {
     });
 
     // board management routes
-    Route::put('/admin/dashboard/boards/edit/{board}', [BoardController::class, 'update']);
+    Route::patch('/admin/dashboard/boards/edit/{board}', [BoardController::class, 'update']);
 
     Route::get('/admin/dashboard/faculties/create', [AdminController::class, 'faculties_create']);
     Route::post('/admin/dashboard/faculties', [FacultyController::class, 'store']);
 
     Route::get('/admin/dashboard/faculties/edit/{faculty}', [AdminController::class, 'faculties_edit']);
-    Route::put('/admin/dashboard/faculties/{faculty}', [FacultyController::class, 'update']);
+    Route::patch('/admin/dashboard/faculties/{faculty}', [FacultyController::class, 'update']);
     Route::delete('/admin/dashboard/faculties/{faculty}', [FacultyController::class, 'destroy']);
 });
 

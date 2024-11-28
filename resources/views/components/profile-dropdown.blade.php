@@ -2,13 +2,13 @@
     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
        class="text-reset text-decoration-none d-flex align-items-center gap-1">
         <i class="bi bi-caret-down-fill"></i>
-        <img src="https://placehold.it/100x100" alt="Options Dropdown" class="pfp-50 rounded-circle shadow" />
+        <img src="{{ asset($user->getProfilePicture()) }}" alt="Options Dropdown" class="pfp-50 rounded-circle shadow" />
     </a>
 
     <div class="dropdown-menu mt-2 bg-body-tertiary rounded-0" style="width: 250px">
         <div class="text-center d-block mb-1">
             <a href="#">
-                <img src="https://placehold.it/100x100" alt="Profile Image" class="pfp-100 rounded-circle" />
+                <img src="{{ asset($user->getProfilePicture()) }}" alt="Profile Image" class="pfp-100 rounded-circle" />
             </a>
         </div>
 

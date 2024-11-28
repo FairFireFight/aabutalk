@@ -40,7 +40,7 @@
             <tr>
                 <form action="/admin/dashboard/majors/{{$major->id}}" method="POST" id="major-{{$major->id}}">
                     @csrf
-                    @method('PUT')
+                    @method('PATCH')
                 </form>
 
                 <td class="text-center" style="width: 150px;">

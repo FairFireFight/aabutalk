@@ -1,5 +1,5 @@
 <div class="d-flex gap-2 border-bottom py-2">
-    <img src="{{ $comment->user->getProfilePicture() }}" class="pfp-60 shadow-sm rounded-circle mt-1">
+    <img src="{{ asset($comment->user->getProfilePicture()) }}" class="pfp-60 shadow-sm rounded-circle mt-1">
     <div class="flex-grow-1">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ getLocaleURL('/users/' . $comment->user->id) }}" class="text-decoration-none fs-4 m-0">{{ $comment->user->username }}</a>

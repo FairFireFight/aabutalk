@@ -10,7 +10,7 @@
 
             <form action="/admin/dashboard/users/edit/{{ $user->id }}" method="POST">
                 @csrf
-                @method('PUT')
+                @method('PATCH')
 
                 <label for="id" class="form-label fs-5 mb-1">User ID</label>
                 <input type="text" class="form-control mb-3 rounded-0" disabled readonly value="{{ $user->id }}">

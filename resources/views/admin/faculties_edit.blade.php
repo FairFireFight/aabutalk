@@ -3,7 +3,7 @@
         <div class="col-9">
             <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
                 @csrf
-                @method('PUT')
+                @method('PATCH')
                 <label for="id" class="fs-5 mb-1">Faculty ID:</label>
                 <input id="id" type="text" class="form-control rounded-0 mb-2" value="{{$faculty->id}}" disabled>
 
@@ -33,7 +33,7 @@
 
             <form action="/admin/dashboard/boards/edit/{{ $faculty->board->id }}" method="POST">
                 @csrf
-                @method('PUT')
+                @method('PATCH')
                 <label for="user_ids">Enter a list of User ID's who are able to manage this faculty's board, seperated by commas</label>
                 <input id="user_ids" type="text" class="form-control rounded-0 mb-3" placeholder="E.g. 118, 68, 721, 321..." name="user_ids" value="{{ $faculty->board->userIdsCSV() }}">
                 <button type="submit" class="btn btn-aabu px-5 rounded-pill">Save</button>

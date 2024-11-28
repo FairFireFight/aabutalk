@@ -23,7 +23,7 @@ class ProfileController extends Controller
     }
 
     public function edit($locale, User $user) {
-        return view ('users.edit', [
+        return view ('users.settings', [
             'locale' => $locale,
             'title' => "Profile Settings",
             'user' => $user

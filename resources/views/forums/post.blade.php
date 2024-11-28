@@ -21,7 +21,7 @@
             {{-- post title and pfp --}}
             <div class="mb-3">
                 <div class="d-flex align-items-center gap-3">
-                    <img src="{{ $post->user->getProfilePicture() }}" class="pfp-75 rounded" alt="Profile Picture">
+                    <img src="{{ asset($post->user->getProfilePicture()) }}" class="pfp-75 rounded" alt="Profile Picture">
                     <h2 class="font-serif mb-0">{{ $post->title }}</h2>
                 </div>
                 <div class="d-flex gap-2 text-body-secondary align-items-center">

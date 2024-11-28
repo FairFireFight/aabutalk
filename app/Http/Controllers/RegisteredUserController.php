@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Password;
 
 class RegisteredUserController extends Controller
@@ -50,8 +51,59 @@ class RegisteredUserController extends Controller
         return redirect($request->session()->get('return_url'));
     }
 
-    function update(Request $request) {
+    function update_info(Request $request, User $user) {
+        Request()->session()->put('return_url', url()->previous());
 
+        $attributes = $request->validate([
+            'username' => ['required'],
+            'bio' => ['max:2056'],
+        ]);
+
+        $user->username = $attributes['username'];
+        // $user->bio = $attributes['bio'];
+
+        $user->save();
+
+        return redirect($request->session()->get('return_url'));
+    }
+
+    function update_pictures(Request $request, User $user) {
+        $request->session()->put('return_url', url()->previous());
+
+        $request->validate([
+            'avatar' => ['mimes:jpeg,jpg,png,bmp', 'max:16000'],
+            'cover' => ['mimes:jpeg,jpg,png,bmp', 'max:16000'],
+        ]);
+
+        if ($request->hasFile('avatar')) {
+            // delete existing avatar
+            if ($user->profile_picture !== null) {
+                Storage::disk('public')->delete($user->profile_picture);
+            }
+
+            // save new avatar
+            $avatar = $request->file('avatar')->store('/images/uploads/avatars', ['disk' => 'public']);
+
+            // update user
+            $user->profile_picture = $avatar;
+        }
+
+        if ($request->hasFile('cover')) {
+            // delete existing cover picture
+            if ($user->cover_picture !== null) {
+                Storage::disk('public')->delete($user->cover_picture);
+            }
+
+            // save new cover picture
+            $avatar = $request->file('cover')->store('/images/uploads/covers', ['disk' => 'public']);
+
+            // update user
+            $user->cover_picture = $avatar;
+        }
+
+        $user->save();
+
+        return redirect($request->session()->get('return_url'));
     }
 
     function admin_update(Request $request, User $user) {
