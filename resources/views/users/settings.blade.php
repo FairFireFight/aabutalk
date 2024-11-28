@@ -2,10 +2,10 @@
     <x-users.layout :user="$user">
         <h4 class="font-serif mt-3">Update info</h4>
         <div class="dropdown">
-            <button class="btn btn-aabu px-4 dropdown-toggle" data-bs-toggle="dropdown" type="button">
+            <button class="btn btn-aabu px-4 rounded-0 dropdown-toggle" data-bs-toggle="dropdown" type="button">
                 Preferred Theme
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu rounded-0">
                 <li><button class="dropdown-item theme-setting">Auto</button></li>
                 <li><button class="dropdown-item theme-setting">Dark</button></li>
                 <li><button class="dropdown-item theme-setting">Light</button></li>
