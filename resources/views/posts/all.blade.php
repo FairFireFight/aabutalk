@@ -4,7 +4,7 @@
 @endpush
 
 <x-layout title="{{ $title }}" lang="{{ $lang }}">
-    <h1 class="mt-2 mb-1 font-serif">{{ __('common.all') }}</h1>
+    <h1 class="mt-2 mb-1 font-serif border-bottom">{{ __('common.all') }}</h1>
     <div class="row justify-content-center">
         <div class="col-lg-12 col-xl-10 col-xxl-8">
             {{-- posts container div --}}

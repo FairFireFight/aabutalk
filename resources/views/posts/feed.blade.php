@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-12 col-xl-10 col-xxl-8">
             {{-- create post form --}}
-            <div>
+            <div class="border-bottom">
                 <form action="/posts" method="POST" enctype="multipart/form-data">
                     @csrf
                     <textarea id="text-area" type="text" name="content"

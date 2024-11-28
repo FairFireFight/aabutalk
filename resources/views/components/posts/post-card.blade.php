@@ -1,5 +1,5 @@
 @php use Illuminate\Support\Facades\Auth; @endphp
-<div class="pt-2 pb-1 border-top">
+<div class="pt-2 pb-1 border-bottom">
     <div class="d-flex gap-2">
         {{-- profile picture --}}
         <img src="https://placehold.co/100x100" class="pfp-60 shadow-sm rounded-circle mt-1">

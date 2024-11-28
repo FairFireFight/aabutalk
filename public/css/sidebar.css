@@ -21,7 +21,7 @@ html[dir="ltr"] .sidebar {
     transition: left 0.125s ease;
 }
 
-.sidebar .nav-link {
+.custom .nav-link {
     width: 100%;
 
     padding-top: 10px;

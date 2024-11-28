@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
 
         // profile gates
-        Gate::define('edit-profile', function (User $user) {
+        Gate::define('edit-profile', function (User $authUser, User $user) {
             return Auth::id() === $user->id;
         });
 
