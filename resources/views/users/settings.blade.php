@@ -1,6 +1,18 @@
 <x-layout title="{{ $title }}" lang="{{ $locale }}">
     <x-users.layout :user="$user">
         <h4 class="font-serif mt-3">Update info</h4>
+        <div class="dropdown">
+            <button class="btn btn-aabu px-4 dropdown-toggle" data-bs-toggle="dropdown" type="button">
+                Preferred Theme
+            </button>
+            <ul class="dropdown-menu">
+                <li><button class="dropdown-item theme-setting">Auto</button></li>
+                <li><button class="dropdown-item theme-setting">Dark</button></li>
+                <li><button class="dropdown-item theme-setting">Light</button></li>
+            </ul>
+        </div>
+
+        <h4 class="font-serif mt-3">Update info</h4>
         <form action="{{ '/users/' . $user->id . '/update/info'}}" method="POST">
             @csrf
             @method('PATCH')

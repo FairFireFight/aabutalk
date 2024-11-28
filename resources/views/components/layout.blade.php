@@ -24,9 +24,18 @@
 </head>
 <body>
     <script>
-        // autoload site theme from system
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.setAttribute('data-bs-theme', 'dark');
+        const theme = localStorage.getItem('preferredTheme') ?? 'light';
+
+        if (theme === 'auto') {
+            // autoload site theme from system
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.setAttribute('data-bs-theme', 'dark');
+            } else {
+                document.body.setAttribute('data-bs-theme', 'light');
+            }
+        } else {
+            // autoload site theme from local storage
+            document.body.setAttribute('data-bs-theme', theme);
         }
     </script>
 
