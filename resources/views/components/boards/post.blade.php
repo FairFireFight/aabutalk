@@ -27,7 +27,7 @@
                             @endif
                         </form>
 
-                        <a href="#">{{ $post->user->username }}</a>
+                        <a href="{{ getLocaleURL('/users/' . $post->user->id) }}">{{ $post->user->username }}</a>
                     </div>
                 @endcan
 

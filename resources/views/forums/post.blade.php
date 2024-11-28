@@ -25,7 +25,7 @@
                     <h2 class="font-serif mb-0">{{ $post->title }}</h2>
                 </div>
                 <div class="d-flex gap-2 text-body-secondary align-items-center">
-                    <div>{{ __('common.by') }} <a href="#">{{ $post->user->username }}</a></div>
+                    <div>{{ __('common.by') }} <a href="{{ getLocaleURL('/users/' . $post->user->id) }}">{{ $post->user->username }}</a></div>
                     <div title="{{ $post->created_at->toDayDateTimeString() }}">- {{ $post->created_at->diffForHumans() }}</div>
                     @can('delete-forum-post', $post)
                         <x-delete-button action="{{ '/forums/' . $post->forum->id . '/posts/' . $post->id }}" />

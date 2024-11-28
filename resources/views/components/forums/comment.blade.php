@@ -2,7 +2,7 @@
     <div class="d-flex gap-3">
         <div class="d-flex flex-column align-items-center text-center border-end pe-3">
             <img class="pfp-100 rounded" src="https://placehold.co/100x100" alt="Profile Image">
-            <a href="#">{{ $comment->user->username }}</a>
+            <a href="{{ getLocaleURL('/users/' . $comment->user->id) }}">{{ $comment->user->username }}</a>
             <span class="text-secondary" style="font-size: 0.75rem">{{ $comment->user->major() }}</span>
         </div>
 

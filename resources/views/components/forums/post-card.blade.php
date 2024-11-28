@@ -2,7 +2,7 @@
     <div>
         <a href="{{ getLocaleURL('/forums/' . $post->forum->id . '/posts/' . $post->id) }}" class="fs-4 mb-1 link-underline link-underline-opacity-0 link-underline-opacity-75-hover">{{ $post->title }}</a>
 
-        <p class="m-0">{{ __('common.by') }} <a class="text-decoration-none" href="#">{{ $post->user->username }}</a></p>
+        <p class="m-0">{{ __('common.by') }} <a class="text-decoration-none" href="{{ getLocaleURL('/users/' . $post->user->id) }}">{{ $post->user->username }}</a></p>
     </div>
     <div class="text-end text-secondary">
         <span>{{ $post->comments->count() . ' ' . __('common.comments') }}</span>
