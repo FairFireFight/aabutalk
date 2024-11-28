@@ -7,6 +7,7 @@ use App\Rules\AtLeastOne;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
@@ -89,6 +90,12 @@ class PostController extends Controller
 
     function destroy(Post $post) {
         $return_url = explode('/', URL::previousPath());
+
+        $imagePaths = $post->images ? Json::decode($post->images) : [];
+
+        foreach ($imagePaths as $imagePath) {
+            Storage::disk('public')->delete($imagePath);
+        }
 
         $post->delete();
 

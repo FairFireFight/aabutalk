@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Forum;
 use App\Models\ForumPost;
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class ForumPostController extends Controller
@@ -74,6 +73,12 @@ class ForumPostController extends Controller
     function destroy(Forum $forum, ForumPost $post) {
         $return_url = explode('/', URL::previousPath());
         $return_url = '/' . $return_url[1] . '/' . $return_url[2] . '/' . $return_url[3];
+
+        // delete images from storage
+        $images = $post->images();
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image);
+        }
 
         $post->delete();
 

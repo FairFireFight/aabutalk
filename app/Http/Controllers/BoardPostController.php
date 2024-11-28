@@ -8,6 +8,7 @@ use App\Models\ForumPost;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class BoardPostController extends Controller
@@ -81,6 +82,17 @@ class BoardPostController extends Controller
     function destroy(Board $board, BoardPost $post) {
         $return_url = explode('/', URL::previousPath());
         $return_url = $return_url[1] . '/boards/' . $board->id;
+
+        // delete images from storage
+        $images = $post->images();
+        foreach ($images as $image) {
+            Storage::disk('public')->delete($image);
+        }
+
+        // delete corresponding forum post
+        if ($post->forum_post_id) {
+            ForumPost::find($post->forum_post_id)?->delete();
+        }
 
         $post->delete();
 

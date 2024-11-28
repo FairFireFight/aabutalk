@@ -52,4 +52,22 @@ class BoardPost extends Model
         $pattern = '/<\/?h\d>/i';
         return preg_replace($pattern, '</p>', $string);
     }
+
+    function images() : array {
+        $imgUrls = [];
+        // regex to match img tags and extract the src attribute
+        $pattern = '/<img[^>]+src=["\']([^"\']+)["\']/i'; //
+
+        if (preg_match_all($pattern, $this->content, $matches)) {
+            // $matches[1] contains the src values
+            $imgUrls = $matches[1];
+        }
+
+        $imgPaths = [];
+        foreach ($imgUrls as $imgUrl) {
+            $imgPaths[] = 'images/uploads/' . Str::substr($imgUrl, strrpos($imgUrl, '/') + 1);
+        }
+
+        return $imgPaths;
+    }
 }
