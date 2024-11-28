@@ -16,7 +16,7 @@
             <div class="bg-body-tertiary p-3" style="min-height: 100%">
                 <div class="d-flex gap-2">
                     {{-- profile picture --}}
-                    <img src="https://placehold.co/100x100" class="pfp-60 shadow-sm rounded-circle mt-1">
+                    <img src="{{ $post->user->getProfilePicture() }}" class="pfp-60 shadow-sm rounded-circle mt-1">
                     <div class="flex-grow-1">
                         {{-- post header --}}
                         <div class="d-flex align-items-start">

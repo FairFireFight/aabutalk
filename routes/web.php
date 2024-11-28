@@ -51,6 +51,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
         ->middleware('can:create-board-post,board');
 
     // profiles routes
+    Route::get('/users', [ProfileController::class, 'index']);
     Route::get('/users/{user}', [ProfileController::class, 'activity']);
     Route::get('/users/{user}/settings', [ProfileController::class, 'edit'])->middleware('can:edit-profile,user');
 

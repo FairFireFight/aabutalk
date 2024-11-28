@@ -27,5 +27,6 @@ return [
 
     'back' => 'رجوع',
     'my_account' => 'حسابي',
-    'processing' => 'جاري معالجة العملية'
+    'processing' => 'جاري معالجة العملية',
+    'people' => 'أشخاص',
 ];

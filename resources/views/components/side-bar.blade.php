@@ -9,6 +9,7 @@
         @endauth
         <a href="{{ getLocaleURL('/all') }}" class="px-4 nav-link {{ request()->is('*/all') ? 'active' : 'link-body-emphasis' }}"><i class="bi bi-reply-all me-2"></i> {{ __('common.all') }}</a>
         <a href="{{ getLocaleURL('/forums') }}" class="px-4 nav-link {{ request()->is('*/forums') ? 'active' : 'link-body-emphasis' }}"><i class="bi bi-chat-square-text me-2"></i> {{ __('common.forums') }}</a>
+        <a href="{{ getLocaleURL('/users') }}" class="px-4 nav-link {{ request()->is('*/users') ? 'active' : 'link-body-emphasis' }}"><i class="bi bi-people me-2"></i> {{ __('common.people') }}</a>
 
         <hr>
 

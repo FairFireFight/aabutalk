@@ -18,6 +18,7 @@
     </style>
 @endpush
 
+
 <div>
     <div>
         {{-- cover picture --}}
@@ -53,11 +54,7 @@
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link rounded-0 {{ request()->is('*/users/*') && !request()->is('*/users/*/*') ? 'active' : '' }}"
-                   href="{{ getLocaleURL('/users/' . $user->id) }}">Activity</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link rounded-0 {{ request()->is('*/users/*/posts') ? 'active' : '' }}"
-                   href="{{ getLocaleURL('/users/' . $user->id . '/posts') }}">Posts</a>
+                   href="{{ getLocaleURL('/users/' . $user->id) }}">Posts</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link rounded-0 {{ request()->is('*/users/*/comments') ? 'active' : '' }}"
@@ -115,3 +112,7 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script src="{{asset('js/likePost.js')}}"></script>
+@endpush

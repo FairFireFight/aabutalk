@@ -34,7 +34,7 @@
 
         <ul class="custom nav flex-column">
             <li class="nav-item"><a href="{{ getLocaleURL('/users/' . $user->id) }}" class="nav-link text-body"><i class="bi bi-person me-1"></i> {{ __('common.my_account') }}</a></li>
-            <li class="nav-item"><a href="#" class="nav-link text-body"><i class="bi bi-gear me-1"></i> {{ __('common.settings') }}</a></li>
+            <li class="nav-item"><a href="{{ getLocaleURL('/users/' . $user->id . '/settings') }}" class="nav-link text-body"><i class="bi bi-gear me-1"></i> {{ __('common.settings') }}</a></li>
             <li class="nav-item">
                 <a href="{{ getLocaleSwitchURL() }}" class="nav-link text-body">
                     <i class="bi bi-globe me-1"></i> {{ __('common.language') }}
