@@ -21,7 +21,7 @@
             <div id="content"></div>
             <p id="content-error" class="fs-5 text-danger d-none">{{ __('forums.content_required') }}</p>
             <div class="mt-3">
-                <button id="submit-button" class="btn btn-aabu px-5 rounded-pill">{{ __('common.post_verb') }}</button>
+                <button id="submit-button" class="btn btn-aabu px-5 rounded-0">{{ __('common.post_verb') }}</button>
             </div>
         </div>
     </x-forums.layout>

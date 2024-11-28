@@ -17,11 +17,11 @@
                         <form action="{{ '/boards/' . $post->board->id . '/posts/' . $post->id . '/feature' }}" method="POST">
                             @csrf
                             @if($post->featured)
-                                <button type="submit" class="btn btn-sm btn-warning rounded-pill py-0">
+                                <button type="submit" class="btn btn-sm btn-warning rounded-0 py-0">
                                     <i class="bi bi-star-fill"></i> Unfeature
                                 </button>
                             @else
-                                <button type="submit" class="btn btn-sm btn-outline-warning rounded-pill py-0">
+                                <button type="submit" class="btn btn-sm btn-outline-warning rounded-0 py-0">
                                     <i class="bi bi-star"></i> Feature
                                 </button>
                             @endif

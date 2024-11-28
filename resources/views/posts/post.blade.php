@@ -50,13 +50,13 @@
                             @endphp
 
                             <button onclick="likePost(this)" id="{{ $post->id }}"
-                                    class="btn {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 my-1 px-4 rounded-pill">
+                                    class="btn {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 my-1 px-4 rounded-0">
                                     {{ $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
                             </button>
                         @endauth
 
                         @guest
-                            <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-pill" disabled>
+                            <button class="btn btn-outline-aabu py-0 my-1 px-4 rounded-0" disabled>
                                 {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
                             </button>
                         @endguest
@@ -74,7 +74,7 @@
                             @csrf
                             <textarea class="form-control" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                                       oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
-                            <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-pill position-absolute bottom-0 end-0 me-2 mb-2">
+                            <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-0 position-absolute bottom-0 end-0 me-2 mb-2">
                                 {{ __('common.post_verb') }}
                             </button>
                         </form>

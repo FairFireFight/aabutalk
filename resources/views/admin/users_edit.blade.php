@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="d-flex gap-3 mt-4">
-                    <button type="submit" class="btn btn-outline-aabu px-5 rounded-pill">Update</button>
+                    <button type="submit" class="btn btn-outline-aabu px-5 rounded-0">Update</button>
                 </div>
             </form>
         </div>

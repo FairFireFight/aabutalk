@@ -19,13 +19,13 @@
                 <label for="description_ar" class="fs-5 mb-1">Arabic Description:</label>
                 <textarea id="description_ar" name="description_ar" class="form-control rounded-0 mb-4" required>{{$faculty->description_ar}}</textarea>
 
-                <button type="submit" class="btn btn-aabu px-5 rounded-pill">Update Details</button>
+                <button type="submit" class="btn btn-aabu px-5 rounded-0">Update Details</button>
             </form>
             @if($faculty->id != 0)
                 <form action="/admin/dashboard/faculties/{{$faculty->id}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger px-4 rounded-pill mt-3">Delete</button>
+                    <button type="submit" class="btn btn-danger px-4 rounded-0 mt-3">Delete</button>
                 </form>
             @endif
 
@@ -36,7 +36,7 @@
                 @method('PATCH')
                 <label for="user_ids">Enter a list of User ID's who are able to manage this faculty's board, seperated by commas</label>
                 <input id="user_ids" type="text" class="form-control rounded-0 mb-3" placeholder="E.g. 118, 68, 721, 321..." name="user_ids" value="{{ $faculty->board->userIdsCSV() }}">
-                <button type="submit" class="btn btn-aabu px-5 rounded-pill">Save</button>
+                <button type="submit" class="btn btn-aabu px-5 rounded-0">Save</button>
             </form>
         </div>
         <div class="col-3">

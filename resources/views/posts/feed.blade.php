@@ -29,7 +29,7 @@
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         {{-- character limit display --}}
                         <p id="char-limit" class="text-secondary m-0"> 0 / 512</p>
-                        <button id="submit-button" type="submit" class="btn btn-aabu px-4 py-0 rounded-pill" disabled>{{ __('common.post_verb') }}</button>
+                        <button id="submit-button" type="submit" class="btn btn-aabu px-4 py-0 rounded-0" disabled>{{ __('common.post_verb') }}</button>
                     </div>
                 </form>
             </div>

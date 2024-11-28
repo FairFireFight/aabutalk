@@ -2,7 +2,7 @@
     <div class="d-flex">
         <h2 class="mb-3 me-auto">{{ $faculties->count() }} Faculty(s)</h2>
         <div>
-            <a href="/admin/dashboard/faculties/create" class="btn btn-aabu px-4 rounded-pill mt-1">Create New</a>
+            <a href="/admin/dashboard/faculties/create" class="btn btn-aabu px-4 rounded-0 mt-1">Create New</a>
         </div>
     </div>
     <table class="table table-striped">

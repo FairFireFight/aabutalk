@@ -5,7 +5,7 @@
                         class="fs-6 text-secondary">{{ __('forums.last_days', ['days' => 7]) }}</span></span>
             @auth
                 <a href="{{ getLocaleURL('/forums/' . $forum->id . '/create') }}"
-                   class="btn btn-aabu rounded-pill px-4">{{ __('forums.create_post') }}</a>
+                   class="btn btn-aabu rounded-0 px-4">{{ __('forums.create_post') }}</a>
             @endauth
         </div>
         <div id="forums-container">

@@ -32,7 +32,7 @@
 {{-- site header --}}
 <div class="bg-dark text-light px-4 py-2 shadow-sm d-flex align-items-center">
     <div class="fs-3"><i class="bi bi-menu-button-wide"></i> Control Panel</div>
-    <a class="ms-auto px-4 btn btn-outline-light rounded-pill" href="/">Go to Website</a>
+    <a class="ms-auto px-4 btn btn-outline-light rounded-0" href="/">Go to Website</a>
 </div>
 
 <div class="row g-0" style="height: calc(100% - 58px)">
@@ -55,7 +55,7 @@
                     <form action="/logout" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn link-primary rounded-pill p-0"><i class="bi bi-box-arrow-left fs-4 me-2"></i> Log Out</button>
+                        <button type="submit" class="btn link-primary rounded-0 p-0"><i class="bi bi-box-arrow-left fs-4 me-2"></i> Log Out</button>
                     </form>
                 </li>
             </ul>

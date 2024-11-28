@@ -15,7 +15,7 @@
                 <label for="description_ar" class="fs-5 mb-1">Arabic Description:</label>
                 <textarea id="description_ar" name="description_ar" class="form-control rounded-0 mb-4" required></textarea>
 
-                <button type="submit" class="btn btn-aabu px-5 rounded-pill">Submit</button>
+                <button type="submit" class="btn btn-aabu px-5 rounded-0">Submit</button>
             </form>
         </div>
         <div class="col-3">

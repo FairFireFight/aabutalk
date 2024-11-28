@@ -17,7 +17,7 @@
         <div class="col-8">
             <div class="d-flex justify-content-between align-items-end my-2 pb-0 border-bottom">
                 <h2 class="font-serif mb-0">Create Board Post</h2>
-                <a href="{{ getLocaleURL('/boards/' . $board->id) }}" class="btn btn-aabu px-4 rounded-pill mb-1">Back</a>
+                <a href="{{ getLocaleURL('/boards/' . $board->id) }}" class="btn btn-aabu px-4 rounded-0 mb-1">Back</a>
             </div>
 
             <p class="text-secondary fs-5 mb-0">{{ $board->faculty->name() }}</p>
@@ -29,7 +29,7 @@
                 <div id="content"></div>
                 <p id="content-error" class="fs-5 text-danger d-none">{{ __('forums.content_required') }}</p>
                 <div class="mt-3">
-                    <button id="submit-button" class="btn btn-aabu px-5 rounded-pill">{{ __('common.post_verb') }}</button>
+                    <button id="submit-button" class="btn btn-aabu px-5 rounded-0">{{ __('common.post_verb') }}</button>
                 </div>
             </div>
         </div>

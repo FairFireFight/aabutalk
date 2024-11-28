@@ -32,7 +32,7 @@
                 @endphp
 
                 <button onclick="likePost(this)" id="{{ $post->id }}"
-                        class="btn btn-sm {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 px-4 rounded-pill">
+                        class="btn btn-sm {{ $liked ? 'btn-aabu' : 'btn-outline-aabu' }} py-0 px-4 rounded-0">
                     {{  $post->likes()->count() }} <i class="bi bi-hand-thumbs-up"></i>
                 </button>
             @endauth

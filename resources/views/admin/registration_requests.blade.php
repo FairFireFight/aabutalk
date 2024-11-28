@@ -24,15 +24,15 @@
                     @if($registration_request->status === 'pending')
                         <form class="d-inline" action="/admin/dashboard/registration_requests/{{$registration_request->id}}/approve" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-sm btn-success rounded-pill px-3 py-0">Approve</button>
+                            <button type="submit" class="btn btn-sm btn-success rounded-0 px-3 py-0">Approve</button>
                         </form>
                         <form class="d-inline" action="/admin/dashboard/registration_requests/{{$registration_request->id}}/decline" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger rounded-pill px-3 py-0">Decline</button>
+                            <button type="submit" class="btn btn-sm btn-danger rounded-0 px-3 py-0">Decline</button>
                         </form>
                     @else
-                        <div class="btn btn-sm btn-secondary rounded-pill px-3 py-0 disabled">No Actions</div>
+                        <div class="btn btn-sm btn-secondary rounded-0 px-3 py-0 disabled">No Actions</div>
                     @endif
                 </td>
             </tr>

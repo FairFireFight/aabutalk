@@ -59,7 +59,7 @@
 
                                 {{-- submit button --}}
                                 <div class="d-flex justify-content-between align-items-end">
-                                    <button type="submit" class="btn btn-aabu rounded-pill px-5">{{ __('auth.submit_application') }}</button>
+                                    <button type="submit" class="btn btn-aabu rounded-0 px-5">{{ __('auth.submit_application') }}</button>
                                     <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                 </div>
                             </div>

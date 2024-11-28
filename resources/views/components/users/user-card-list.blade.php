@@ -7,8 +7,8 @@
                 <p class="text-secondary mb-0">Civil Engineering</p>
             </div>
             <div class="ms-auto hstack">
-                <a href="#" class="btn btn-sm btn-outline-aabu py-1 rounded-pill me-1">View Profile</a>
-                <a href="#" class="btn btn-sm btn-aabu py-1 rounded-pill"><i class="bi bi-person-plus me-2"></i>Follow</a>
+                <a href="#" class="btn btn-sm btn-outline-aabu py-1 rounded-0 me-1">View Profile</a>
+                <a href="#" class="btn btn-sm btn-aabu py-1 rounded-0"><i class="bi bi-person-plus me-2"></i>Follow</a>
             </div>
         </div>
     </div>

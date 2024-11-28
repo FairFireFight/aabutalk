@@ -3,7 +3,7 @@
         <img src="{{ asset('images/default_user.png') }}" class="pfp-100 rounded-circle shadow-sm" />
         <h5 class="mx-2 mb-0 text-center">John Doe</h5>
         <p class="mx-2 mb-1 text-center text-secondary">Accounting</p>
-        <a href="#" class="btn btn-sm btn-outline-aabu py-1 w-100 rounded-pill mb-1 mt-auto">View Profile</a>
-        <a href="#" class="btn btn-sm btn-aabu py-1 w-100 rounded-pill"><i class="bi bi-person-plus me-2"></i>Follow</a>
+        <a href="#" class="btn btn-sm btn-outline-aabu py-1 w-100 rounded-0 mb-1 mt-auto">View Profile</a>
+        <a href="#" class="btn btn-sm btn-aabu py-1 w-100 rounded-0"><i class="bi bi-person-plus me-2"></i>Follow</a>
     </div>
 </div>

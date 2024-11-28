@@ -36,7 +36,7 @@
             <label class="mb-1">Biography</label>
             <textarea name="bio" class="form-control rounded-0" rows="4" placeholder="Tell us about yourself..."></textarea>
 
-            <button type="submit" class="btn btn-aabu rounded-pill px-5 mt-3">Save</button>
+            <button type="submit" class="btn btn-aabu rounded-0 px-5 mt-3">Save</button>
         </form>
 
         <hr>
@@ -64,7 +64,7 @@
             <input id="cover-input" type="file" name="cover" class="form-control mt-3 rounded-0"
                    accept="image/png, image/jpeg, image/bmp"/>
             <p class="form-text">.PNG, .JPEG, .BMP</p>
-            <button type="submit" class="btn btn-aabu rounded-pill px-5 mb-3">Save</button>
+            <button type="submit" class="btn btn-aabu rounded-0 px-5 mb-3">Save</button>
         </form>
     </x-users.layout>
     <x-footer/>

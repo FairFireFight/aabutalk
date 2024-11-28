@@ -15,8 +15,8 @@
             <h4 class="font-serif">Search people</h4>
             <form class="mb-2" action="{{ getLocaleURL('/users') }}" method="GET">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search..." name="query">
-                    <button class="btn btn-aabu px-3 py-0" type="submit"><i class="bi bi-search fs-5"></i></button>
+                    <input type="text" class="form-control rounded-0" placeholder="Search..." name="query">
+                    <button class="btn btn-aabu px-3 py-0 rounded-0" type="submit"><i class="bi bi-search fs-5"></i></button>
                 </div>
             </form>
 
