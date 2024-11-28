@@ -55,15 +55,15 @@
 
 /* nav links ===========================================*/
 
-.nav-link {
+.sidebar .nav-link {
     border-radius: 0 !important;
 }
 
-.nav-link.active {
+.sidebar .nav-link.active {
     background-color: var(--aabu-green) !important;
 }
 
-.nav-link:hover {
+.sidebar .nav-link:hover {
     background-color: var(--aabu-green) !important;
     color: white !important;
 }

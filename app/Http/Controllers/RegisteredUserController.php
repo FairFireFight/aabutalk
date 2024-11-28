@@ -50,6 +50,10 @@ class RegisteredUserController extends Controller
         return redirect($request->session()->get('return_url'));
     }
 
+    function update(Request $request) {
+
+    }
+
     function admin_update(Request $request, User $user) {
         $attributes = $request->validate([
             'username' => ['required']

@@ -12,6 +12,7 @@ use App\Http\Controllers\ForumPostController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationRequestController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
@@ -48,6 +49,9 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     Route::get('/boards/{board}/create', [BoardPostController::class, 'create'])
         ->middleware('can:create-board-post,board');
+
+    // profiles routes
+    Route::get('/users/{user}', [ProfileController::class, 'show']);
 
     // guest only routes
     Route::middleware('guest')->group(function () {

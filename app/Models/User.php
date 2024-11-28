@@ -124,4 +124,12 @@ class User extends Authenticatable
         $perms = Json::decode($this->permissions);
         return in_array($permission, $perms);
     }
+
+    public function getProfilePicture(): string {
+        return $this->profile_picture ?? asset('images/default_user.png');
+    }
+
+    public function getCoverPicture(): string {
+        return $this->cover_picture ?? 'https://placehold.it/1080x300/0193a0/0193a0';
+    }
 }
