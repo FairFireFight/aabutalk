@@ -72,7 +72,7 @@
                     <div class="forum-list-card bg-body-tertiary py-2 mb-2">
                         <form class="position-relative" action="{{ "/posts/{$post->id}/comments" }}" method="POST">
                             @csrf
-                            <textarea class="form-control" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
+                            <textarea class="form-control rounded-0" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                                       oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
                             <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-0 position-absolute bottom-0 end-0 me-2 mb-2">
                                 {{ __('common.post_verb') }}

@@ -44,12 +44,13 @@
         </div>
 
         <h3>{{ $post->comments->count() . ' ' .  __('common.comments')}}</h3>
+
         {{-- comment form --}}
         @auth
             <div class="forum-list-card bg-body-tertiary px-3 py-2 mb-3">
                 <form class="position-relative" action="{{ '/forums/' . $forum->id . '/posts/' . $post->id . '/comment' }}" method="POST">
                     @csrf
-                    <textarea class="form-control fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
+                    <textarea class="form-control rounded-0 fs-5" name="content" placeholder="{{ __('common.placeholder_thoughts') }}" required
                         oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';" style="overflow: hidden; resize: none; padding-bottom: 40px;"></textarea>
                     <button type="submit" class="btn btn-sm btn-aabu px-5 rounded-0 position-absolute bottom-0 end-0 me-2 mb-2">
                         {{ __('common.post_verb') }}
