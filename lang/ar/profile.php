@@ -13,6 +13,15 @@ return [
     'commented' => 'علق على منشورة :user',
     'view_post' => 'إظهار المنشورة',
 
+    // index page
+    'people' => 'أشخاص',
+    'people_recommended' => 'قد تعرف',
+    'search' => 'بحث عن أشخاص',
+    'search_placeholder' => 'بحث',
+    'first_ten' => 'عرض اول 10 نتائج',
+
+    'view_profile' => 'عرض الحساب',
+
     // settings page
     'update_info' => 'تحديث المعلومات',
     'update_avatar' => 'تحديث الصورة الشخصية',

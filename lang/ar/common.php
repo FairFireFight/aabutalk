@@ -30,4 +30,6 @@ return [
     'processing' => 'جاري معالجة العملية',
     'people' => 'أشخاص',
     'save' => 'حفظ',
+
+    'no_results' => 'لا نتائج',
 ];

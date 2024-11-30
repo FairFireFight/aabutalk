@@ -30,4 +30,6 @@ return [
     'processing' => 'Processing Operation',
     'people' => 'People',
     'save' => 'Save',
+
+    'no_results' => 'No Results',
 ];

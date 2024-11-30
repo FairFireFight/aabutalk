@@ -13,6 +13,15 @@ return [
     'commented' => 'Commented on :user\'s post',
     'view_post' => 'View Post',
 
+    // index page
+    'people' => 'People',
+    'people_recommended' => 'You might know',
+    'search' => 'Search People',
+    'search_placeholder' => 'Search',
+    'first_ten' => 'Showing first 10 results',
+
+    'view_profile' => 'View Profile',
+
     // settings page
     'update_info' => 'Update Info',
     'update_avatar' => 'Update Profile Picture',
