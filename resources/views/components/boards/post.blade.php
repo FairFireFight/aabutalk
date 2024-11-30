@@ -10,7 +10,7 @@
 
         <div class="flex-shrink-0 d-flex flex-column align-items-end">
             <div>
-                @can('create-board-post', $post->board)
+                @can('manage-board-post', $post->board)
                     <div class="d-flex gap-2 align-items-center">
                         <x-delete-button class="d-inline" action="{{ '/boards/' . $post->board->id . '/posts/' . $post->id }}" />
 
@@ -31,7 +31,7 @@
                     </div>
                 @endcan
 
-                @cannot('create-board-post', $post->board)
+                @cannot('manage-board-post', $post->board)
                     @if($post->featured)
                         <span class="text-warning me-3 fw-semibold">
                             <i class="bi bi-star-fill"></i> Featured

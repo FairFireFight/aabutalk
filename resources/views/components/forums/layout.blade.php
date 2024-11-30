@@ -3,7 +3,7 @@
 @endpush
 
 {{-- header --}}
-<h1 class="my-2 border-bottom">
+<h1 class="my-2 pb-2 font-serif border-bottom">
     {!! $header !!}
 </h1>
 

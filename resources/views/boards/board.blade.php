@@ -45,7 +45,7 @@
 
         {{-- secondary coloumn --}}
         <div class="col-lg-4">
-            @can('create-board-post', $board)
+            @can('manage-board-post', $board)
                 <a href="{{ getLocaleURL('/boards/' . $board->id . '/create') }}" class="btn btn-aabu rounded-0 mb-3 w-100">
                     {{ __('forums.create_post') }}
                 </a>

@@ -31,12 +31,12 @@
                         <x-delete-button action="{{ '/forums/' . $post->forum->id . '/posts/' . $post->id }}" />
                     @endcan
 
-                    @canany(['admin', 'moderator'])
+                    @can('pin-forum-post')
                         <form action="{{ '/forums/' . $post->forum->id . '/posts/' . $post->id . '/pin' }}" method="POST">
                             @csrf
                             <button class="btn p-0 text-info-emphasis" type="submit"><i class="bi-pin-angle fs-5"></i> {{ $post->pinned ? 'Unpin' : 'Pin' }}</button>
                         </form>
-                    @endcanany
+                    @endcan
                 </div>
             </div>
             {{-- post content --}}
