@@ -14,15 +14,9 @@
         <x-profile-dropdown :user="Auth::user()" />
     @endauth
     @guest
-        <div>
-            <a class="link-light me-2 link-underline-opacity-0 link-underline-opacity-75-hover"
-               href="{{ getLocaleSwitchURL() }}">
-                <i class="bi bi-globe me-1"></i> {{ __('common.language') }}
-            </a>
-            <div class="btn-group">
-                <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-0 ps-3 pe-2">{{ __('common.login') }}</a>
-                <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-0 ps-2 pe-3">{{ __('common.register') }}</a>
-            </div>
+        <div class="btn-group">
+            <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-0 px-3">{{ __('common.login') }}</a>
+            <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-0 px-3">{{ __('common.register') }}</a>
         </div>
     @endguest
 </div>
