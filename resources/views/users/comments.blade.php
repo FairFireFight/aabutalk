@@ -2,7 +2,7 @@
     <x-users.layout :user="$user">
         @if($user->comments->count() === 0)
             <h4 class="text-center text-secondary fw-light mt-5">
-                User Has No Comments
+                {{ __('profile.no_comments') }}
             </h4>
         @endif
 

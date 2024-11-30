@@ -3,6 +3,7 @@
     <div class="d-flex gap-2">
         {{-- profile picture --}}
         <img src="{{ asset($post->user->getProfilePicture()) }}" class="pfp-60 shadow-sm rounded-circle mt-1">
+
         <div class="flex-grow-1 pb-3">
             {{-- post header --}}
             <div class="d-flex align-items-center">

@@ -2,7 +2,7 @@
     <x-users.layout :user="$user">
         @if($user->posts->count() === 0)
             <h4 class="text-center text-secondary fw-light mt-5">
-                User Has No Posts
+                {{ __('profile.no_posts') }}
             </h4>
         @endif
 

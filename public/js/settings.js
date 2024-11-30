@@ -31,8 +31,8 @@ const themeButtons = document.querySelectorAll(".theme-setting");
 themeButtons.forEach(button => {
     button.addEventListener("click", function () {
         // get the selected theme from the button's text content
-        const selectedTheme = this.textContent.trim().toLowerCase();
-
+        const selectedTheme = this.getAttribute('data-value');
+        
         // Save the selected theme to local storage
         localStorage.setItem("preferredTheme", selectedTheme);
 

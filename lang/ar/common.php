@@ -29,4 +29,5 @@ return [
     'my_account' => 'حسابي',
     'processing' => 'جاري معالجة العملية',
     'people' => 'أشخاص',
+    'save' => 'حفظ',
 ];
