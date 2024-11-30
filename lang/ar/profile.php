@@ -4,7 +4,7 @@ return [
     'follow_verb' => 'متابعة',
     'unfollow_verb' => 'الغاء متابعة',
     'following' => 'يتابِع',
-    'followers' => 'يتابَع من',
+    'followers' => 'متابعون',
     'joined' => 'إنضم',
 
     'no_comments' => 'المستخدم لم يعلق بعد',

@@ -2,7 +2,7 @@
 <div class="pt-2 pb-1 border-bottom">
     <div class="d-flex gap-2">
         {{-- profile picture --}}
-        <img src="{{ asset($post->user->getProfilePicture()) }}" class="pfp-60 shadow-sm rounded-circle mt-1">
+        <img src="{{ asset($post->user->getProfilePicture()) }}" class="pfp-60 shadow-sm rounded-circle flex-shrink-0 mt-1">
 
         <div class="flex-grow-1 pb-3">
             {{-- post header --}}

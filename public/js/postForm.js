@@ -47,6 +47,7 @@ function updateImageInput(fileInput) {
 
     if(fileInputValid) {
         const imageContainer = document.getElementById('image-container');
+        imageContainer.innerHTML = '';
 
         // add image to image container
         for (let i = 0; i < files.length; i++) {

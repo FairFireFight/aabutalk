@@ -21,22 +21,22 @@
                     @endforeach
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#{{'images-' . $post->id}}" data-bs-slide="prev" style="width: 2.5rem">
-                        <span class="fs-5 rounded-circle bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
+                        <span class="fs-5 bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
                             @if(App::isLocale('ar'))
-                                <i class="bi bi-chevron-right position-absolute top-50 start-50 translate-middle"></i>
+                                <i class="bi bi-chevron-right position-absolute start-50 translate-middle" style="top: 47.5%"></i>
                             @else
-                                <i class="bi bi-chevron-left position-absolute top-50 start-50 translate-middle"></i>
+                                <i class="bi bi-chevron-left position-absolute start-50 translate-middle" style="top: 47.5%"></i>
                             @endif
                         </span>
                         <span class="visually-hidden">Previous</span>
                     </button>
 
                     <button class="carousel-control-next" type="button" data-bs-target="#{{'images-' . $post->id}}" data-bs-slide="next" style="width: 2.5rem">
-                        <span class="fs-5 rounded-circle bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
+                        <span class="fs-5 bg-dark position-relative" aria-hidden="true" style="width: 32px; height: 32px">
                             @if(App::isLocale('ar'))
-                                <i class="bi bi-chevron-left position-absolute top-50 start-50 translate-middle"></i>
+                                <i class="bi bi-chevron-left position-absolute start-50 translate-middle" style="top: 47.5%"></i>
                             @else
-                                <i class="bi bi-chevron-right position-absolute top-50 start-50 translate-middle"></i>
+                                <i class="bi bi-chevron-right position-absolute  start-50 translate-middle" style="top: 47.5%"></i>
                             @endif
                         </span>
                         <span class="visually-hidden">Next</span>

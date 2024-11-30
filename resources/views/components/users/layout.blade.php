@@ -76,10 +76,12 @@
     <div class="row">
         <div class="col-lg-4 order-lg-last pt-3">
             <div class="bg-body-tertiary p-3 mt-3 mt-lg-0 position-sticky" style="top: 5rem">
-                <button class="btn btn-outline-aabu rounded-0 w-100">
-                    <i class="bi bi-person-plus me-2"></i>{{ __('profile.follow_verb') . ' ' . $user->username }}
-                </button>
-                <hr>
+                @can('follow-user', $user)
+                    <button class="btn btn-outline-aabu rounded-0 w-100">
+                        <i class="bi bi-person-plus me-2"></i>{{ __('profile.follow_verb') . ' ' . $user->username }}
+                    </button>
+                    <hr>
+                @endcan
                 <div>
                     Biograph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolores ex facere iste officia omnis quibusdam, sint suscipit velit.
                 </div>
