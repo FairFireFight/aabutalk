@@ -34,15 +34,18 @@
                 {{-- profile info --}}
                 <div>
                     <div class="fs-3 mb-0">
-                        <span>
-                            {{ $user->username }}
-                        </span>
                         @if($user->hasPermission('admin'))
                             <i title="Admin" class="bi bi-shield-shaded text-warning fs-5"></i>
                         @endif
                         @if($user->hasPermission('moderator'))
                             <i title="Moderator" class="bi bi-shield-shaded text-danger fs-5"></i>
                         @endif
+                        <span>
+                            {{ $user->username }}
+                        </span>
+                        <span class="text-secondary fs-6">
+                            {{ $user->major() }}
+                        </span>
                     </div>
                 </div>
             </div>
