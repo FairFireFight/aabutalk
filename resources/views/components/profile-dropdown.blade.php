@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="text-center mb-2">
+        <div class="mb-2 w-100">
             <x-logout />
         </div>
 

@@ -14,8 +14,16 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function activity($locale, User $user) {
+    public function posts($locale, User $user) {
         return view ('users.posts', [
+            'locale' => $locale,
+            'title' => $user->username . " | Profile",
+            'user' => $user
+        ]);
+    }
+
+    public function comments($locale, User $user) {
+        return view ('users.comments', [
             'locale' => $locale,
             'title' => $user->username . " | Profile",
             'user' => $user

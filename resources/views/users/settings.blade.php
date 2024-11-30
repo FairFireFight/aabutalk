@@ -41,17 +41,17 @@
 
         <hr>
 
-        <h4 class="font-serif mt-3">Update Profile Picture</h4>
-        {{-- avatar preview --}}
-        <div class="d-flex gap-2 align-items-end">
-            <img class="avatar-preview rounded-circle" src="{{ asset($user->getProfilePicture()) }}" alt="128x128 Preview" width="128" height="128" style="object-fit: cover">
-            <img class="avatar-preview rounded-circle" src="{{ asset($user->getProfilePicture()) }}" alt="64x64 Preview" width="64" height="64" style="object-fit: cover">
-            <img class="avatar-preview rounded-circle" src="{{ asset($user->getProfilePicture()) }}" alt="32x32 Preview" width="32" height="32" style="object-fit: cover">
-        </div>
-
         <form action="{{ '/users/' . $user->id . '/update/pictures'}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
+            <h4 class="font-serif mt-3">Update Profile Picture</h4>
+            {{-- avatar preview --}}
+            <div class="d-flex gap-2 align-items-end">
+                <img class="avatar-preview rounded-circle shadow-sm" src="{{ asset($user->getProfilePicture()) }}" alt="128x128 Preview" width="128" height="128" style="object-fit: cover">
+                <img class="avatar-preview rounded-circle shadow-sm" src="{{ asset($user->getProfilePicture()) }}" alt="64x64 Preview" width="64" height="64" style="object-fit: cover">
+                <img class="avatar-preview rounded-circle shadow-sm" src="{{ asset($user->getProfilePicture()) }}" alt="32x32 Preview" width="32" height="32" style="object-fit: cover">
+            </div>
+
             <input id="avatar-input" type="file" name="avatar" class="form-control mt-3 rounded-0"
                    accept="image/png, image/jpeg, image/bmp"/>
             <p class="form-text">.PNG, .JPEG, .BMP</p>
@@ -59,7 +59,7 @@
             <h4 class="font-serif mt-3">Update Cover Picture</h4>
 
             {{-- cover preview --}}
-            <img class="cover-preview w-100" src="{{ asset($user->getCoverPicture()) }}" style="object-fit: cover; max-height: 250px">
+            <img class="cover-preview w-100 shadow-sm" src="{{ asset($user->getCoverPicture()) }}" style="object-fit: cover; max-height: 250px">
 
             <input id="cover-input" type="file" name="cover" class="form-control mt-3 rounded-0"
                    accept="image/png, image/jpeg, image/bmp"/>

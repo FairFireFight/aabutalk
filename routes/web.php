@@ -46,7 +46,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
     // Profile routes
     Route::get('/users', [ProfileController::class, 'index']);
-    Route::get('/users/{user}', [ProfileController::class, 'activity']);
+    Route::get('/users/{user}', [ProfileController::class, 'posts']);
+    Route::get('/users/{user}/comments', [ProfileController::class, 'comments']);
     Route::get('/users/{user}/settings', [ProfileController::class, 'edit'])
         ->middleware('can:edit-profile,user');
 
