@@ -13,7 +13,7 @@
 
                     <div class="small">
                         <p class="text-secondary mb-0">
-                            {{ __('profile.commented', ['user' => $comment->user->username]) }} - {{ $comment->created_at->diffForHumans() }}
+                            {{ __('profile.commented', ['user' => $comment->post->user->username]) }} - {{ $comment->created_at->diffForHumans() }}
                         </p>
                         <p class="mb-1">
                             {{ substr($comment->post->content, 0, 50) }}
