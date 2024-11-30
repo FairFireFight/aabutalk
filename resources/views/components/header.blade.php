@@ -20,8 +20,8 @@
                 <i class="bi bi-globe me-1"></i> {{ __('common.language') }}
             </a>
             <div class="btn-group">
-                <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-start-pill ps-3 pe-2">{{ __('common.login') }}</a>
-                <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-end-pill ps-2 pe-3">{{ __('common.register') }}</a>
+                <a href="{{ getLocaleURL('/login') }}" class="btn btn-light rounded-0 ps-3 pe-2">{{ __('common.login') }}</a>
+                <a href="{{ getLocaleURL('/register') }}" class="btn btn-outline-light rounded-0 ps-2 pe-3">{{ __('common.register') }}</a>
             </div>
         </div>
     @endguest

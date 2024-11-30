@@ -10,6 +10,8 @@ return [
     'no_comments' => 'المستخدم لم يعلق بعد',
     'no_posts' => 'المستخدم لم ينشر بعد',
     'biography' => 'السيرة الذاتية',
+    'commented' => 'علق على منشورة :user',
+    'view_post' => 'إظهار المنشورة',
 
     // settings page
     'update_info' => 'تحديث المعلومات',

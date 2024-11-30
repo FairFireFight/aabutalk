@@ -10,6 +10,8 @@ return [
     'no_comments' => 'User has not commented yet',
     'no_posts' => 'User has not posted yet',
     'biography' => 'Biography',
+    'commented' => 'Commented on :user\'s post',
+    'view_post' => 'View Post',
 
     // settings page
     'update_info' => 'Update Info',

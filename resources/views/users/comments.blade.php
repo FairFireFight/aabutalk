@@ -13,7 +13,7 @@
 
                     <div class="small">
                         <p class="text-secondary mb-0">
-                            Commented on {{ $comment->post->user->username }}'s post - {{ $comment->created_at->diffForHumans() }}
+                            {{ __('profile.commented', ['user' => $comment->user->username]) }} - {{ $comment->created_at->diffForHumans() }}
                         </p>
                         <p class="mb-1">
                             {{ substr($comment->post->content, 0, 50) }}
@@ -22,7 +22,7 @@
                             <span class="text-secondary"> | </span>
 
                             <a class="text-decoration-none" href="{{ getLocaleURL('/posts/' . $comment->post->id) }}">
-                                View Post
+                                {{ __('profile.view_post') }}
                             </a>
                         </p>
                         <p class="fw-light fs-5 mb-0">

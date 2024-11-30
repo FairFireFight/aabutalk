@@ -111,7 +111,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/users/{user}/update/info', [RegisteredUserController::class, 'update_info'])
         ->middleware('can:edit-profile,user');
     Route::patch('/users/{user}/update/pictures', [RegisteredUserController::class, 'update_pictures'])
-        ->middleware(['can:edit-profile,user', 'can:admin', 'can:moderator']);
+        ->middleware('can:edit-profile,user');
 });
 
 
