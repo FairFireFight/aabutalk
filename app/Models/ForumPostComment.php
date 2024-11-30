@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin Eloquent
+ */
 class ForumPostComment extends Model
 {
     public function user() : BelongsTo {

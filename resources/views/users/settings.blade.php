@@ -20,7 +20,7 @@
                 {{-- email address display --}}
                 <div class="col-lg-6">
                     <label class="mb-1">{{ __('auth.email_address') }}</label>
-                    <input type="text" class="form-control rounded-0" readonly disabled value="{{ $user->email }}" />
+                    <input type="text" class="form-control rounded-0" style="direction: ltr" readonly disabled value="{{ $user->email }}" />
                     <p class="form-text">{{ __('profile.email_note') }}</p>
                 </div>
 

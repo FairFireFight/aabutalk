@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $faculty = Faculty::create([
             'id' => '0',
             'name_en' => 'University Presidency',
-            'name_ar' => 'راسة الجامعة',
+            'name_ar' => 'رئاسة الجامعة',
             'description_en' => 'Placeholder description EN',
             'description_ar' => 'Placeholder description AR',
         ]);

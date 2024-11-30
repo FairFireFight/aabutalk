@@ -14,17 +14,17 @@
 
         <div class="d-flex flex-column align-items-center mb-2">
             <span class="mb-1">{{$user->username }}</span>
-            <span class="text-secondary" style="font-size: 0.9rem">{{ $user->email }}</span>
+            <span class="text-secondary" style="font-size: 0.9rem; direction: ltr">{{ $user->email }}</span>
         </div>
 
         <div class="row mx-3 mb-2">
             <div class="col text-center">
                 <span class="fs-5">0</span> <br>
-                <span class="text-secondary">Followers</span>
+                <span class="text-secondary">{{ __('profile.followers') }}</span>
             </div>
             <div class="col text-center">
                 <span class="fs-5">0</span> <br>
-                <span class="text-secondary">Following</span>
+                <span class="text-secondary">{{ __('profile.following') }}</span>
             </div>
         </div>
 
