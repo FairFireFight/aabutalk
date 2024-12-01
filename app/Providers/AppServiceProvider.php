@@ -9,7 +9,6 @@ use App\Models\ForumPostComment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Json;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

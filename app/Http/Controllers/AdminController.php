@@ -24,14 +24,23 @@ class AdminController extends Controller
     function registration_requests() {
         return view('admin.registration_requests', [
             'pending_count' => RegistrationRequest::where('status', 'pending')->count(),
-            'registration_requests' => RegistrationRequest::orderByDesc('status')->orderByDesc('created_at')->paginate(25),
+            'registration_requests' => RegistrationRequest::orderByDesc('status')->orderByDesc('created_at')->paginate(100),
         ]);
     }
 
-    function users_index() {
+    function users_index(Request $request) {
+        $query = $request->get('query');
+
+        if ($query) {
+            $users = User::where('email', 'LIKE', '%' . $query . '%')->orderBy('email')->paginate(100);
+        } else {
+            $users = User::orderBy('email')->paginate(25);
+        }
+
         return view('admin.users', [
             'users_count' => User::all()->count(),
-            'users' => User::orderBy('email')->paginate(100),
+            'users' => $users,
+            'query' => $query,
         ]);
     }
 

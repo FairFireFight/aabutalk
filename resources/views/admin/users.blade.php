@@ -1,5 +1,13 @@
 <x-admin.layout>
     <h2 class="mb-3 me-auto">{{ $users_count }} Users</h2>
+
+    <form class="mb-2" action="/admin/dashboard/users" method="GET">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control rounded-0" placeholder="Search users by email..." name="query" value="{{ $query ?? '' }}">
+            <button class="btn btn-aabu px-3 py-0 rounded-0" type="submit"><i class="bi bi-search fs-5"></i></button>
+        </div>
+    </form>
+
     <table class="table table-striped">
         <tr class="table-secondary">
             <th class="text-center">ID</th>
@@ -33,5 +41,5 @@
         @endforeach
     </table>
 
-    {{ $users->links('pagination::bootstrap-5') }}
+    {{ $users->appends(['query' => $query])->links('pagination::bootstrap-5') }}
 </x-admin.layout>
