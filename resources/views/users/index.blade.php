@@ -10,9 +10,9 @@
                         <x-users.user-card-large :user="$user"/>
                     @endforeach
                 </div>
-            @endif
 
-            <hr class="mt-1 mb-3">
+                <hr class="mt-1 mb-3">
+            @endif
 
             <h4 class="font-serif">{{ __('profile.search') }}</h4>
             <form class="mb-2" action="{{ getLocaleURL('/users') }}" method="GET">

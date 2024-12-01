@@ -7,7 +7,15 @@
         </div>
         <div class="col-md d-flex flex-column">
             <p>&copy; {{ __('footer.logo_copy') }}</p>
-            <a href="#" class="mt-auto">{{ __('footer.to_top') }}</a>
+            <div class="mt-auto">
+                <a href="#" class="me-4">{{ __('footer.to_top') }}</a>
+                @guest
+                    <a href="{{ getLocaleSwitchURL() }}">
+                        <i class="bi bi-globe me-2"></i>{{ __('common.language') }}
+                    </a>
+                @endguest
+            </div>
+
         </div>
     </div>
 </footer>
