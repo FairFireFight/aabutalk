@@ -13,11 +13,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 */
 class Board extends Model
 {
-    function faculty() : BelongsTo {
+    public function faculty() : BelongsTo {
         return $this->belongsTo(Faculty::class);
     }
 
-    function userIdsCSV() : string {
+    public function userIdsCSV() : string {
         $ids = Json::decode($this->user_ids);
 
         $string = '';
@@ -28,7 +28,7 @@ class Board extends Model
         return substr($string, 0, -2);
     }
 
-    function posts() : HasMany {
+    public function posts() : HasMany {
         return $this->hasMany(BoardPost::class);
     }
 }

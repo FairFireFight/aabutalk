@@ -19,19 +19,19 @@ class Post extends Model
     /** @use HasFactory<PostFactory> */
     use HasFactory, Notifiable;
 
-    function user() : BelongsTo {
+    public function user() : BelongsTo {
         return $this->belongsTo(User::class);
     }
 
-    function getImagePaths() : Array | null {
+    public function getImagePaths() : Array | null {
         return $this->images ? Json::decode($this->images) : null;
     }
 
-    function likes() : HasMany {
+    public function likes() : HasMany {
         return $this->hasMany(Like::class);
     }
 
-    function comments() : HasMany {
+    public function comments() : HasMany {
         return $this->hasMany(Comment::class);
     }
 }

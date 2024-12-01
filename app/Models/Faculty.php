@@ -12,19 +12,19 @@ use Illuminate\Support\Facades\App;
  */
 class Faculty extends Model
 {
-    function name() : string {
+    public function name() : string {
         return App::currentLocale() === 'en' ? $this->name_en : $this->name_ar;
     }
 
-    function description() : string {
+    public function description() : string {
         return App::currentLocale() === 'en' ? $this->description_en : $this->description_ar;
     }
 
-    function board() : HasOne {
+    public function board() : HasOne {
         return $this->hasOne(Board::class);
     }
 
-    function forum() : HasOne {
+    public function forum() : HasOne {
         return $this->hasOne(Forum::class);
     }
 }

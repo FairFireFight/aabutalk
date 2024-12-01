@@ -17,7 +17,7 @@ class Forum extends Model
         return $this->belongsTo(User::class);
     }
 
-    function faculty() : BelongsTo {
+    public function faculty() : BelongsTo {
         return $this->belongsTo(Faculty::class);
     }
 

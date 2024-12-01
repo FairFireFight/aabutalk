@@ -53,7 +53,7 @@ class BoardPost extends Model
         return preg_replace($pattern, '</p>', $string);
     }
 
-    function images() : array {
+    public function images() : array {
         $imgUrls = [];
         // regex to match img tags and extract the src attribute
         $pattern = '/<img[^>]+src=["\']([^"\']+)["\']/i'; //
