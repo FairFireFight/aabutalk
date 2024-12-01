@@ -12,11 +12,10 @@ class ProfileController extends Controller
     public function index($locale, Request $request) {
         // recommendation functionality
         $user = null;
-        if (Auth::id()) {
-            // is the user a student?
-            if (preg_match('/.{10}@st\.aabu\.edu\.jo/i', Auth::user()->email)) {
-                $user = Auth::user();
-            }
+
+        // is the user a student?
+        if (Auth::id() && preg_match('/.{10}@st\.aabu\.edu\.jo/i', Auth::user()->email)) {
+            $user = Auth::user();
         }
 
         if ($user) {

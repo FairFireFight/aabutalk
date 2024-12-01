@@ -18,7 +18,6 @@ class BoardPostController extends Controller
             'title' => 'Board Post',
             'locale' => $locale,
             'post' => $post,
-
             'featured_posts' => $board->posts()
                 ->where('featured', 1)
                 ->orderByDesc('updated_at')

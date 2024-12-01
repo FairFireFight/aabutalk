@@ -15,8 +15,14 @@ class AdminController extends Controller
     function dashboard() {
         return view('admin.dashboard', [
             'pending_count' => RegistrationRequest::where('status', 'pending')->count(),
-            'posts_count' => Post::where('created_at', '>=', Carbon::now()->subDay())->get()->count(),
-            'users_count' => User::where('created_at', '>=', Carbon::now()->subDay())->get()->count(),
+            'posts_count' => Post::where('created_at', '>=', Carbon::now()
+                ->subDay())
+                ->get()
+                ->count(),
+            'users_count' => User::where('created_at', '>=', Carbon::now()
+                ->subDay())
+                ->get()
+                ->count(),
         ]);
     }
 
@@ -24,7 +30,9 @@ class AdminController extends Controller
     function registration_requests() {
         return view('admin.registration_requests', [
             'pending_count' => RegistrationRequest::where('status', 'pending')->count(),
-            'registration_requests' => RegistrationRequest::orderByDesc('status')->orderByDesc('created_at')->paginate(100),
+            'registration_requests' => RegistrationRequest::orderByDesc('status')
+                ->orderByDesc('created_at')
+                ->paginate(100),
         ]);
     }
 
@@ -32,7 +40,8 @@ class AdminController extends Controller
         $query = $request->get('query');
 
         if ($query) {
-            $users = User::where('email', 'LIKE', '%' . $query . '%')->orderBy('email')->paginate(100);
+            $users = User::where('email', 'LIKE', '%' . $query . '%')
+                ->orderBy('email')->paginate(100);
         } else {
             $users = User::orderBy('email')->paginate(25);
         }

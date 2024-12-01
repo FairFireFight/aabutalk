@@ -14,11 +14,9 @@ class BoardController extends Controller
             'title' => 'Home',
             'lang' => $locale,
             'board' => $board,
-
             'posts' => $board->posts()
                 ->orderByDesc('created_at')
                 ->paginate(8),
-
             'featured_posts' => $board->posts()
                 ->where('featured', 1)
                 ->orderByDesc('updated_at')
@@ -31,11 +29,9 @@ class BoardController extends Controller
         return view('boards.board', [
             'lang' => $locale,
             'board' => $board,
-
             'posts' => $board->posts()
                 ->orderByDesc('created_at')
                 ->paginate(8),
-
             'featured_posts' => $board->posts()
                 ->where('featured', 1)
                 ->orderByDesc('updated_at')
