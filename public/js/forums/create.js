@@ -20,12 +20,12 @@ $(document).ready(function () {
 
     // Submit button click event handler
     submitButton.addEventListener('click', async () => {
+        if (!validateForm()) return; // Validate form input
+
         // disable post button and show loading screen
         submitButton.innerHTML = '<div class="spinner-border m-0"></div>';
         submitButton.classList.add('disabled');
         processingSpinner.classList.remove('d-none');
-
-        if (!validateForm()) return; // Validate form input
 
         const images = extractImagesFromEditor(quill); // Extract Base64 images
         for (const image of images) {
@@ -33,11 +33,6 @@ $(document).ready(function () {
         }
 
         uploadPost(); // Submit the post
-
-        // return button and hide loading screen
-        submitButton.innerHTML = submitButtonContent;
-        submitButton.classList.remove('disabled');
-        processingSpinner.classList.add('d-none');
     });
 
     /**
@@ -91,6 +86,11 @@ $(document).ready(function () {
             },
             error(xhr, status, error) {
                 console.error('Error:', error);
+
+                // return button and hide loading screen
+                submitButton.innerHTML = submitButtonContent;
+                submitButton.classList.remove('disabled');
+                processingSpinner.classList.add('d-none');
 
                 alert('Something went wrong while submitting...');
             }

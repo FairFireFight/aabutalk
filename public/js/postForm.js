@@ -15,6 +15,13 @@ fileInput.addEventListener("change", () => {
     updateSubmitButton();
 });
 
+submitButton.addEventListener('click', () => {
+    submitButton.setAttribute("disabled", "");
+    submitButton.innerHTML = '<div class="spinner-border m-0 spinner-border-sm small"></div>';
+
+    document.getElementById('post-form').submit();
+});
+
 function updateSubmitButton() {
     if (textAreaValid || fileInputValid) {
         submitButton.removeAttribute("disabled");

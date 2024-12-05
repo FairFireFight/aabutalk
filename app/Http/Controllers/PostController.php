@@ -88,7 +88,7 @@ class PostController extends Controller
         $attributes = $request->validate([
             'content' => [new AtLeastOne('content', 'images')],
             'images' => [new AtLeastOne('content', 'images'), 'array', 'max:8'],
-            'images.*' => ['image', 'mimes:png,jpg,jpeg,gif']
+            'images.*' => ['image', 'mimes:png,jpg,jpeg,gif,bmp,webp']
         ]);
 
         $files = $request->file('images');

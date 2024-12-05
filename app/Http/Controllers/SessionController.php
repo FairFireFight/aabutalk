@@ -64,6 +64,6 @@ class SessionController extends Controller
 
         Auth::logout();
 
-        return redirect($request->session()->get('return_url'));
+        return redirect(getLocaleURL('/'));
     }
 }

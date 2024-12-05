@@ -13,7 +13,7 @@ class FileController extends Controller
         if ($file) {
             $path = $file->store('/images/uploads', ['disk' => 'public']);
 
-            return Json::encode(['path' => asset($path)]);
+            return Json::encode(['path' => '/' . $path]);
         }
 
         return response(status: 400);
