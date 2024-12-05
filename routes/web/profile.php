@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 
@@ -20,4 +21,6 @@ Route::middleware('auth')->group(function () {
         ->middleware('can:edit-profile,user');
     Route::patch('/users/{user}/update/pictures', [RegisteredUserController::class, 'update_pictures'])
         ->middleware('can:edit-profile,user');
+
+    Route::post('/users/{user}/follow', [FollowController::class, 'toggleFollow']);
 });

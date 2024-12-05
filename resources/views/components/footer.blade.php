@@ -15,7 +15,6 @@
                     </a>
                 @endguest
             </div>
-
         </div>
     </div>
 </footer>

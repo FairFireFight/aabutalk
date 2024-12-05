@@ -23,9 +23,34 @@ class PostController extends Controller
         ]);
     }
 
-    function loadPosts() {
+    function loadAllPosts() {
         // get posts
         $posts = Post::orderBy('created_at', 'desc')
+            ->with(['user'])
+            ->paginate(PostController::PAGINATE_SIZE);
+
+        // generate content to send
+        $content = '';
+        foreach ($posts as $post) {
+            $content .= view('components.posts.post-card', ['post' => $post])->render();
+        }
+
+        // last batch of posts we have
+        $isLast = count($posts) != PostController::PAGINATE_SIZE;
+
+        return response()->json([
+            "content" => $content,
+            "isLast" => $isLast
+        ]);
+    }
+
+    function loadFeedPosts() {
+        // get IDs of users the user is following
+        $followedUserIds = auth()->user()->following()->pluck('followed_id');
+
+        // get posts of followed users ordered by creation date
+        $posts = Post::whereIn('user_id', $followedUserIds)
+            ->orderBy('created_at', 'desc')
             ->with(['user'])
             ->paginate(PostController::PAGINATE_SIZE);
 

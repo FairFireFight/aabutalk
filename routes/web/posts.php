@@ -10,12 +10,12 @@ use App\Http\Controllers\PostController;
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], function () {
     Route::get('/all', [PostController::class, 'all']);
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('post');
-    Route::get('/load/posts/feed', [PostController::class, 'loadPosts']);
-    Route::get('/load/posts/all', [PostController::class, 'loadPosts']);
+    Route::get('/load/posts/all', [PostController::class, 'loadAllPosts']);
 
     // Auth-only routes
     Route::middleware('auth')->group(function () {
         Route::get('/feed', [PostController::class, 'index']);
+        Route::get('/load/posts/feed', [PostController::class, 'loadFeedPosts']);
     });
 });
 

@@ -6,6 +6,7 @@ namespace App\Models;
 use Eloquent;
 use Illuminate\Database\Eloquent\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -69,6 +70,18 @@ class User extends Authenticatable
 
     public function likesPost(Post $post): bool {
         return $this->likes()->where(["post_id" => $post->id])->get()->count() > 0;
+    }
+
+    public function followers(): BelongsToMany {
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'follower_id');
+    }
+
+    public function following(): BelongsToMany {
+        return $this->belongsToMany(User::class, 'follows', 'follower_id', 'followed_id');
+    }
+
+    public function isFollowing(User $user): bool {
+        return $this->following()->where('followed_id', $user->id)->exists();
     }
 
     public function major() : String {

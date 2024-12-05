@@ -77,9 +77,18 @@
         <div class="col-lg-4 order-lg-last pt-3">
             <div class="bg-body-tertiary p-3 mt-3 mt-lg-0 position-sticky" style="top: 5rem">
                 @can('follow-user', $user)
-                    <button class="btn btn-outline-aabu rounded-0 w-100">
-                        <i class="bi bi-person-plus me-2"></i>{{ __('profile.follow_verb') . ' ' . $user->username }}
-                    </button>
+                    <form action="{{ '/users/' . $user->id . '/follow' }}" method="POST">
+                        @csrf
+                            @if( auth()->user()->isFollowing($user))
+                                <button type="submit" class="btn btn-outline-aabu rounded-0 w-100">
+                                    <i class="bi bi-person-dash me-2"></i>{{ __('profile.unfollow_verb') . ' ' . $user->username }}
+                                </button>
+                            @else
+                                <button type="submit" class="btn btn-aabu rounded-0 w-100">
+                                    <i class="bi bi-person-plus me-2"></i>{{ __('profile.follow_verb') . ' ' . $user->username }}
+                                </button>
+                            @endif
+                    </form>
                     <hr>
                 @endcan
                 <div>
@@ -101,7 +110,7 @@
                             {{ __('profile.followers') }}
                         </div>
                         <div class="col">
-                            0
+                            {{ $user->followers()->count() }}
                         </div>
                     </div>
                     <div class="row">
@@ -109,7 +118,7 @@
                             {{ __('profile.following') }}
                         </div>
                         <div class="col">
-                            0
+                            {{ $user->following()->count() }}
                         </div>
                     </div>
                     <div class="row">

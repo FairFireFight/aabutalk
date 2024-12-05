@@ -19,7 +19,7 @@ $(document).ready(() => {
     let isFirstLoad = true;
     function loadMorePosts(page) {
         $.ajax({
-            url: `load/posts/feed?page=${page}`,
+            url: `load/posts/all?page=${page}`,
             type: "GET",
             success: function(response) {
                 if (isFirstLoad) {

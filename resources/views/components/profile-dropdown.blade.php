@@ -19,11 +19,11 @@
 
         <div class="row mx-3 mb-2">
             <div class="col text-center">
-                <span class="fs-5">0</span> <br>
+                <span class="fs-5">{{ $user->followers()->count() }}</span> <br>
                 <span class="text-secondary">{{ __('profile.followers') }}</span>
             </div>
             <div class="col text-center">
-                <span class="fs-5">0</span> <br>
+                <span class="fs-5">{{ $user->following()->count() }}</span> <br>
                 <span class="text-secondary">{{ __('profile.following') }}</span>
             </div>
         </div>
