@@ -14,13 +14,13 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/forums/{forum}/posts/{post}', [ForumPostController::class, 'show']);
 
     // Auth-only routes
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/forums/{forum}/create', [ForumPostController::class, 'create']);
     });
 });
 
 // Auth-only routes (non-GET)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/forums/{forum}/create', [ForumPostController::class, 'store']);
     Route::delete('/forums/{forum}/posts/{post}', [ForumPostController::class, 'destroy'])
         ->middleware('can:delete-forum-post,post');

@@ -34,7 +34,7 @@
 
             {{-- bio text area --}}
             <label class="mb-1">{{ __('profile.biography') }}</label>
-            <textarea name="bio" class="form-control rounded-0" rows="4" placeholder="{{ __('profile.biography_placeholder') }}"></textarea>
+            <textarea name="bio" class="form-control rounded-0" rows="4" placeholder="{{ __('profile.biography_placeholder') }}">{{ $user->biography }}</textarea>
 
             <button type="submit" class="btn btn-aabu rounded-0 px-5 mt-3">{{ __('common.save') }}</button>
         </form>

@@ -92,7 +92,7 @@
                     <hr>
                 @endcan
                 <div>
-                    Biograph Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda corporis dolores ex facere iste officia omnis quibusdam, sint suscipit velit.
+                    {{ $user->biography }}
                 </div>
                 <hr>
                 {{-- user information --}}

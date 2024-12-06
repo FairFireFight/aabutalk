@@ -13,14 +13,14 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
     Route::get('/load/posts/all', [PostController::class, 'loadAllPosts']);
 
     // Auth-only routes
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/feed', [PostController::class, 'index']);
         Route::get('/load/posts/feed', [PostController::class, 'loadFeedPosts']);
     });
 });
 
 // Auth-only routes (non-GET)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/posts', [PostController::class, 'store']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     Route::post('/posts/{post}/like', [LikeController::class, 'store']);

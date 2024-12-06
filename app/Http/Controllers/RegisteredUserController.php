@@ -48,7 +48,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect($request->session()->get('return_url'));
+        $user->sendEmailVerificationNotification();
+
+        return redirect(getLocaleURL('/email/verify'));
     }
 
     function update_info(Request $request, User $user) {
@@ -60,7 +62,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->username = $attributes['username'];
-        // $user->bio = $attributes['bio'];
+        $user->biography = $attributes['bio'];
 
         $user->save();
 

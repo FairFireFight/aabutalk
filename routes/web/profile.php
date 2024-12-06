@@ -16,7 +16,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 });
 
 // Auth-only routes (non-GET)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/users/{user}/update/info', [RegisteredUserController::class, 'update_info'])
         ->middleware('can:edit-profile,user');
     Route::patch('/users/{user}/update/pictures', [RegisteredUserController::class, 'update_pictures'])

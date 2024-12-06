@@ -14,7 +14,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 });
 
 // Auth-only routes (non-GET)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/boards/{board}/create', [BoardPostController::class, 'store'])
         ->middleware('can:manage-board-post,board');
     Route::post('/boards/{board}/posts/{post}/feature', [BoardPostController::class, 'feature'])

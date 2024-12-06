@@ -8,7 +8,7 @@ use App\Http\Controllers\MajorController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\RegistrationRequestController;
 
-Route::middleware(['auth', 'can:admin'])->group(function () {
+Route::middleware(['auth', 'verified', 'can:admin'])->group(function () {
 
     // Dashboard routes
     Route::get('/admin', fn() => redirect('/admin/dashboard'));
