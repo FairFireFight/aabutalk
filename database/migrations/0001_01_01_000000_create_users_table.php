@@ -20,6 +20,7 @@ return new class extends Migration
             $table->json('permissions');
             $table->string('profile_picture')->nullable();
             $table->string('cover_picture')->nullable();
+            $table->text('biography')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
