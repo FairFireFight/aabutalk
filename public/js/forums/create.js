@@ -40,10 +40,11 @@ $(document).ready(function () {
      */
     function validateForm() {
         const title = document.getElementById('title').value.trim();
-        const content = document.querySelector('.ql-editor').innerHTML.trim();
 
         const titleError = document.getElementById('title-error');
         const contentError = document.getElementById('content-error');
+
+        let content = document.querySelector('.ql-editor').innerHTML.trim();
 
         let isValid = true;
 
@@ -58,7 +59,25 @@ $(document).ready(function () {
         }
 
         // Validate content
-        if (content === '<p><br></p>') {
+        let emptyContent = '<p><br></p>';
+
+        // remove all starting <p><br></p>
+        while(content.startsWith(emptyContent)) {
+            content = content.indexOf(emptyContent) === 0 ? content.substring(11) : content;
+        }
+
+        // remove all trailing ones
+        while(content.endsWith(emptyContent)) {
+            content = content.replace(new RegExp(emptyContent + '$'), '')
+        }
+
+        // check if it's nothing
+        if (content === '') {
+            contentError.classList.remove('d-none');
+            isValid = false;
+        }
+
+        if (document.querySelector('.ql-editor').innerText.trim() === '') {
             contentError.classList.remove('d-none');
             isValid = false;
         }
