@@ -28,23 +28,26 @@
                                     {{-- student ID input --}}
                                     <label>{{ __('auth.student_id') }}</label>
                                     <input id="student-id" type="text" class="form-control rounded-0 mb-3" name="student_id"
-                                           placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required/>
+                                           placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required value="{{ old('student_id') }}"/>
 
                                     {{-- password & password confirmation inputs --}}
                                     <label>{{ __('auth.password_field') }}</label>
                                     <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
                                            minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
 
-                                    <div class="form-check mb-3">
+                                    <div class="form-check mb-0">
                                         <input class="form-check-input" type="checkbox" name="remember_me" value="true" id="remember_me">
                                         <label class="form-check-label" for="remember_me">
                                             {{ __('auth.remember_me') }}
                                         </label>
                                     </div>
+                                    @error('email')
+                                        <p class="text-danger mb-0">Invalid credentials</p>
+                                    @enderror
                                 </div>
 
                                 {{-- submit button --}}
-                                <div class="d-flex justify-content-between align-items-end">
+                                <div class="d-flex justify-content-between align-items-end mt-3">
                                     <button type="submit" class="btn btn-aabu rounded-0 px-5">{{ __('common.login') }}</button>
                                     <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                 </div>

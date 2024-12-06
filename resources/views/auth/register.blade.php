@@ -48,33 +48,46 @@
                                     <h2 class="font-serif">{{ __('auth.create_account') }}</h2>
                                     {{-- student ID input --}}
                                     <label>{{ __('auth.student_id') }}</label>
-                                    <input id="student-id" type="text" class="form-control rounded-0" name="student_id"
+                                    <input id="student-id" type="text" class="form-control rounded-0" name="student_id" value="{{ old('student_id') }}"
                                            placeholder="{{ __('auth.student_id_placeholder') }}" min="10" max="10" required/>
-                                    <p class="text-secondary">
+                                    {{-- SID validation errors --}}
+                                    @error('email')
+                                        <p class="text-danger mb-0">
+                                            Invalid or already in use.
+                                        </p>
+                                    @enderror
+                                    <p class="text-secondary mb-0">
                                         {{ __('auth.student_id_desc') }}
                                     </p>
 
                                     {{-- password & password confirmation inputs --}}
-                                    <label>{{ __('auth.password_field') }}</label>
+                                    <label class="mt-3">{{ __('auth.password_field') }}</label>
                                     <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
                                            minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
 
                                     <label>{{ __('auth.password_confirmation') }}</label>
                                     <input id="password_confirmation" type="password" class="form-control rounded-0"
                                            name="password_confirmation" minlength="6" placeholder="{{ __('auth.password_confirmation') }}" required/>
-                                    <p class="text-secondary">
+                                    {{-- password validation error --}}
+                                    @error('password')
+                                        <p class="text-danger mb-0">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
+
+                                    <p class="text-secondary mb-0">
                                         {{ __('auth.password_desc') }}
                                     </p>
 
                                     {{-- username input --}}
-                                    <label>{{ __('auth.username') }}</label>
-                                    <input id="username" type="text" class="form-control rounded-0" name="username"
+                                    <label class="mt-3">{{ __('auth.username') }}</label>
+                                    <input id="username" type="text" class="form-control rounded-0" name="username" value="{{ old('username') }}"
                                            placeholder="{{ __('auth.username') }}" required/>
-                                    <p class="text-secondary mb-2">{{ __('auth.username_desc') }}</p>
+                                    <p class="text-secondary">{{ __('auth.username_desc') }}</p>
                                 </div>
 
                                 {{-- submit button --}}
-                                <div class="d-flex justify-content-between align-items-end">
+                                <div class="d-flex justify-content-between align-items-end mt-2">
                                     <button type="submit" class="btn btn-aabu rounded-0 px-5">{{ __('auth.register') }}</button>
                                     <a href="{{ getLocaleSwitchURL() }}"><i class="bi bi-globe me-2"></i>{{ __('common.language') }}</a>
                                 </div>

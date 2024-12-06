@@ -23,17 +23,24 @@
                                     <h2 class="font-serif">{{ __('auth.registration_request_header') }}</h2>
                                     {{-- student ID input --}}
                                     <label>{{ __('auth.email_address') }}</label>
-                                    <input id="student-id" type="email" class="form-control rounded-0 mb-3" name="email"
-                                           placeholder="email@example.com" required/>
+                                    <input id="student-id" type="email" class="form-control rounded-0" name="email"
+                                           placeholder="email@example.com" required value="{{ old('email') }}"/>
+
+                                    @error('email')
+                                        <p class="text-danger">Email is already in use</p>
+                                    @enderror
 
                                     {{-- password & password confirmation inputs --}}
                                     <label>{{ __('auth.password_field') }}</label>
-                                    <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
+                                    <input id="password" type="password" class="form-control rounded-0 mb-0" name="password"
                                            minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
 
                                     <label>{{ __('auth.password_confirmation') }}</label>
-                                    <input id="password_confirmation" type="password" class="form-control rounded-0"
+                                    <input id="password_confirmation" type="password" class="form-control rounded-0 mt-2"
                                            name="password_confirmation" minlength="6" placeholder="{{ __('auth.password_confirmation') }}" required/>
+                                    @error('password')
+                                        <p class="text-danger mb-0">Passwords do not match</p>
+                                    @enderror
                                     <p class="text-secondary mb-2">
                                         {{ __('auth.password_desc') }}
                                     </p>
@@ -41,7 +48,7 @@
                                     {{-- username input --}}
                                     <label>{{ __('auth.username') }}</label>
                                     <input id="username" type="text" class="form-control rounded-0" name="username"
-                                           placeholder="{{ __('auth.username') }}" required/>
+                                           placeholder="{{ __('auth.username') }}" required value="{{ old('username') }}"/>
                                     <p class="text-secondary mb-3">{{ __('auth.username_desc') }}</p>
 
                                     <label>{{ __('auth.dropdown_label') }}</label>
@@ -54,7 +61,7 @@
                                     </select>
 
                                     <label>{{ __('auth.textarea_label') }}  </label>
-                                    <textarea class="form-control mb-3" name="details" required></textarea>
+                                    <textarea class="form-control mb-3 rounded-0" name="details" required>{{ old('details') }}</textarea>
                                 </div>
 
                                 {{-- submit button --}}

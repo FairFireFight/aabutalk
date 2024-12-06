@@ -12,7 +12,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
         Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
         Route::get('/register/request', [RegistrationRequestController::class, 'create']);
         Route::get('/register/request/sent', fn($locale) => view('auth.request-sent', ['locale' => $locale, 'title' => 'Request Sent']));
-        Route::get('/login', [SessionController::class, 'create'])->name('login');
+        Route::get('/login', [SessionController::class, 'create']);
         Route::get('/login/non-students', [SessionController::class, 'createNonStudent']);
     });
 });

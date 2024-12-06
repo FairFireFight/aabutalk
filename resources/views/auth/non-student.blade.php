@@ -27,20 +27,24 @@
                                     <h2 class="font-serif">{{ __('auth.login_non_student') }}</h2>
                                     {{-- student ID input --}}
                                     <label>{{ __('auth.email_address') }}</label>
-                                    <input id="student-id" type="email" class="form-control rounded-0 mb-3" name="email"
-                                           placeholder="email@example.com" required/>
+                                    <input id="email" type="email" class="form-control rounded-0 mb-3" name="email"
+                                           placeholder="email@example.com" required value="{{ old('email') }}" />
 
                                     {{-- password & password confirmation inputs --}}
                                     <label>{{ __('auth.password_field') }}</label>
                                     <input id="password" type="password" class="form-control rounded-0 mb-2" name="password"
                                            minlength="6" placeholder="{{ __('auth.password_field') }}" required/>
 
-                                    <div class="form-check mb-3">
+                                    <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember_me" value="true" id="remember_me">
                                         <label class="form-check-label" for="remember_me">
                                             {{ __('auth.remember_me') }}
                                         </label>
                                     </div>
+
+                                    @error('email')
+                                        <p class="text-danger mb-0">Invalid credentials</p>
+                                    @enderror
                                 </div>
 
                                 {{-- submit button --}}
