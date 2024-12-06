@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Rejected extends Mailable
+class Approved extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,9 @@ class Rejected extends Mailable
         $this->data = $data;
     }
 
-    public function build(): Rejected {
+    public function build(): Approved {
         return $this->subject('Test Email')
-            ->view('emails.reject')
+            ->view('emails.approve')
             ->with('data', $this->data);
     }
 }

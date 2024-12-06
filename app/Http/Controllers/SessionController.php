@@ -56,7 +56,11 @@ class SessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect($request->session()->get('return_url'));
+        if (auth()->user()->hasVerifiedEmail()) {
+            return redirect($request->session()->get('return_url'));
+        } else {
+            return redirect('/email/verify/send');
+        }
     }
 
     public function destroy(Request $request) {

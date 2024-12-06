@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
 
         $user->sendEmailVerificationNotification();
 
-        return redirect(getLocaleURL('/email/verify'));
+        return redirect('/email/verify');
     }
 
     function update_info(Request $request, User $user) {

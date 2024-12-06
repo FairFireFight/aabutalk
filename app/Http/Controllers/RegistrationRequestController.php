@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Approved;
 use App\Mail\Rejected;
 use App\Models\RegistrationRequest;
 use App\Models\User;
@@ -52,7 +53,10 @@ class RegistrationRequestController extends Controller
 
         $user = User::create($attributes);
 
-        $user->sendEmailVerificationNotification();
+        $data = ['name' => $user->username];
+
+        $mail = new Approved($data);
+        Mail::to($user->email)->send($mail);
 
         $registrationRequest->status = 'approved';
         $registrationRequest->password = ' ';
