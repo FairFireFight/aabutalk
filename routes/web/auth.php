@@ -20,28 +20,6 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ar']], functio
 
 });
 
-Route::get('/email/verify', function () {
-    return view('auth.verify', [
-        'locale' => 'en',
-        'title' => 'Verify Email'
-    ]);
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/send', function () {
-    auth()->user()->sendEmailVerificationNotification();
-
-    return redirect('/email/verify');
-});
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return view('auth.verification-success', [
-        'locale' => 'en',
-        'title' => 'Email Verified'
-    ]);
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
 // Registration and login routes (non-GET)
 Route::post('/register', [RegisteredUserController::class, 'store']);
 Route::post('/register/request', [RegistrationRequestController::class, 'store']);
