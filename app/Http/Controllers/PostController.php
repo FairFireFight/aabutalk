@@ -48,6 +48,9 @@ class PostController extends Controller
         // get IDs of users the user is following
         $followedUserIds = auth()->user()->following()->pluck('followed_id');
 
+        // add the auth user to show their posts in their feed
+        $followedUserIds->add(auth()->id());
+
         // get posts of followed users ordered by creation date
         $posts = Post::whereIn('user_id', $followedUserIds)
             ->orderBy('created_at', 'desc')

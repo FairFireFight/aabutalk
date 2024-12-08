@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Cache;
 class ProfileController extends Controller
 {
     public function index($locale, Request $request) {
-        // recommendation functionality
+        // Recommendation functionality
         $user = null;
 
-        // is the user a student?
+        // Check if the user is authenticated and a student
         if (Auth::id() && preg_match('/.{10}@st\.aabu\.edu\.jo/i', Auth::user()->email)) {
             $user = Auth::user();
         }
@@ -26,9 +26,14 @@ class ProfileController extends Controller
             $cacheKey = "recommended_users_{$user->id}";
 
             // get the recommended users from the cache or regenerate if expired
-            $recommendedUsers = Cache::remember($cacheKey, 3600, function () use ($userFacultyNum, $userId) {
+            $recommendedUsers = Cache::remember($cacheKey, 3600, function () use ($userFacultyNum, $userId, $user) {
+                // get IDs of users the current user is following
+                $followedUserIds = $user->following()->pluck('followed_id')->toArray();
+
+                // get users from the same faculty, excluding the current user and followed users
                 return User::whereRaw('SUBSTRING(email, 5, 1) = ?', [$userFacultyNum])
                     ->where('id', '!=', $userId)
+                    ->whereNotIn('id', $followedUserIds) // Exclude followed users
                     ->inRandomOrder()
                     ->limit(6)
                     ->get();
