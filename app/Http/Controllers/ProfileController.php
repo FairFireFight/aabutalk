@@ -23,10 +23,10 @@ class ProfileController extends Controller
             $userId = $user->id;
 
             // cache key unique to the current user
-            $cacheKey = "recommended_users_{$user->id}";
+            $cacheKey = "recommended_users_$userId";
 
             // get the recommended users from the cache or regenerate if expired
-            $recommendedUsers = Cache::remember($cacheKey, 3600, function () use ($userFacultyNum, $userId, $user) {
+            $recommendedUsers = Cache::remember($cacheKey, 900, function () use ($userFacultyNum, $userId, $user) {
                 // get IDs of users the current user is following
                 $followedUserIds = $user->following()->pluck('followed_id')->toArray();
 
