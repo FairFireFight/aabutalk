@@ -17,7 +17,7 @@ class Approved extends Mailable
     }
 
     public function build(): Approved {
-        return $this->subject('Test Email')
+        return $this->subject('Request Approved')
             ->view('emails.approve')
             ->with('data', $this->data);
     }

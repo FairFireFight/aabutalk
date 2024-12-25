@@ -17,7 +17,7 @@ class Rejected extends Mailable
     }
 
     public function build(): Rejected {
-        return $this->subject('Test Email')
+        return $this->subject('Request Rejected')
             ->view('emails.reject')
             ->with('data', $this->data);
     }

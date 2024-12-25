@@ -14,7 +14,7 @@
 
                         <div class="d-flex w-75 justify-content-between align-items-end mx-auto">
                             <p class="mb-0">{{ __('auth.new_user') }}</p>
-                            <a href="{{ getLocaleURL('/register') }}" class="btn btn-light px-3 rounded-0">{{ __('auth.create_account') }}</a>
+                            <a href="{{ getLocaleURL('/register/request') }}" class="btn btn-light px-3 rounded-0">{{ __('auth.create_account') }}</a>
                         </div>
                     </div>
                 </div>

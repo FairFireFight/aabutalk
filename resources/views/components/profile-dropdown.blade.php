@@ -7,7 +7,7 @@
 
     <div class="dropdown-menu mt-2 bg-body-tertiary rounded-0" style="width: 250px">
         <div class="text-center d-block mb-1">
-            <a href="#">
+            <a href="{{ getLocaleURL('/users/' . $user->id) }}">
                 <img src="{{ asset($user->getProfilePicture()) }}" alt="Profile Image" class="pfp-100 rounded-circle" />
             </a>
         </div>
