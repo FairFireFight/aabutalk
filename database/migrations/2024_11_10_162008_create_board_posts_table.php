@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('board_posts', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignIdFor(User::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Board::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(ForumPost::class)->nullable()->constrained()->nullOnDelete();
 
